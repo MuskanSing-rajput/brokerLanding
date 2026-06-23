@@ -250,9 +250,18 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState("Analytics");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [psDropdownOpen, setPsDropdownOpen] = useState(false);
   const stackingSectionRef = useRef<HTMLDivElement>(null);
+  const psDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (psDropdownRef.current && !psDropdownRef.current.contains(e.target as Node)) {
+        setPsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const anchor = target.closest("a");
@@ -296,6 +305,7 @@ export default function Home() {
 
     return () => {
       document.removeEventListener("click", handleAnchorClick);
+      document.removeEventListener("mousedown", handleClickOutside);
       window.removeEventListener("load", handleLoad);
     };
   }, []);
@@ -432,36 +442,79 @@ export default function Home() {
             <a href="#features" className="hover:text-white transition-colors">Features</a>
             <a href="#dashboard" className="hover:text-white transition-colors">Dashboard</a>
             <a href="#contact" className="hover:text-white transition-colors">Contact us</a>
+            
+            {/* P's Dropdown Button */}
+            <div className="relative" ref={psDropdownRef}>
+              <button
+                onClick={() => setPsDropdownOpen(!psDropdownOpen)}
+                className="flex items-center space-x-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#A4FE46]/10 to-[#10B981]/15 border border-[#10B981]/30 hover:border-[#A4FE46]/60 hover:from-[#A4FE46]/20 hover:to-[#10B981]/25 text-[#A4FE46] font-semibold text-xs tracking-wider transition-all duration-300 shadow-[0_0_15px_rgba(164,254,70,0.1)] hover:shadow-[0_0_20px_rgba(164,254,70,0.25)] scale-100 hover:scale-[1.03] active:scale-95 group"
+              >
+                <span>P&apos;s</span>
+                <svg className={`w-3.5 h-3.5 text-[#A4FE46]/80 group-hover:text-white transition-transform duration-300 ${psDropdownOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {psDropdownOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3.5 w-44 bg-black/90 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.8),0_0_25px_rgba(164,254,70,0.15)] z-50 animate-[fadeInUp_0.25s_ease-out]">
+                  <div className="py-2 px-1 flex flex-col space-y-0.5">
+                    <a href="#features" onClick={() => setPsDropdownOpen(false)} className="flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold text-white/70 hover:text-black hover:bg-[#A4FE46] transition-all duration-200">
+                      <span>Platform</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+                    </a>
+                    <a href="#features" onClick={() => setPsDropdownOpen(false)} className="flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold text-white/70 hover:text-black hover:bg-[#A4FE46] transition-all duration-200">
+                      <span>Promotion</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#A4FE46]"></span>
+                    </a>
+                    <a href="#about" onClick={() => setPsDropdownOpen(false)} className="flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold text-white/70 hover:text-black hover:bg-[#A4FE46] transition-all duration-200">
+                      <span>Partners</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
           </nav>
+ 
+           {/* Right Action buttons */}
+           <div className="flex items-center space-x-4">
+             <Link href="#" className="hidden sm:inline-block bg-white text-black px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+               Login
+             </Link>
+             {/* Hamburger Button */}
+             <button 
+               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+               className="md:hidden text-white/80 hover:text-white focus:outline-none p-2 rounded-lg bg-white/5 border border-white/10"
+             >
+               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+             </button>
+           </div>
+         </header>
+ 
+         {/* Mobile Navigation Drawer */}
+         {mobileMenuOpen && (
+           <div className="md:hidden fixed inset-x-0 top-[88px] bg-black/95 backdrop-blur-lg border-b border-white/10 py-6 px-8 z-50 flex flex-col space-y-5 animate-[fadeInUp_0.3s_ease-out]">
+             <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Home</a>
+             <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">About</a>
+             <a href="#features" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Features</a>
+             <a href="#dashboard" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Dashboard</a>
+             <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Contact us</a>
+             
+             {/* Mobile P's Submenu */}
+             <div className="flex flex-col space-y-2 py-2 border-b border-white/5">
+               <span className="text-xs font-semibold uppercase tracking-wider text-[#A4FE46]">P&apos;s Options</span>
+               <div className="grid grid-cols-3 gap-2 pt-1">
+                 <a href="#features" onClick={() => setMobileMenuOpen(false)} className="text-center py-2 px-3 rounded-lg bg-white/5 text-sm font-semibold text-white/70 hover:text-[#A4FE46] hover:bg-white/10 transition-all">Platform</a>
+                 <a href="#features" onClick={() => setMobileMenuOpen(false)} className="text-center py-2 px-3 rounded-lg bg-white/5 text-sm font-semibold text-white/70 hover:text-[#A4FE46] hover:bg-white/10 transition-all">Promotion</a>
+                 <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-center py-2 px-3 rounded-lg bg-white/5 text-sm font-semibold text-white/70 hover:text-[#A4FE46] hover:bg-white/10 transition-all">Partners</a>
+               </div>
+             </div>
 
-          {/* Right Action buttons */}
-          <div className="flex items-center space-x-4">
-            <Link href="#" className="hidden sm:inline-block bg-white text-black px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-              Login
-            </Link>
-            {/* Hamburger Button */}
-            <button 
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden text-white/80 hover:text-white focus:outline-none p-2 rounded-lg bg-white/5 border border-white/10"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </header>
-
-        {/* Mobile Navigation Drawer */}
-        {mobileMenuOpen && (
-          <div className="md:hidden fixed inset-x-0 top-[88px] bg-black/95 backdrop-blur-lg border-b border-white/10 py-6 px-8 z-50 flex flex-col space-y-5 animate-[fadeInUp_0.3s_ease-out]">
-            <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Home</a>
-            <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">About</a>
-            <a href="#features" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Features</a>
-            <a href="#dashboard" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Dashboard</a>
-            <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Contact us</a>
-            <Link href="#" onClick={() => setMobileMenuOpen(false)} className="bg-white text-black text-center py-3 rounded-xl font-bold hover:bg-gray-200 transition-all">
-              Login
-            </Link>
-          </div>
-        )}
+             <Link href="#" onClick={() => setMobileMenuOpen(false)} className="bg-white text-black text-center py-3 rounded-xl font-bold hover:bg-gray-200 transition-all">
+               Login
+             </Link>
+           </div>
+         )}
 
         {/* Main Hero Section */}
         <main className="relative z-10 flex-grow flex flex-col items-center pt-[55px] px-4 w-full max-w-[1200px] mx-auto">
