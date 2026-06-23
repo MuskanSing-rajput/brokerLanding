@@ -440,6 +440,7 @@ export default function Home() {
             <a href="#" className="hover:text-white transition-colors">Home</a>
             <a href="#about" className="hover:text-white transition-colors">About</a>
             <a href="#features" className="hover:text-white transition-colors">Features</a>
+            <a href="#dashboard" className="hover:text-white transition-colors">Trading</a>
             <a href="#dashboard" className="hover:text-white transition-colors">Dashboard</a>
             <a href="#contact" className="hover:text-white transition-colors">Contact us</a>
             
@@ -497,6 +498,7 @@ export default function Home() {
              <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Home</a>
              <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">About</a>
              <a href="#features" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Features</a>
+             <a href="#dashboard" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Trading</a>
              <a href="#dashboard" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Dashboard</a>
              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Contact us</a>
              
