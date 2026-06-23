@@ -447,28 +447,28 @@ export default function Home() {
             <div className="relative" ref={psDropdownRef}>
               <button
                 onClick={() => setPsDropdownOpen(!psDropdownOpen)}
-                className="flex items-center space-x-1.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#A4FE46]/10 to-[#10B981]/15 border border-[#10B981]/30 hover:border-[#A4FE46]/60 hover:from-[#A4FE46]/20 hover:to-[#10B981]/25 text-[#A4FE46] font-semibold text-xs tracking-wider transition-all duration-300 shadow-[0_0_15px_rgba(164,254,70,0.1)] hover:shadow-[0_0_20px_rgba(164,254,70,0.25)] scale-100 hover:scale-[1.03] active:scale-95 group"
+                className="flex items-center space-x-1.5 px-4 py-1.5 rounded-full bg-[#10B981]/10 hover:bg-[#10B981]/20 border border-[#10B981]/20 hover:border-[#10B981]/40 text-[#A4FE46] hover:text-white transition-all duration-300 backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.1)] focus:outline-none group text-xs font-bold uppercase tracking-wider"
               >
                 <span>P&apos;s</span>
-                <svg className={`w-3.5 h-3.5 text-[#A4FE46]/80 group-hover:text-white transition-transform duration-300 ${psDropdownOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className={`w-3.5 h-3.5 text-white/50 group-hover:text-white transition-transform duration-300 ${psDropdownOpen ? 'rotate-180 text-[#A4FE46]' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
               
               {psDropdownOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3.5 w-44 bg-black/90 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.8),0_0_25px_rgba(164,254,70,0.15)] z-50 animate-[fadeInUp_0.25s_ease-out]">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-44 bg-black/90 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_30px_rgba(164,254,70,0.05)] z-50 animate-[fadeInUp_0.25s_ease-out]">
                   <div className="py-2 px-1 flex flex-col space-y-0.5">
-                    <a href="#features" onClick={() => setPsDropdownOpen(false)} className="flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold text-white/70 hover:text-black hover:bg-[#A4FE46] transition-all duration-200">
+                    <a href="#features" onClick={() => setPsDropdownOpen(false)} className="flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold text-white/75 hover:text-[#A4FE46] hover:bg-[#10B981]/10 transition-all duration-200">
                       <span>Platform</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] shadow-[0_0_8px_rgba(16,185,129,0.7)]"></span>
                     </a>
-                    <a href="#features" onClick={() => setPsDropdownOpen(false)} className="flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold text-white/70 hover:text-black hover:bg-[#A4FE46] transition-all duration-200">
+                    <a href="#features" onClick={() => setPsDropdownOpen(false)} className="flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold text-white/75 hover:text-[#A4FE46] hover:bg-[#10B981]/10 transition-all duration-200">
                       <span>Promotion</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#A4FE46]"></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#A4FE46] shadow-[0_0_8px_rgba(164,254,70,0.7)]"></span>
                     </a>
-                    <a href="#about" onClick={() => setPsDropdownOpen(false)} className="flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold text-white/70 hover:text-black hover:bg-[#A4FE46] transition-all duration-200">
+                    <a href="#about" onClick={() => setPsDropdownOpen(false)} className="flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold text-white/75 hover:text-[#A4FE46] hover:bg-[#10B981]/10 transition-all duration-200">
                       <span>Partners</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] shadow-[0_0_8px_rgba(16,185,129,0.7)]"></span>
                     </a>
                   </div>
                 </div>
