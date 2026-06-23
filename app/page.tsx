@@ -67,28 +67,29 @@ const AnalyticsPreview = () => (
     <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
 
     {/* Ambient Glows */}
-    <div className="absolute -top-1/4 -left-1/4 w-96 h-96 bg-orange-600/10 rounded-full blur-[100px] pointer-events-none"></div>
-    <div className="absolute -bottom-1/4 -right-1/4 w-96 h-96 bg-orange-500/15 rounded-full blur-[120px] pointer-events-none"></div>
+    <div className="absolute -top-1/4 -left-1/4 w-96 h-96 bg-[#A4FE46]/10 rounded-full blur-[100px] pointer-events-none"></div>
+    <div className="absolute -bottom-1/4 -right-1/4 w-96 h-96 bg-[#10B981]/15 rounded-full blur-[120px] pointer-events-none"></div>
 
     {/* The Main Image Wrapper */}
-    <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/10 bg-black/50 shadow-2xl flex items-center justify-center transition-all duration-500 group-hover/analytics:border-orange-500/30">
+    <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/10 bg-black/50 shadow-2xl flex items-center justify-center transition-all duration-500 group-hover/analytics:border-[#10B981]/30">
       <Image
         src="/analytic.png"
         alt="Analytics Dashboard"
         fill
         sizes="(max-width: 1250px) 100vw, 1250px"
-        className="object-cover opacity-85 group-hover/analytics:opacity-95 group-hover/analytics:scale-[1.01] transition-all duration-700 ease-out"
+        className="object-cover opacity-95 group-hover/analytics:opacity-100 transition-all duration-700 ease-out"
         priority
+        unoptimized
       />
 
       {/* Dark Vignette Overlay to blend the image edges */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/60 pointer-events-none"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-black/30 pointer-events-none transition-opacity duration-500 group-hover/analytics:opacity-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-transparent to-black/35 pointer-events-none transition-opacity duration-500 group-hover/analytics:opacity-0"></div>
 
       {/* Futuristic Floating Badges/Cards on top of the image */}
       <div className="absolute top-6 left-6 flex flex-col space-y-2 z-20">
         <div className="flex items-center space-x-2 bg-black/60 backdrop-blur-md border border-white/10 px-3.5 py-1.5 rounded-full shadow-lg">
-          <Activity className="w-3.5 h-3.5 text-orange-500 animate-pulse" />
+          <Activity className="w-3.5 h-3.5 text-[#10B981] animate-pulse" />
           <span className="text-xs font-semibold tracking-wider text-white/90">LIVE REPORT</span>
         </div>
       </div>
@@ -101,9 +102,9 @@ const AnalyticsPreview = () => (
       </div>
 
       {/* Floating Stat Card */}
-      <div className="absolute bottom-6 left-6 right-6 md:right-auto bg-black/75 backdrop-blur-lg border border-white/10 p-5 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.5)] z-20 max-w-sm hover:border-orange-500/40 transition-colors duration-300">
+      <div className="absolute bottom-6 left-6 right-6 md:right-auto bg-black/75 backdrop-blur-lg border border-white/10 p-5 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.5)] z-20 max-w-sm hover:border-[#10B981]/40 transition-colors duration-300">
         <div className="flex items-center justify-between mb-3">
-          <div className="text-[10px] font-bold tracking-widest text-orange-500 uppercase">Portfolio Analysis</div>
+          <div className="text-[10px] font-bold tracking-widest text-[#10B981] uppercase">Portfolio Analysis</div>
           <span className="text-[11px] text-green-400 font-bold bg-green-500/10 px-2 py-0.5 rounded">+18.4%</span>
         </div>
         <h4 className="text-lg font-bold text-white mb-1 tracking-tight">AI Predictive Modeling</h4>
@@ -123,105 +124,87 @@ const AnalyticsPreview = () => (
   </div>
 );
 
+
+
 const MonitoringChart = () => (
-  <div className="w-full h-full flex flex-col p-6 md:p-8 text-white relative">
-    <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent pointer-events-none z-10 mix-blend-overlay"></div>
+  <div className="w-full h-full relative flex items-center justify-center p-4 md:p-8 bg-black/40 overflow-hidden group/monitoring">
+    {/* Grid Background Effect */}
+    <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
 
-    <div className="flex justify-between items-start mb-8 relative z-20">
-      <div>
-        <h3 className="text-2xl md:text-3xl font-bold mb-1 tracking-tight">Live Infrastructure</h3>
-        <p className="text-white/50 text-sm">Real-time tracking of critical resources.</p>
-      </div>
-      <div className="flex items-center space-x-2 bg-[#27C93F]/10 border border-[#27C93F]/20 px-3 py-1.5 rounded-full shadow-[0_0_15px_rgba(39,201,63,0.15)]">
-        <div className="w-2 h-2 rounded-full bg-[#27C93F] animate-pulse shadow-[0_0_8px_#27C93F]"></div>
-        <span className="text-[#27C93F] text-xs font-bold tracking-wider">SYSTEM HEALTHY</span>
-      </div>
-    </div>
+    {/* Ambient Glows */}
+    <div className="absolute -top-1/4 -left-1/4 w-96 h-96 bg-[#10B981]/10 rounded-full blur-[100px] pointer-events-none transition-all duration-700 group-hover/monitoring:bg-[#10B981]/25"></div>
+    <div className="absolute -bottom-1/4 -right-1/4 w-96 h-96 bg-[#A4FE46]/15 rounded-full blur-[120px] pointer-events-none transition-all duration-700 group-hover/monitoring:bg-[#A4FE46]/35"></div>
 
-    {/* Metric Cards */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 relative z-20">
-      <div className="bg-white/[0.03] border border-white/10 rounded-xl p-4 hover:bg-white/[0.06] transition-colors shadow-sm">
-        <div className="text-white/50 text-xs font-semibold mb-1 uppercase tracking-widest">CPU Usage</div>
-        <div className="text-2xl font-bold">24<span className="text-sm text-white/50 font-normal ml-1">%</span></div>
-        <div className="w-full h-1.5 bg-white/10 rounded-full mt-3 overflow-hidden">
-          <div className="h-full bg-gradient-to-r from-orange-600 to-orange-400 w-[24%] shadow-[0_0_8px_rgba(249,115,22,0.8)]"></div>
+    {/* The Main Image Wrapper */}
+    <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/10 bg-black/50 shadow-2xl flex items-center justify-center transition-all duration-500 group-hover/monitoring:border-white/20">
+      <Image
+        src="/monitoring.jpeg"
+        alt="Live Monitoring Statistics"
+        fill
+        sizes="(max-width: 1250px) 100vw, 1250px"
+        className="object-cover opacity-95 group-hover/monitoring:opacity-100 transition-all duration-700 ease-out"
+        priority
+        unoptimized
+      />
+
+      {/* Dark Vignette Overlay to blend the image edges */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-black/30 pointer-events-none transition-opacity duration-500 group-hover/monitoring:opacity-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-transparent to-black/35 pointer-events-none transition-opacity duration-500 group-hover/monitoring:opacity-0"></div>
+
+      {/* Floating Badges/Cards */}
+      <div className="absolute top-6 left-6 flex flex-col space-y-2 z-20">
+        <div className="flex items-center space-x-2 bg-black/60 backdrop-blur-md border border-white/10 px-3.5 py-1.5 rounded-full shadow-lg">
+          <Activity className="w-3.5 h-3.5 text-[#A4FE46] animate-pulse" />
+          <span className="text-xs font-semibold tracking-wider text-white/90">LIVE INFRASTRUCTURE</span>
         </div>
       </div>
-      <div className="bg-white/[0.03] border border-white/10 rounded-xl p-4 hover:bg-white/[0.06] transition-colors shadow-sm">
-        <div className="text-white/50 text-xs font-semibold mb-1 uppercase tracking-widest">Memory Load</div>
-        <div className="text-2xl font-bold">6.2<span className="text-sm text-white/50 font-normal ml-1">GB</span></div>
-        <div className="w-full h-1.5 bg-white/10 rounded-full mt-3 overflow-hidden">
-          <div className="h-full bg-gradient-to-r from-orange-600 to-orange-400 w-[45%] shadow-[0_0_8px_rgba(249,115,22,0.8)]"></div>
+
+      <div className="absolute top-6 right-6 flex items-center space-x-3 z-20">
+        <div className="bg-black/60 backdrop-blur-md border border-white/10 px-3.5 py-1.5 rounded-xl shadow-lg flex items-center space-x-2">
+          <span className="w-2 h-2 rounded-full bg-[#27C93F] animate-ping"></span>
+          <span className="text-[11px] font-bold text-white/80 uppercase tracking-widest">SYSTEM ONLINE</span>
         </div>
       </div>
-      <div className="bg-white/[0.03] border border-white/10 rounded-xl p-4 hover:bg-white/[0.06] transition-colors shadow-sm">
-        <div className="text-white/50 text-xs font-semibold mb-1 uppercase tracking-widest">Active Nodes</div>
-        <div className="text-2xl font-bold">142</div>
-        <div className="w-full h-1.5 bg-white/10 rounded-full mt-3 overflow-hidden">
-          <div className="h-full bg-[#27C93F] w-[100%] shadow-[0_0_8px_rgba(39,201,63,0.8)]"></div>
+
+      {/* Floating Stat Card */}
+      <div className="absolute bottom-6 left-6 right-6 md:right-auto bg-black/75 backdrop-blur-lg border border-white/10 p-5 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.5)] z-20 max-w-sm hover:border-[#A4FE46]/40 transition-colors duration-300">
+        <div className="flex items-center justify-between mb-3">
+          <div className="text-[10px] font-bold tracking-widest text-[#A4FE46] uppercase">Network Latency</div>
+          <span className="text-[11px] text-green-400 font-bold bg-green-500/10 px-2 py-0.5 rounded">Healthy</span>
         </div>
+        <h4 className="text-lg font-bold text-white mb-1 tracking-tight">Real-Time Core Load</h4>
+        <p className="text-white/60 text-xs leading-relaxed">
+          Tick-by-tick monitoring of active routing nodes, memory load configurations, and server latency profiles.
+        </p>
       </div>
-    </div>
-
-    {/* Glowing Line Graph */}
-    <div className="flex-grow relative flex items-end opacity-90 hover:opacity-100 transition-opacity z-20">
-      <svg className="w-full h-full overflow-visible drop-shadow-2xl" preserveAspectRatio="none" viewBox="0 0 1000 200">
-        <defs>
-          <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#FF5100" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#FF5100" stopOpacity="0" />
-          </linearGradient>
-          <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="6" />
-          </filter>
-        </defs>
-        {/* Grid */}
-        <g stroke="rgba(255,255,255,0.05)" strokeWidth="1" strokeDasharray="4,4">
-          <line x1="0" y1="40" x2="1000" y2="40" />
-          <line x1="0" y1="100" x2="1000" y2="100" />
-          <line x1="0" y1="160" x2="1000" y2="160" />
-        </g>
-        {/* Glow path */}
-        <path d="M0,150 C100,140 200,180 300,100 C400,20 500,80 600,40 C700,0 800,90 900,120 C950,130 1000,60 1000,60" fill="none" stroke="#FF5100" strokeWidth="6" filter="url(#blur)" />
-        {/* Fill */}
-        <path d="M0,150 C100,140 200,180 300,100 C400,20 500,80 600,40 C700,0 800,90 900,120 C950,130 1000,60 1000,60 L1000,200 L0,200 Z" fill="url(#glow)" />
-        {/* Main Line */}
-        <path d="M0,150 C100,140 200,180 300,100 C400,20 500,80 600,40 C700,0 800,90 900,120 C950,130 1000,60 1000,60" fill="none" stroke="#FF5100" strokeWidth="2.5" />
-
-        {/* Data points */}
-        <circle cx="300" cy="100" r="4" fill="white" className="animate-pulse drop-shadow-[0_0_8px_white]" />
-        <circle cx="600" cy="40" r="4" fill="white" className="animate-pulse drop-shadow-[0_0_8px_white]" />
-        <circle cx="1000" cy="60" r="6" fill="#FF5100" stroke="white" strokeWidth="2.5" className="drop-shadow-[0_0_12px_#FF5100]" />
-      </svg>
     </div>
   </div>
 );
 
 const PerformanceMetrics = () => (
-  <div className="w-full h-full p-6 md:p-8 flex flex-col">
-    <h3 className="text-2xl md:text-3xl font-bold mb-2 tracking-tight text-white">Performance Overview</h3>
-    <p className="text-white/50 mb-8">Analyze your speed, latency, and uptime.</p>
+  <div className="w-full h-full p-6 md:p-8 flex flex-col justify-between">
+    <h3 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight text-white">Performance Overview</h3>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 overflow-y-auto flex-grow pb-4">
-      <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:bg-white/[0.05] transition-colors group">
-        <h4 className="text-white/60 font-medium group-hover:text-white/80 transition-colors">Server Uptime</h4>
-        <div className="text-4xl md:text-5xl font-bold text-white mt-4 tracking-tight">99.99<span className="text-2xl text-white/50 font-normal">%</span></div>
-        <div className="h-1.5 w-full bg-white/10 rounded-full mt-6 overflow-hidden">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 overflow-hidden flex-grow pb-1">
+      <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-4 flex flex-col justify-between hover:bg-white/[0.05] transition-colors group h-28">
+        <h4 className="text-white/60 text-sm font-medium group-hover:text-white/80 transition-colors">Server Uptime</h4>
+        <div className="text-3xl md:text-4xl font-bold text-white mt-1 tracking-tight">99.99<span className="text-xl text-white/50 font-normal">%</span></div>
+        <div className="h-1.5 w-full bg-white/10 rounded-full mt-3 overflow-hidden">
           <div className="h-full bg-green-500 w-[99%] shadow-[0_0_10px_rgba(34,197,94,0.8)] relative">
             <div className="absolute top-0 right-0 bottom-0 w-20 bg-gradient-to-r from-transparent to-white/50 animate-[shimmer_2s_infinite]"></div>
           </div>
         </div>
       </div>
-      <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:bg-white/[0.05] transition-colors group">
-        <h4 className="text-white/60 font-medium group-hover:text-white/80 transition-colors">Average Latency</h4>
-        <div className="text-4xl md:text-5xl font-bold text-white mt-4 tracking-tight">24<span className="text-2xl text-white/50 font-normal">ms</span></div>
-        <div className="h-1.5 w-full bg-white/10 rounded-full mt-6 overflow-hidden">
-          <div className="h-full bg-orange-500 w-[24%] shadow-[0_0_10px_rgba(249,115,22,0.8)]"></div>
+      <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-4 flex flex-col justify-between hover:bg-white/[0.05] transition-colors group h-28">
+        <h4 className="text-white/60 text-sm font-medium group-hover:text-white/80 transition-colors">Average Latency</h4>
+        <div className="text-3xl md:text-4xl font-bold text-white mt-1 tracking-tight">24<span className="text-xl text-white/50 font-normal">ms</span></div>
+        <div className="h-1.5 w-full bg-white/10 rounded-full mt-3 overflow-hidden">
+          <div className="h-full bg-[#10B981] w-[24%] shadow-[0_0_10px_rgba(16, 185, 129,0.8)]"></div>
         </div>
       </div>
-      <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-6 md:col-span-2 flex flex-col justify-between">
-        <h4 className="text-white/60 font-medium mb-6">Throughput Over Time</h4>
-        <div className="flex items-end h-28 md:h-32 space-x-1 md:space-x-2">
+      <div className="bg-white/[0.03] border border-white/10 rounded-2xl p-4 md:col-span-2 flex flex-col justify-between h-48">
+        <h4 className="text-white/60 text-sm font-medium mb-3">Throughput Over Time</h4>
+        <div className="flex items-end h-24 md:h-28 space-x-1 md:space-x-2">
           {Array.from({ length: 40 }).map((_, i) => {
             const height = Math.max(20, Math.random() * 100);
             const isOrange = i % 4 === 0 || i % 7 === 0;
@@ -229,8 +212,8 @@ const PerformanceMetrics = () => (
               <div
                 key={i}
                 className={`flex-1 rounded-t-sm transition-all cursor-pointer ${isOrange
-                  ? 'bg-gradient-to-t from-[#FF5100] to-[#E53900] shadow-[0_0_15px_rgba(255,81,0,0.3)] hover:shadow-[0_0_20px_rgba(255,81,0,0.8)]'
-                  : 'bg-white/10 hover:bg-[#FF5100] hover:shadow-[0_0_10px_rgba(255,81,0,0.8)]'
+                  ? 'bg-gradient-to-t from-[#A4FE46] to-[#10B981] shadow-[0_0_15px_rgba(164, 254, 70,0.3)] hover:shadow-[0_0_20px_rgba(164, 254, 70,0.8)]'
+                  : 'bg-white/10 hover:bg-[#A4FE46] hover:shadow-[0_0_10px_rgba(164, 254, 70,0.8)]'
                   }`}
                 style={{ height: `${height}%`, animationDelay: `${i * 0.05}s` }}
               ></div>
@@ -252,11 +235,11 @@ const FeedbackForm = () => (
 
     <div className="w-full max-w-lg flex flex-col space-y-4 text-left">
       <div className="grid grid-cols-2 gap-4">
-        <input type="text" placeholder="Your Name" className="bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-orange-500 focus:bg-white/10 transition-all shadow-inner" />
-        <input type="email" placeholder="Your Email" className="bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-orange-500 focus:bg-white/10 transition-all shadow-inner" />
+        <input type="text" placeholder="Your Name" className="bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-[#10B981] focus:bg-white/10 transition-all shadow-inner" />
+        <input type="email" placeholder="Your Email" className="bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder-white/30 focus:outline-none focus:border-[#10B981] focus:bg-white/10 transition-all shadow-inner" />
       </div>
-      <textarea placeholder="Tell us what you think..." className="bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-orange-500 focus:bg-white/10 transition-all h-32 resize-none shadow-inner"></textarea>
-      <button className="bg-gradient-to-r from-[#FF5100] to-[#E53900] text-white rounded-xl py-4 font-bold shadow-[0_0_20px_rgba(249,115,22,0.3)] hover:shadow-[0_0_30px_rgba(249,115,22,0.5)] hover:scale-[1.02] transition-all tracking-wide">
+      <textarea placeholder="Tell us what you think..." className="bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder-white/30 focus:outline-none focus:border-[#10B981] focus:bg-white/10 transition-all h-32 resize-none shadow-inner"></textarea>
+      <button className="bg-gradient-to-r from-[#A4FE46] to-[#10B981] text-white rounded-xl py-4 font-bold shadow-[0_0_20px_rgba(16, 185, 129,0.3)] hover:shadow-[0_0_30px_rgba(16, 185, 129,0.5)] hover:scale-[1.02] transition-all tracking-wide">
         Submit Feedback
       </button>
     </div>
@@ -404,13 +387,13 @@ export default function Home() {
   const getTabClass = (tabName: string) => {
     const isActive = activeTab === tabName;
     if (isActive) {
-      return "flex items-center space-x-2.5 px-6 py-3 rounded-full bg-gradient-to-r from-[#FF5100] to-[#E53900] shadow-[0_0_20px_rgba(255,81,0,0.3)] cursor-pointer scale-105 transform border border-[#FF5100]/50 transition-all z-10 text-white";
+      return "flex items-center space-x-2.5 px-6 py-3 rounded-full bg-gradient-to-r from-[#A4FE46] to-[#10B981] shadow-[0_0_20px_rgba(164, 254, 70,0.3)] cursor-pointer scale-105 transform border border-[#A4FE46]/50 transition-all z-10 text-white";
     }
     return "flex items-center space-x-2.5 px-6 py-3 rounded-full border border-white/5 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all cursor-pointer text-white/60 hover:text-white/90";
   };
 
   return (
-    <div className="relative min-h-screen bg-black text-white font-sans overflow-x-hidden selection:bg-orange-500/30">
+    <div className="relative min-h-screen bg-black text-white font-sans overflow-x-hidden selection:bg-[#10B981]/30">
 
       {/* Top Section Wrapper (Header + Hero + Dashboard + Partners) with Background Video */}
       <div className="relative w-full z-10 flex flex-col gpu-accelerated overflow-hidden pb-16">
@@ -421,19 +404,19 @@ export default function Home() {
             loop
             muted
             playsInline
-            className="object-cover object-[center_30%] w-full h-full opacity-65 mix-blend-screen"
+            className="object-cover object-[center_30%] w-full h-full opacity-75 mix-blend-screen"
           >
             <source src="/vid.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/25 to-black"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-orange-900/10 via-black/45 to-black/75"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/15 to-black"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#10B981]/5 via-black/30 to-black/65"></div>
         </div>
 
         {/* Navbar */}
         <header className="relative z-20 flex items-center justify-between px-6 md:px-12 py-6 max-w-[1200px] w-full mx-auto">
           {/* Logo */}
           <div className="flex items-center group cursor-pointer">
-            <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center transform -rotate-12 shadow-[0_0_20px_rgba(249,115,22,0.4)] group-hover:rotate-0 group-hover:scale-105 transition-all duration-300">
+            <div className="w-10 h-10 bg-gradient-to-br from-[#059669] to-[#A4FE46] rounded-xl flex items-center justify-center transform -rotate-12 shadow-[0_0_20px_rgba(16, 185, 129,0.4)] group-hover:rotate-0 group-hover:scale-105 transition-all duration-300">
               <div className="flex items-end space-x-[2px] h-5">
                 <div className="w-1.5 h-2 bg-white/80 rounded-sm"></div>
                 <div className="w-1.5 h-3.5 bg-white/90 rounded-sm"></div>
@@ -500,7 +483,7 @@ export default function Home() {
               <span>Start Trading Now</span>
               <ArrowUpRight className="w-5 h-5" />
             </button>
-            <button className="flex items-center justify-center space-x-2 bg-gradient-to-r from-[#FF5100] to-[#E53900] hover:from-[#E53900] hover:to-[#CC3300] text-white px-8 py-4 rounded-xl font-semibold shadow-[0_0_25px_rgba(255,81,0,0.4)] hover:scale-105 transition-all w-full sm:w-auto min-w-[180px]">
+            <button className="flex items-center justify-center space-x-2 bg-gradient-to-r from-[#A4FE46] to-[#10B981] hover:from-[#10B981] hover:to-[#059669] text-white px-8 py-4 rounded-xl font-semibold shadow-[0_0_25px_rgba(164, 254, 70,0.4)] hover:scale-105 transition-all w-full sm:w-auto min-w-[180px]">
               <Play className="w-5 h-5 fill-current" />
               <span>Claim Welcome Bonus</span>
             </button>
@@ -527,7 +510,7 @@ export default function Home() {
           </div>
 
           {/* Dashboard Preview / Widget Container */}
-          <div className="w-full max-w-[1240px] rounded-2xl md:rounded-3xl border border-white/20 bg-[#0c0c0e]/95 overflow-hidden shadow-[0_20px_70px_rgba(255,81,0,0.2)] mb-14 relative group ring-1 ring-white/10 transition-all duration-500">
+          <div className="w-full max-w-[1240px] rounded-2xl md:rounded-3xl border border-white/20 bg-[#0c0c0e]/95 overflow-hidden shadow-[0_20px_70px_rgba(164, 254, 70,0.2)] mb-14 relative group ring-1 ring-white/10 transition-all duration-500">
 
             {/* Glass reflection top highlight */}
             <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-white/50 to-transparent z-20 pointer-events-none"></div>
@@ -555,7 +538,7 @@ export default function Home() {
             </div>
 
             {/* Widget Area */}
-            <div className={`w-full h-[520px] sm:h-[550px] relative z-10 bg-black/20 opacity-70 hover:opacity-100 transition-opacity duration-700 ${activeTab !== 'Analytics' ? 'overflow-y-auto' : ''}`}>
+            <div className={`w-full h-[520px] sm:h-[550px] relative z-10 bg-black/20 opacity-95 hover:opacity-100 transition-opacity duration-700 ${activeTab !== 'Analytics' ? 'overflow-y-auto' : ''}`}>
               {renderActiveTab()}
             </div>
           </div>
@@ -643,18 +626,18 @@ export default function Home() {
       <section id="about" className="w-full bg-black border-t border-white/5 relative z-20">
         <div className="max-w-[1240px] mx-auto pt-10 md:pt-20 pb-10 md:pb-16 px-4 relative">
           {/* Background Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,_rgba(249,115,22,0.05)_0%,_transparent_60%)] pointer-events-none"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,_rgba(16, 185, 129,0.05)_0%,_transparent_60%)] pointer-events-none"></div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-24 relative z-10 items-center">
             {/* Left Content */}
             <div className="flex flex-col">
               <div className="flex items-center space-x-3 mb-6">
-                <div className="h-[1px] w-12 bg-orange-500"></div>
-                <span className="text-orange-500 font-semibold tracking-widest uppercase text-sm">About Pippulse FX</span>
+                <div className="h-[1px] w-12 bg-[#10B981]"></div>
+                <span className="text-[#10B981] font-semibold tracking-widest uppercase text-sm">About Pippulse FX</span>
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-8">
                 Institutional-Grade <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-[#FF5100]">Forex Execution</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#059669] to-[#A4FE46]">Forex Execution</span>
               </h2>
               <p className="text-white/60 text-lg leading-relaxed mb-8 max-w-lg">
                 Pippulse FX provides high-speed routing for modern digital asset and Forex trading. With instant access to major currency pairs, indices, and crypto-wallets, we deliver a unified execution hub built for retail and professional traders globally.
@@ -680,22 +663,22 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-4">
               {/* Bento Item 1 */}
               <div className="bg-white/[0.03] border border-white/10 rounded-3xl p-8 hover:bg-white/[0.05] transition-colors group relative overflow-hidden sm:col-span-2 md:col-span-1 lg:col-span-2 shadow-sm">
-                <div className="absolute top-0 right-0 w-48 h-48 bg-[#FF5100]/10 rounded-full blur-[50px] group-hover:bg-[#FF5100]/20 transition-all duration-700"></div>
-                <Crosshair className="w-8 h-8 text-orange-500 mb-6 drop-shadow-[0_0_8px_rgba(249,115,22,0.5)]" />
+                <div className="absolute top-0 right-0 w-48 h-48 bg-[#A4FE46]/10 rounded-full blur-[50px] group-hover:bg-[#A4FE46]/20 transition-all duration-700"></div>
+                <Crosshair className="w-8 h-8 text-[#10B981] mb-6 drop-shadow-[0_0_8px_rgba(16, 185, 129,0.5)]" />
                 <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">Precision Order Execution</h3>
                 <p className="text-white/50 leading-relaxed text-sm md:text-base max-w-md">Our real-time data pipelines are engineered to deliver tick-level accuracy with zero compromises, giving you a definitive edge when milliseconds matter.</p>
               </div>
 
               {/* Bento Item 2 */}
               <div className="bg-white/[0.03] border border-white/10 rounded-3xl p-8 hover:bg-white/[0.05] transition-colors group relative overflow-hidden shadow-sm">
-                <Zap className="w-8 h-8 text-orange-500 mb-6 drop-shadow-[0_0_8px_rgba(249,115,22,0.5)]" />
+                <Zap className="w-8 h-8 text-[#10B981] mb-6 drop-shadow-[0_0_8px_rgba(16, 185, 129,0.5)]" />
                 <h3 className="text-xl font-bold text-white mb-3 tracking-tight">High-Frequency Engine Speed</h3>
                 <p className="text-white/50 leading-relaxed text-sm">Experience latency-free interactions, optimized to scale effortlessly.</p>
               </div>
 
               {/* Bento Item 3 */}
               <div className="bg-white/[0.03] border border-white/10 rounded-3xl p-8 hover:bg-white/[0.05] transition-colors group relative overflow-hidden shadow-sm">
-                <Shield className="w-8 h-8 text-orange-500 mb-6 drop-shadow-[0_0_8px_rgba(249,115,22,0.5)]" />
+                <Shield className="w-8 h-8 text-[#10B981] mb-6 drop-shadow-[0_0_8px_rgba(16, 185, 129,0.5)]" />
                 <h3 className="text-xl font-bold text-white mb-3 tracking-tight">Institutional Custody Security</h3>
                 <p className="text-white/50 leading-relaxed text-sm">Your data and strategies are protected by advanced end-to-end encryption.</p>
               </div>
@@ -712,7 +695,7 @@ export default function Home() {
           <div className="flex flex-col items-center text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight max-w-3xl leading-[1.15] text-white">
               Our Powerful Dashboard Empowers <br />
-              over <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-[#FF5100]">234,000 Analytics</span> Everyday
+              over <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#059669] to-[#A4FE46]">234,000 Analytics</span> Everyday
             </h2>
           </div>
 
@@ -720,7 +703,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 gap-6">
 
             {/* Card 1: Real-time Market Insight (cols-span-3) */}
-            <div className="md:col-span-3 lg:col-span-3 bg-[#0c0c0e]/95 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden relative group/bento hover:border-orange-500/30 hover:-translate-y-1.5 transition-all duration-500 ease-out shadow-xl min-h-[460px] bento-card-animate bento-card" style={{ animationDelay: "100ms" }}>
+            <div className="md:col-span-3 lg:col-span-3 bg-[#0c0c0e]/95 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden relative group/bento hover:border-[#10B981]/30 hover:-translate-y-1.5 transition-all duration-500 ease-out shadow-xl min-h-[460px] bento-card-animate bento-card" style={{ animationDelay: "100ms" }}>
               <div className="bento-card-glow" />
 
               <div className="mb-6 relative z-10">
@@ -743,7 +726,7 @@ export default function Home() {
             </div>
 
             {/* Card 2: Advanced Account Analysis (cols-span-2) */}
-            <div className="md:col-span-3 lg:col-span-2 bg-[#0c0c0e]/95 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden relative group/bento hover:border-orange-500/30 hover:-translate-y-1.5 transition-all duration-500 ease-out shadow-xl min-h-[460px] bento-card-animate bento-card" style={{ animationDelay: "200ms" }}>
+            <div className="md:col-span-3 lg:col-span-2 bg-[#0c0c0e]/95 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden relative group/bento hover:border-[#10B981]/30 hover:-translate-y-1.5 transition-all duration-500 ease-out shadow-xl min-h-[460px] bento-card-animate bento-card" style={{ animationDelay: "200ms" }}>
               <div className="bento-card-glow" />
 
               <div className="mb-6 relative z-10">
@@ -756,7 +739,7 @@ export default function Home() {
               {/* Image Container */}
               <div className="relative w-full h-[260px] rounded-2xl overflow-hidden border border-white/10 bg-black/40 shadow-inner mt-auto transition-transform duration-500 group-hover/bento:scale-[1.02] relative z-10">
                 <Image
-                  src="/dashboard3.png"
+                  src="/dashboard2_v2.png"
                   alt="Advanced Account Analysis"
                   fill
                   className="object-cover object-left opacity-90 group-hover/bento:opacity-100 transition-all duration-700 ease-out group-hover/bento:scale-105"
@@ -766,10 +749,10 @@ export default function Home() {
             </div>
 
             {/* Card 3: Portfolio Management (cols-span-2) */}
-            <div className="md:col-span-3 lg:col-span-2 bg-[#0c0c0e]/95 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden relative group/bento hover:border-orange-500/30 hover:-translate-y-1.5 transition-all duration-500 ease-out shadow-xl min-h-[460px] bento-card-animate bento-card" style={{ animationDelay: "300ms" }}>
+            <div className="md:col-span-3 lg:col-span-2 bg-[#0c0c0e]/95 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden relative group/bento hover:border-[#10B981]/30 hover:-translate-y-1.5 transition-all duration-500 ease-out shadow-xl min-h-[460px] bento-card-animate bento-card" style={{ animationDelay: "300ms" }}>
               <div className="bento-card-glow" />
               {/* Classy Top-Left Gradient Glow Overlay */}
-              <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-[radial-gradient(circle_at_top_left,rgba(249,115,22,0.18),transparent_65%)] pointer-events-none z-0 transition-opacity duration-500 group-hover/bento:opacity-130"></div>
+              <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-[radial-gradient(circle_at_top_left,rgba(16, 185, 129,0.18),transparent_65%)] pointer-events-none z-0 transition-opacity duration-500 group-hover/bento:opacity-130"></div>
 
               <div className="mb-8 relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-2 tracking-tight">Portfolio Management</h3>
@@ -780,7 +763,7 @@ export default function Home() {
 
               {/* Custom Stock Cards Mockup matching the image */}
               <div className="grid grid-cols-2 gap-3 mt-auto relative z-10">
-                <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-4 flex flex-col justify-between hover:bg-white/[0.04] hover:border-orange-500/20 hover:scale-[1.03] transition-all duration-300">
+                <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-4 flex flex-col justify-between hover:bg-white/[0.04] hover:border-[#10B981]/20 hover:scale-[1.03] transition-all duration-300">
                   <div className="flex items-center justify-between mb-2">
                     <div className="w-8 h-8 rounded-full bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-pink-500 font-bold text-xs">A</div>
                     <span className="text-[10px] text-green-400 font-bold bg-green-500/10 px-1.5 py-0.5 rounded">+41.3%</span>
@@ -790,7 +773,7 @@ export default function Home() {
                     <div className="text-sm font-extrabold text-white mt-1">2.56 <span className="text-[10px] text-white/50 font-normal">USD</span></div>
                   </div>
                 </div>
-                <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-4 flex flex-col justify-between hover:bg-white/[0.04] hover:border-orange-500/20 hover:scale-[1.03] transition-all duration-300">
+                <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-4 flex flex-col justify-between hover:bg-white/[0.04] hover:border-[#10B981]/20 hover:scale-[1.03] transition-all duration-300">
                   <div className="flex items-center justify-between mb-2">
                     <div className="w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-500 font-bold text-xs">U</div>
                     <span className="text-[10px] text-green-400 font-bold bg-green-500/10 px-1.5 py-0.5 rounded">+58.4%</span>
@@ -800,9 +783,9 @@ export default function Home() {
                     <div className="text-sm font-extrabold text-white mt-1">155.44 <span className="text-[10px] text-white/50 font-normal">USD</span></div>
                   </div>
                 </div>
-                <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-4 flex flex-col justify-between hover:bg-white/[0.04] hover:border-orange-500/20 hover:scale-[1.03] transition-all duration-300">
+                <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-4 flex flex-col justify-between hover:bg-white/[0.04] hover:border-[#10B981]/20 hover:scale-[1.03] transition-all duration-300">
                   <div className="flex items-center justify-between mb-2">
-                    <div className="w-8 h-8 rounded-full bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-500 font-bold text-xs">N</div>
+                    <div className="w-8 h-8 rounded-full bg-[#10B981]/10 border border-[#10B981]/20 flex items-center justify-center text-[#10B981] font-bold text-xs">N</div>
                     <span className="text-[10px] text-red-400 font-bold bg-red-500/10 px-1.5 py-0.5 rounded">-1.60%</span>
                   </div>
                   <div>
@@ -810,7 +793,7 @@ export default function Home() {
                     <div className="text-sm font-extrabold text-white mt-1">4.44 <span className="text-[10px] text-white/50 font-normal">USD</span></div>
                   </div>
                 </div>
-                <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-4 flex flex-col justify-between hover:bg-white/[0.04] hover:border-orange-500/20 hover:scale-[1.03] transition-all duration-300">
+                <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-4 flex flex-col justify-between hover:bg-white/[0.04] hover:border-[#10B981]/20 hover:scale-[1.03] transition-all duration-300">
                   <div className="flex items-center justify-between mb-2">
                     <div className="w-8 h-8 rounded-full bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-500 font-bold text-xs">M</div>
                     <span className="text-[10px] text-green-400 font-bold bg-green-500/10 px-1.5 py-0.5 rounded">+51.2%</span>
@@ -824,7 +807,7 @@ export default function Home() {
             </div>
 
             {/* Card 4: Advanced Charting Tools (cols-span-3) */}
-            <div className="md:col-span-3 lg:col-span-3 bg-[#0c0c0e]/95 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden relative group/bento hover:border-orange-500/30 hover:-translate-y-1.5 transition-all duration-500 ease-out shadow-xl min-h-[460px] bento-card-animate bento-card" style={{ animationDelay: "400ms" }}>
+            <div className="md:col-span-3 lg:col-span-3 bg-[#0c0c0e]/95 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden relative group/bento hover:border-[#10B981]/30 hover:-translate-y-1.5 transition-all duration-500 ease-out shadow-xl min-h-[460px] bento-card-animate bento-card" style={{ animationDelay: "400ms" }}>
               <div className="bento-card-glow" />
 
               <div className="mb-6 relative z-10">
@@ -837,7 +820,7 @@ export default function Home() {
               {/* Image Container */}
               <div className="relative w-full h-[260px] rounded-2xl overflow-hidden border border-white/10 bg-black/40 shadow-inner mt-auto transition-transform duration-500 group-hover/bento:scale-[1.02] relative z-10">
                 <Image
-                  src="/dashboard2.png"
+                  src="/dashboard3_v2.png"
                   alt="Advanced Charting Tools"
                   fill
                   className="object-cover object-top opacity-90 group-hover/bento:opacity-100 transition-all duration-700 ease-out group-hover/bento:scale-105"
@@ -856,7 +839,7 @@ export default function Home() {
           {/* Header */}
           <div className="flex flex-col items-center text-center mb-10 lg:mb-0">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight max-w-3xl leading-[1.15] text-white">
-              Advanced Trading <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-[#FF5100]">Ecosystem Suite</span>
+              Advanced Trading <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#059669] to-[#A4FE46]">Ecosystem Suite</span>
             </h2>
           </div>
         </div>
@@ -867,7 +850,7 @@ export default function Home() {
           {/* Card 1: Welcome Bonus */}
           <div className="gsap-card relative md:absolute md:inset-x-4 md:top-0 md:bottom-0 z-10 bg-[#0c0c0e]/98 border border-white/10 rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-10 shadow-[0_30px_70px_rgba(0,0,0,0.95)] transition-[border-color,background-color,box-shadow] duration-300 overflow-hidden w-full md:w-auto">
             <div className="flex-1 space-y-6">
-              <div className="inline-flex items-center space-x-2 bg-orange-500/10 border border-orange-500/20 px-3 py-1 rounded-full text-xs font-semibold text-orange-500 uppercase tracking-widest">
+              <div className="inline-flex items-center space-x-2 bg-[#10B981]/10 border border-[#10B981]/20 px-3 py-1 rounded-full text-xs font-semibold text-[#10B981] uppercase tracking-widest">
                 Welcome Bonus
               </div>
               <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
@@ -878,26 +861,26 @@ export default function Home() {
               </p>
               <ul className="space-y-2 text-xs md:text-sm text-white/80">
                 <li className="flex items-center space-x-3">
-                  <span className="w-5 h-5 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 text-xs font-bold">✓</span>
+                  <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
                   <span>Extra trading margin applied instantly</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <span className="w-5 h-5 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 text-xs font-bold">✓</span>
+                  <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
                   <span>Applicable to Standard & Premium Accounts</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <span className="w-5 h-5 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 text-xs font-bold">✓</span>
+                  <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
                   <span>Zero restrictions on initial withdrawal profit volumes</span>
                 </li>
               </ul>
               <button className="flex items-center space-x-2 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2.5 md:px-6 md:py-3 rounded-xl text-[10px] md:text-xs font-semibold text-white transition-all">
                 <span>Claim Welcome Bonus</span>
-                <ArrowRight className="w-3.5 h-3.5 text-orange-500" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#10B981]" />
               </button>
             </div>
             
             <div className="flex-1 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden self-stretch flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-full blur-2xl pointer-events-none"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
               <div className="flex justify-between items-center pb-4 border-b border-white/5 mb-4">
                 <span className="text-xs font-bold text-white/50 tracking-widest uppercase">Promotions & Bonus Offers</span>
                 <span className="text-[10px] text-green-400 bg-green-500/10 px-2 py-0.5 rounded font-bold">Active</span>
@@ -906,7 +889,7 @@ export default function Home() {
               {/* Bonus Tier 1 */}
               <div className="flex items-center justify-between p-3.5 bg-white/[0.02] border border-white/5 rounded-xl mb-3 hover:bg-white/[0.04] transition-colors">
                 <div className="flex items-center space-x-3">
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center text-white font-extrabold text-xs">ST</div>
+                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#059669] to-pink-500 flex items-center justify-center text-white font-extrabold text-xs">ST</div>
                   <div>
                     <div className="text-xs font-bold text-white">Standard STP Bonus</div>
                     <div className="text-[10px] text-white/40">Minimum Deposit $10</div>
@@ -951,7 +934,7 @@ export default function Home() {
           {/* Card 2: MetaTrader 5 */}
           <div className="gsap-card relative md:absolute md:inset-x-4 md:top-0 md:bottom-0 z-20 bg-[#0c0c0e]/98 border border-white/10 rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-10 shadow-[0_30px_70px_rgba(0,0,0,0.95)] transition-[border-color,background-color,box-shadow] duration-300 overflow-hidden w-full md:w-auto">
             <div className="flex-grow lg:w-1/2 space-y-6">
-              <div className="inline-flex items-center space-x-2 bg-orange-500/10 border border-orange-500/20 px-3 py-1 rounded-full text-xs font-semibold text-orange-500 uppercase tracking-widest">
+              <div className="inline-flex items-center space-x-2 bg-[#10B981]/10 border border-[#10B981]/20 px-3 py-1 rounded-full text-xs font-semibold text-[#10B981] uppercase tracking-widest">
                 MT5 Terminal
               </div>
               <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
@@ -962,29 +945,29 @@ export default function Home() {
               </p>
               <ul className="space-y-2 text-xs md:text-sm text-white/80">
                 <li className="flex items-center space-x-3">
-                  <span className="w-5 h-5 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 text-xs font-bold">✓</span>
+                  <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
                   <span>Sub-millisecond trade execution latency</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <span className="w-5 h-5 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 text-xs font-bold">✓</span>
+                  <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
                   <span>Support for Expert Advisors (EAs) & bots</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <span className="w-5 h-5 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 text-xs font-bold">✓</span>
+                  <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
                   <span>Over 80+ indicator overlays and charting tools</span>
                 </li>
               </ul>
               <button className="flex items-center space-x-2 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2.5 md:px-6 md:py-3 rounded-xl text-[10px] md:text-xs font-semibold text-white transition-all">
                 <span>Connect Account</span>
-                <ArrowRight className="w-3.5 h-3.5 text-orange-500" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#10B981]" />
               </button>
             </div>
             
             <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden self-stretch flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
-              <div className="absolute top-0 left-0 w-32 h-32 bg-orange-500/5 rounded-full blur-2xl pointer-events-none"></div>
+              <div className="absolute top-0 left-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
               <div className="flex justify-between items-center pb-4 border-b border-white/5 mb-6">
                 <span className="text-xs font-bold text-white/50 tracking-widest uppercase">MT5 Live Chart Feed</span>
-                <span className="text-[10px] text-orange-500 bg-orange-500/10 px-2 py-0.5 rounded font-bold">EUR/USD</span>
+                <span className="text-[10px] text-[#10B981] bg-[#10B981]/10 px-2 py-0.5 rounded font-bold">EUR/USD</span>
               </div>
               
               {/* SVG Live Chart Mockup */}
@@ -1035,7 +1018,7 @@ export default function Home() {
           {/* Card 3: Crypto Wallet */}
           <div className="gsap-card relative md:absolute md:inset-x-4 md:top-0 md:bottom-0 z-30 bg-[#0c0c0e]/98 border border-white/10 rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-10 shadow-[0_30px_70px_rgba(0,0,0,0.95)] transition-[border-color,background-color,box-shadow] duration-300 overflow-hidden w-full md:w-auto">
             <div className="flex-grow lg:w-1/2 space-y-6">
-              <div className="inline-flex items-center space-x-2 bg-orange-500/10 border border-orange-500/20 px-3 py-1 rounded-full text-xs font-semibold text-orange-500 uppercase tracking-widest">
+              <div className="inline-flex items-center space-x-2 bg-[#10B981]/10 border border-[#10B981]/20 px-3 py-1 rounded-full text-xs font-semibold text-[#10B981] uppercase tracking-widest">
                 Crypto Wallet
               </div>
               <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
@@ -1046,26 +1029,26 @@ export default function Home() {
               </p>
               <ul className="space-y-2 text-xs md:text-sm text-white/80">
                 <li className="flex items-center space-x-3">
-                  <span className="w-5 h-5 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 text-xs font-bold">✓</span>
+                  <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
                   <span>Support for BTC, ETH, SOL, USDC & 200+ tokens</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <span className="w-5 h-5 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 text-xs font-bold">✓</span>
+                  <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
                   <span>Zero-fee swaps inside the ecosystem</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <span className="w-5 h-5 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 text-xs font-bold">✓</span>
+                  <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
                   <span>Advanced biometrics and MPC custody security</span>
                 </li>
               </ul>
               <button className="flex items-center space-x-2 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2.5 md:px-6 md:py-3 rounded-xl text-[10px] md:text-xs font-semibold text-white transition-all">
                 <span>Open Wallet Hub</span>
-                <ArrowRight className="w-3.5 h-3.5 text-orange-500" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#10B981]" />
               </button>
             </div>
             
             <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden self-stretch flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-full blur-2xl pointer-events-none"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
               <div className="flex justify-between items-center pb-4 border-b border-white/5 mb-4">
                 <span className="text-xs font-bold text-white/50 tracking-widest uppercase">Your Balance</span>
                 <span className="text-[11px] text-green-400 bg-green-500/10 px-2.5 py-0.5 rounded font-extrabold">+$124.50 today</span>
@@ -1114,7 +1097,7 @@ export default function Home() {
           {/* Card 4: Live Open Positions & Trade Tracker */}
           <div className="gsap-card relative md:absolute md:inset-x-4 md:top-0 md:bottom-0 z-40 bg-[#0c0c0e]/98 border border-white/10 rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-10 shadow-[0_30px_70px_rgba(0,0,0,0.95)] transition-[border-color,background-color,box-shadow] duration-300 overflow-hidden w-full md:w-auto">
             <div className="flex-grow lg:w-1/2 space-y-6">
-              <div className="inline-flex items-center space-x-2 bg-orange-500/10 border border-orange-500/20 px-3 py-1 rounded-full text-xs font-semibold text-orange-500 uppercase tracking-widest">
+              <div className="inline-flex items-center space-x-2 bg-[#10B981]/10 border border-[#10B981]/20 px-3 py-1 rounded-full text-xs font-semibold text-[#10B981] uppercase tracking-widest">
                 Live Tracking
               </div>
               <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
@@ -1125,26 +1108,26 @@ export default function Home() {
               </p>
               <ul className="space-y-2 text-xs md:text-sm text-white/80">
                 <li className="flex items-center space-x-3">
-                  <span className="w-5 h-5 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 text-xs font-bold">✓</span>
+                  <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
                   <span>Tick-level synchronization for live open trades</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <span className="w-5 h-5 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 text-xs font-bold">✓</span>
+                  <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
                   <span>Unified view of Standard and Premium account balances</span>
                 </li>
                 <li className="flex items-center space-x-3">
-                  <span className="w-5 h-5 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 text-xs font-bold">✓</span>
+                  <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
                   <span>Instant close, partial profit, and margin limit settings</span>
                 </li>
               </ul>
               <button className="flex items-center space-x-2 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2.5 md:px-6 md:py-3 rounded-xl text-[10px] md:text-xs font-semibold text-white transition-all">
                 <span>Open Live Tracker</span>
-                <ArrowRight className="w-3.5 h-3.5 text-orange-500" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#10B981]" />
               </button>
             </div>
             
             <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden self-stretch flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
-              <div className="absolute top-0 left-0 w-32 h-32 bg-orange-500/5 rounded-full blur-2xl pointer-events-none"></div>
+              <div className="absolute top-0 left-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
               <div className="flex justify-between items-center pb-4 border-b border-white/5 mb-4">
                 <span className="text-xs font-bold text-white/50 tracking-widest uppercase">Live Open Trades</span>
                 <span className="text-[10px] text-green-400 bg-green-500/10 px-2 py-0.5 rounded font-bold">1 Active Position</span>
@@ -1188,11 +1171,11 @@ export default function Home() {
       <section className="w-full bg-black py-10 md:py-24 relative z-20 border-t border-white/5">
         <div className="max-w-[1240px] mx-auto px-4">
           <div className="flex flex-col items-center text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-orange-500/10 border border-orange-500/20 px-3.5 py-1.5 rounded-full text-xs font-semibold text-orange-500 uppercase tracking-widest mb-4">
+            <div className="inline-flex items-center space-x-2 bg-[#10B981]/10 border border-[#10B981]/20 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#10B981] uppercase tracking-widest mb-4">
               Testimonials
             </div>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight">
-              Trusted by India's <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-[#FF5100]">Elite Traders</span>
+              Trusted by India's <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#059669] to-[#A4FE46]">Elite Traders</span>
             </h2>
             <p className="text-white/50 text-sm md:text-base mt-4 max-w-xl">
               See how Pippulse FX is empowering day traders and fund managers across the country.
@@ -1201,9 +1184,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Testimonial 1 */}
-            <div className="bg-[#0c0c0e]/80 border border-white/10 rounded-3xl p-8 relative overflow-hidden group hover:border-orange-500/30 hover:-translate-y-1.5 transition-all duration-300 shadow-xl">
-              <div className="absolute top-0 left-0 w-32 h-32 bg-orange-500/5 rounded-full blur-2xl pointer-events-none"></div>
-              <div className="flex items-center space-x-1 text-orange-500 mb-6">
+            <div className="bg-[#0c0c0e]/80 border border-white/10 rounded-3xl p-8 relative overflow-hidden group hover:border-[#10B981]/30 hover:-translate-y-1.5 transition-all duration-300 shadow-xl">
+              <div className="absolute top-0 left-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
+              <div className="flex items-center space-x-1 text-[#10B981] mb-6">
                 {"★★★★★".split("").map((star, i) => (
                   <span key={i} className="text-lg">★</span>
                 ))}
@@ -1212,7 +1195,7 @@ export default function Home() {
                 "The user interface is incredibly clean and intuitive. It simplifies complex multi-asset trading, allowing me to execute trades and analyze market structures easily without getting overwhelmed by data. A truly premium experience."
               </p>
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center text-white font-black text-sm">AM</div>
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#10B981] to-red-500 flex items-center justify-center text-white font-black text-sm">AM</div>
                 <div>
                   <h4 className="text-sm font-bold text-white">Aarav Mehta</h4>
                   <p className="text-[11px] text-white/40">Full-Time Trader, Mumbai</p>
@@ -1221,9 +1204,9 @@ export default function Home() {
             </div>
 
             {/* Testimonial 2 */}
-            <div className="bg-[#0c0c0e]/80 border border-white/10 rounded-3xl p-8 relative overflow-hidden group hover:border-orange-500/30 hover:-translate-y-1.5 transition-all duration-300 shadow-xl">
-              <div className="absolute top-0 left-0 w-32 h-32 bg-orange-500/5 rounded-full blur-2xl pointer-events-none"></div>
-              <div className="flex items-center space-x-1 text-orange-500 mb-6">
+            <div className="bg-[#0c0c0e]/80 border border-white/10 rounded-3xl p-8 relative overflow-hidden group hover:border-[#10B981]/30 hover:-translate-y-1.5 transition-all duration-300 shadow-xl">
+              <div className="absolute top-0 left-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
+              <div className="flex items-center space-x-1 text-[#10B981] mb-6">
                 {"★★★★★".split("").map((star, i) => (
                   <span key={i} className="text-lg">★</span>
                 ))}
@@ -1241,9 +1224,9 @@ export default function Home() {
             </div>
 
             {/* Testimonial 3 */}
-            <div className="bg-[#0c0c0e]/80 border border-white/10 rounded-3xl p-8 relative overflow-hidden group hover:border-orange-500/30 hover:-translate-y-1.5 transition-all duration-300 shadow-xl">
-              <div className="absolute top-0 left-0 w-32 h-32 bg-orange-500/5 rounded-full blur-2xl pointer-events-none"></div>
-              <div className="flex items-center space-x-1 text-orange-500 mb-6">
+            <div className="bg-[#0c0c0e]/80 border border-white/10 rounded-3xl p-8 relative overflow-hidden group hover:border-[#10B981]/30 hover:-translate-y-1.5 transition-all duration-300 shadow-xl">
+              <div className="absolute top-0 left-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
+              <div className="flex items-center space-x-1 text-[#10B981] mb-6">
                 {"★★★★★".split("").map((star, i) => (
                   <span key={i} className="text-lg">★</span>
                 ))}
@@ -1275,9 +1258,9 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Side: FAQ Image */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-80 h-80 rounded-[40px] border border-white/10 overflow-hidden shadow-2xl group hover:border-orange-500/30 transition-all duration-500">
+              <div className="relative w-80 h-80 rounded-[40px] border border-white/10 overflow-hidden shadow-2xl group hover:border-[#10B981]/30 transition-all duration-500">
                 <Image
-                  src="/faq.avif"
+                  src="/faq.webp"
                   alt="Frequently Asked Questions"
                   fill
                   sizes="(max-width: 320px) 100vw, 320px"
@@ -1346,7 +1329,7 @@ export default function Home() {
             {/* Left Side: Contact Info */}
             <div className="lg:col-span-5 space-y-8">
               <div>
-                <div className="inline-flex items-center space-x-2 bg-orange-500/10 border border-orange-500/20 px-3.5 py-1.5 rounded-full text-xs font-semibold text-orange-500 uppercase tracking-widest mb-4">
+                <div className="inline-flex items-center space-x-2 bg-[#10B981]/10 border border-[#10B981]/20 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#10B981] uppercase tracking-widest mb-4">
                   Contact
                 </div>
                 <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white leading-tight">
@@ -1359,11 +1342,11 @@ export default function Home() {
 
               <div className="space-y-4 text-sm text-white/70">
                 <div className="flex items-center space-x-3">
-                  <span className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-orange-500">✉</span>
+                  <span className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#10B981]">✉</span>
                   <span>support@youflow.com</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <span className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-orange-500">📍</span>
+                  <span className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#10B981]">📍</span>
                   <span>Bandra Kurla Complex, Mumbai, MH, India</span>
                 </div>
               </div>
@@ -1371,15 +1354,15 @@ export default function Home() {
 
             {/* Right Side: Simple Contact Form */}
             <div className="lg:col-span-7 bg-[#0c0c0e]/80 border border-white/10 rounded-3xl p-8 shadow-2xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-full blur-2xl pointer-events-none"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
               <form className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <input type="text" placeholder="Full Name" className="bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-orange-500 transition-all shadow-inner" />
-                  <input type="email" placeholder="Email Address" className="bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-orange-500 transition-all shadow-inner" />
+                  <input type="text" placeholder="Full Name" className="bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#10B981] transition-all shadow-inner" />
+                  <input type="email" placeholder="Email Address" className="bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#10B981] transition-all shadow-inner" />
                 </div>
-                <input type="text" placeholder="Subject" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-orange-500 transition-all shadow-inner" />
-                <textarea placeholder="Your Message" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-white/30 focus:outline-none focus:border-orange-500 transition-all h-32 resize-none shadow-inner"></textarea>
-                <button type="submit" className="w-full bg-gradient-to-r from-[#FF5100] to-[#E53900] text-white rounded-xl py-4 text-sm font-bold shadow-[0_0_20px_rgba(249,115,22,0.3)] hover:shadow-[0_0_30px_rgba(249,115,22,0.5)] transition-all">
+                <input type="text" placeholder="Subject" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#10B981] transition-all shadow-inner" />
+                <textarea placeholder="Your Message" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-sm text-white placeholder-white/30 focus:outline-none focus:border-[#10B981] transition-all h-32 resize-none shadow-inner"></textarea>
+                <button type="submit" className="w-full bg-gradient-to-r from-[#A4FE46] to-[#10B981] text-white rounded-xl py-4 text-sm font-bold shadow-[0_0_20px_rgba(16, 185, 129,0.3)] hover:shadow-[0_0_30px_rgba(16, 185, 129,0.5)] transition-all">
                   Send Message
                 </button>
               </form>
@@ -1412,7 +1395,7 @@ export default function Home() {
       <footer className="w-full bg-[#030305] border-t border-white/5 py-12 relative z-20">
         <div className="max-w-[1240px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-white/40">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center transform -rotate-12 shadow-[0_0_15px_rgba(249,115,22,0.3)]">
+            <div className="w-8 h-8 bg-gradient-to-br from-[#059669] to-[#A4FE46] rounded-lg flex items-center justify-center transform -rotate-12 shadow-[0_0_15px_rgba(16, 185, 129,0.3)]">
               <div className="flex items-end space-x-[2px] h-3.5">
                 <div className="w-1 h-1.5 bg-white/85 rounded-sm"></div>
                 <div className="w-1 h-2.5 bg-white/95 rounded-sm"></div>
