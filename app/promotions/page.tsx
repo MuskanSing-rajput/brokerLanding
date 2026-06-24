@@ -344,30 +344,30 @@ export default function PromotionsPage() {
           
           {/* Milestone Step Card */}
           <div className="bg-[#0c0c0e]/60 border border-white/5 rounded-2xl p-8 hover:border-white/10 transition-all relative">
-            <span className="absolute top-6 right-8 text-xs font-bold text-[#A4FE46] bg-[#10B981]/10 px-3.5 py-1 rounded-full uppercase tracking-wider">
+            <span className="absolute top-6 right-8 text-xs font-bold text-[#F3C047] bg-[#F3C047]/10 px-3.5 py-1 rounded-full uppercase tracking-wider">
               Step 01
             </span>
-            <div className="w-16 h-16 rounded-full border border-[#F3C048]/20 flex items-center justify-center text-xl font-bold bg-[#F3C048]/5 text-[#F3C048] mb-8 mt-2">
+            <div className="w-16 h-16 rounded-full border border-[#F3C047]/20 flex items-center justify-center text-xl font-bold bg-[#F3C047]/5 text-[#F3C047] mb-8 mt-2">
               30%
             </div>
             <h3 className="text-3xl font-bold text-white mb-4">Milestone Bonus</h3>
             <p className="text-white/60 text-sm mb-6">Achieve target trading volume to unlock next deposit boosts:</p>
             <ul className="space-y-4 text-white/50 text-sm">
               <li className="flex items-start space-x-3">
-                <ArrowUpRight className="w-4 h-4 text-[#A4FE46] mt-0.5 flex-shrink-0" />
+                <ArrowUpRight className="w-4 h-4 text-[#F3C047] mt-0.5 flex-shrink-0" />
                 <span>Trade and achieve 3 lifetime qualified GTLots</span>
               </li>
               <li className="flex items-start space-x-3">
-                <ArrowUpRight className="w-4 h-4 text-[#A4FE46] mt-0.5 flex-shrink-0" />
+                <ArrowUpRight className="w-4 h-4 text-[#F3C047] mt-0.5 flex-shrink-0" />
                 <span>Make your next qualifying deposit</span>
               </li>
               <li className="flex items-start space-x-3">
-                <ArrowUpRight className="w-4 h-4 text-[#A4FE46] mt-0.5 flex-shrink-0" />
+                <ArrowUpRight className="w-4 h-4 text-[#F3C047] mt-0.5 flex-shrink-0" />
                 <span>Receive the 30% bonus credited to your trading equity</span>
               </li>
             </ul>
             <div className="mt-8 pt-6 border-t border-white/5">
-              <Link href="#" className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#A4FE46] hover:text-white transition-colors">
+              <Link href="#" className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#F3C047] hover:text-white transition-colors">
                 <span>Make deposit</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
@@ -376,10 +376,10 @@ export default function PromotionsPage() {
 
           {/* Loyalty Step Card */}
           <div className="bg-[#0c0c0e]/60 border border-white/5 rounded-2xl p-8 hover:border-white/10 transition-all relative">
-            <span className="absolute top-6 right-8 text-xs font-bold text-[#A4FE46] bg-[#10B981]/10 px-3.5 py-1 rounded-full uppercase tracking-wider">
+            <span className="absolute top-6 right-8 text-xs font-bold text-[#F3C047] bg-[#F3C047]/10 px-3.5 py-1 rounded-full uppercase tracking-wider">
               Step 02
             </span>
-            <div className="w-16 h-16 rounded-full border border-[#A4FE46]/20 flex flex-col items-center justify-center text-[10px] font-bold uppercase leading-tight bg-[#10B981]/5 text-[#A4FE46] mb-8 mt-2 text-center">
+            <div className="w-16 h-16 rounded-full border border-[#F3C047]/20 flex flex-col items-center justify-center text-[10px] font-bold uppercase leading-tight bg-[#F3C047]/5 text-[#F3C047] mb-8 mt-2 text-center">
               <span>3</span>
               <span>Tiers</span>
             </div>
@@ -387,20 +387,20 @@ export default function PromotionsPage() {
             <p className="text-white/60 text-sm mb-6">Achieve higher trading ranks to receive expanded benefits:</p>
             <ul className="space-y-4 text-white/50 text-sm">
               <li className="flex items-start space-x-3">
-                <ArrowUpRight className="w-4 h-4 text-[#A4FE46] mt-0.5 flex-shrink-0" />
+                <ArrowUpRight className="w-4 h-4 text-[#F3C047] mt-0.5 flex-shrink-0" />
                 <span>Trade more consistently to accumulate lots</span>
               </li>
               <li className="flex items-start space-x-3">
-                <ArrowUpRight className="w-4 h-4 text-[#A4FE46] mt-0.5 flex-shrink-0" />
+                <ArrowUpRight className="w-4 h-4 text-[#F3C047] mt-0.5 flex-shrink-0" />
                 <span>Achieve at least 6 lifetime qualified GTLots</span>
               </li>
               <li className="flex items-start space-x-3">
-                <ArrowUpRight className="w-4 h-4 text-[#A4FE46] mt-0.5 flex-shrink-0" />
+                <ArrowUpRight className="w-4 h-4 text-[#F3C047] mt-0.5 flex-shrink-0" />
                 <span>Step up into the next higher tier and claim larger caps</span>
               </li>
             </ul>
             <div className="mt-8 pt-6 border-t border-white/5">
-              <Link href="#" className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#A4FE46] hover:text-white transition-colors">
+              <Link href="#" className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#F3C047] hover:text-white transition-colors">
                 <span>Start trading</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
