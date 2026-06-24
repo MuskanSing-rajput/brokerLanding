@@ -79,7 +79,6 @@ const AnalyticsPreview = () => (
         sizes="(max-width: 1250px) 100vw, 1250px"
         className="object-cover opacity-95 group-hover/analytics:opacity-100 transition-all duration-700 ease-out"
         priority
-        unoptimized
       />
 
       {/* Dark Vignette Overlay to blend the image edges */}
@@ -144,7 +143,6 @@ const MonitoringChart = () => (
         sizes="(max-width: 1250px) 100vw, 1250px"
         className="object-cover opacity-95 group-hover/monitoring:opacity-100 transition-all duration-700 ease-out"
         priority
-        unoptimized
       />
 
       {/* Dark Vignette Overlay to blend the image edges */}

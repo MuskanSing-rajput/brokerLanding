@@ -170,6 +170,7 @@ export default function PartnersPage() {
             objectFit="cover"
             objectPosition="center"
             className="[mask-image:linear-gradient(to_bottom,black_50%,transparent_100%)]"
+            priority
           />
         </div>
 
@@ -301,7 +302,6 @@ export default function PartnersPage() {
                   alt="Copy Trading Dashboard"
                   width={800}
                   height={600}
-                  unoptimized
                   className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#10B981]/20 to-transparent pointer-events-none mix-blend-overlay"></div>
@@ -314,7 +314,6 @@ export default function PartnersPage() {
                   alt="Copy Trading Features"
                   width={800}
                   height={600}
-                  unoptimized
                   className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity duration-500"
                 />
               </div>
@@ -490,7 +489,6 @@ export default function PartnersPage() {
                 alt="Pippulse FX Mobile App"
                 width={540}
                 height={900}
-                unoptimized
                 className="w-full h-auto object-contain drop-shadow-2xl filter"
               />
             </div>
