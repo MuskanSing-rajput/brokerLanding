@@ -162,7 +162,7 @@ export default function PartnersPage() {
       {/* Hero Section */}
       <section className="relative pt-20 pb-40 md:pt-32 md:pb-64 overflow-hidden z-10 flex flex-col items-center">
         {/* Background Dashboard Image */}
-        <div className="absolute inset-0 z-0 opacity-20">
+        <div className="absolute inset-0 z-0 opacity-[0.34]">
           <Image
             src="/handshake.png"
             alt="Dashboard Background"
@@ -234,9 +234,12 @@ export default function PartnersPage() {
                 desc: "Attract more clients with our competitive trading conditions and generous bonuses."
               }
             ].map((feature, i) => (
-              <div key={i} className="relative overflow-hidden bg-gradient-to-br from-[#0c0c0e] to-[#10B981]/5 border border-white/5 hover:border-white/20 rounded-3xl p-10 transition-all group text-center flex flex-col items-center shadow-lg">
+              <div key={i} className="relative overflow-hidden bg-[#0c0c0e] border border-white/5 hover:border-white/20 rounded-3xl p-10 transition-all group text-center flex flex-col items-center shadow-lg">
+                {/* Gradient overlay for hover effect (smooth transition) */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0c0c0e] to-[#10B981]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                
                 {/* Glowy greenish gradient top right */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(circle_at_top_right,rgba(164,254,70,0.15),transparent_70%)] pointer-events-none group-hover:bg-[radial-gradient(circle_at_top_right,rgba(164,254,70,0.25),transparent_70%)] group-hover:scale-110 transition-all duration-500" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[radial-gradient(circle_at_top_right,rgba(164,254,70,0.3),transparent_70%)] opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 pointer-events-none" />
 
                 <div className="relative z-10 w-20 h-20 bg-gradient-to-br from-[#10B981]/10 to-[#A4FE46]/10 group-hover:from-[#10B981]/20 group-hover:to-[#A4FE46]/20 rounded-full flex items-center justify-center text-white/60 group-hover:text-[#A4FE46] transition-colors mb-6 shadow-inner">
                   <feature.icon className="w-10 h-10" />
