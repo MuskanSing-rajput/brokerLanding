@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Play, Activity, BarChart2, LineChart, MessageSquare, Crosshair, Zap, Shield, Menu, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Play, Activity, BarChart2, LineChart, MessageSquare, Crosshair, Zap, Shield, Menu, X, ChevronDown, Monitor, Smartphone, Users, Repeat } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -250,14 +250,14 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState("Analytics");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [psDropdownOpen, setPsDropdownOpen] = useState(false);
+  const [platformDropdownOpen, setPlatformDropdownOpen] = useState(false);
   const stackingSectionRef = useRef<HTMLDivElement>(null);
-  const psDropdownRef = useRef<HTMLDivElement>(null);
+  const platformDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (psDropdownRef.current && !psDropdownRef.current.contains(e.target as Node)) {
-        setPsDropdownOpen(false);
+      if (platformDropdownRef.current && !platformDropdownRef.current.contains(e.target as Node)) {
+        setPlatformDropdownOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -426,97 +426,140 @@ export default function Home() {
         <header className="relative z-20 flex items-center justify-between px-6 md:px-12 py-6 max-w-[1200px] w-full mx-auto">
           {/* Logo */}
           <div className="flex items-center group cursor-pointer">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#059669] to-[#A4FE46] rounded-xl flex items-center justify-center transform -rotate-12 shadow-[0_0_20px_rgba(16, 185, 129,0.4)] group-hover:rotate-0 group-hover:scale-105 transition-all duration-300">
-              <div className="flex items-end space-x-[2px] h-5">
-                <div className="w-1.5 h-2 bg-white/80 rounded-sm"></div>
-                <div className="w-1.5 h-3.5 bg-white/90 rounded-sm"></div>
-                <div className="w-1.5 h-5 bg-white rounded-sm"></div>
+            <Link href="/" className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-[#059669] to-[#A4FE46] rounded-xl flex items-center justify-center transform -rotate-12 shadow-[0_0_20px_rgba(16, 185, 129,0.4)] group-hover:rotate-0 group-hover:scale-105 transition-all duration-300">
+                <div className="flex items-end space-x-[2px] h-5">
+                  <div className="w-1.5 h-2 bg-white/80 rounded-sm"></div>
+                  <div className="w-1.5 h-3.5 bg-white/90 rounded-sm"></div>
+                  <div className="w-1.5 h-5 bg-white rounded-sm"></div>
+                </div>
               </div>
-            </div>
+              <span className="font-bold text-white text-lg tracking-wide group-hover:text-[#A4FE46] transition-colors">Pippulse FX</span>
+            </Link>
           </div>
 
           {/* Nav Links */}
           <nav className="hidden md:flex items-center space-x-10 text-sm font-medium text-white/70">
             <a href="#" className="hover:text-white transition-colors">Home</a>
-            <a href="#about" className="hover:text-white transition-colors">About</a>
-            <a href="#features" className="hover:text-white transition-colors">Features</a>
-            <a href="#dashboard" className="hover:text-white transition-colors">Trading</a>
-            <a href="#dashboard" className="hover:text-white transition-colors">Dashboard</a>
-            <a href="#contact" className="hover:text-white transition-colors">Contact us</a>
+            <Link href="/about" className="hover:text-white transition-colors">About</Link>
             
-            {/* P's Dropdown Button */}
-            <div className="relative" ref={psDropdownRef}>
+            {/* Platform Dropdown */}
+            <div className="relative" ref={platformDropdownRef}>
               <button
-                onClick={() => setPsDropdownOpen(!psDropdownOpen)}
-                className="flex items-center space-x-1.5 px-4 py-1.5 rounded-full bg-[#10B981]/10 hover:bg-[#10B981]/20 border border-[#10B981]/20 hover:border-[#10B981]/40 text-[#A4FE46] hover:text-white transition-all duration-300 backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.1)] focus:outline-none group text-xs font-bold uppercase tracking-wider"
+                onClick={() => setPlatformDropdownOpen(!platformDropdownOpen)}
+                className="flex items-center space-x-1 hover:text-white transition-colors cursor-pointer focus:outline-none"
               >
-                <span>P&apos;s</span>
-                <svg className={`w-3.5 h-3.5 text-white/50 group-hover:text-white transition-transform duration-300 ${psDropdownOpen ? 'rotate-180 text-[#A4FE46]' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-                </svg>
+                <span>Platform</span>
+                <ChevronDown className={`w-3.5 h-3.5 text-white/50 transition-transform duration-300 ${platformDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
               
-              {psDropdownOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-44 bg-black/90 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_30px_rgba(164,254,70,0.05)] z-50 animate-[fadeInUp_0.25s_ease-out]">
-                  <div className="py-2 px-1 flex flex-col space-y-0.5">
-                    <a href="#features" onClick={() => setPsDropdownOpen(false)} className="flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold text-white/75 hover:text-[#A4FE46] hover:bg-[#10B981]/10 transition-all duration-200">
-                      <span>Platform</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] shadow-[0_0_8px_rgba(16,185,129,0.7)]"></span>
-                    </a>
-                    <a href="#features" onClick={() => setPsDropdownOpen(false)} className="flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold text-white/75 hover:text-[#A4FE46] hover:bg-[#10B981]/10 transition-all duration-200">
-                      <span>Promotion</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#A4FE46] shadow-[0_0_8px_rgba(164,254,70,0.7)]"></span>
-                    </a>
-                    <a href="#about" onClick={() => setPsDropdownOpen(false)} className="flex items-center justify-between px-4 py-2.5 rounded-xl text-xs font-semibold text-white/75 hover:text-[#A4FE46] hover:bg-[#10B981]/10 transition-all duration-200">
-                      <span>Partners</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] shadow-[0_0_8px_rgba(16,185,129,0.7)]"></span>
-                    </a>
+              {platformDropdownOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/3 mt-4 w-[420px] bg-[#0c0c0e]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(16,185,129,0.15)] z-50 flex gap-6 animate-[fadeInUp_0.25s_ease-out]">
+                  {/* Column 1 */}
+                  <div className="flex-[1.2] space-y-4">
+                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">Pippulsefx Platforms</h4>
+                    <div className="flex flex-col space-y-1">
+                      <Link href="/platforms/pippulsefx" onClick={() => setPlatformDropdownOpen(false)} className="flex flex-col p-3 rounded-xl hover:bg-white/[0.04] transition-all group text-left">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-sm font-bold text-white group-hover:text-[#A4FE46] transition-colors">Pippulsefx App</span>
+                          <span className="text-[8px] font-bold text-white bg-[#006a60] px-2 py-0.5 rounded-full uppercase tracking-wider">Popular</span>
+                        </div>
+                        <span className="text-[11px] text-white/40 group-hover:text-white/60 transition-colors">Our proprietary mobile and desktop platform.</span>
+                      </Link>
+                    </div>
+                  </div>
+                  
+                  {/* Divider */}
+                  <div className="w-[1px] bg-white/10 self-stretch"></div>
+                  
+                  {/* Column 2 */}
+                  <div className="flex-1 space-y-4">
+                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">MT5 Platforms</h4>
+                    <div className="flex flex-col space-y-1">
+                      {[
+                        { os: "Windows", desc: "Desktop installer for PC", path: "/platforms/windows", icon: Monitor },
+                        { os: "MacOS", desc: "Apple package", path: "/platforms/macos", icon: Monitor },
+                        { os: "Android", desc: "Play Store app", path: "/platforms/android", icon: Smartphone },
+                        { os: "iOS", desc: "App Store app", path: "/platforms/ios", icon: Smartphone }
+                      ].map(({ os, desc, path, icon: Icon }) => (
+                        <Link
+                          key={os}
+                          href={path}
+                          onClick={() => setPlatformDropdownOpen(false)}
+                          className="flex items-start space-x-2.5 p-2 rounded-lg hover:bg-white/[0.04] transition-all group text-left"
+                        >
+                          <Icon className="w-4 h-4 text-white/45 group-hover:text-[#A4FE46] mt-0.5 transition-colors" />
+                          <div className="flex flex-col">
+                            <span className="text-xs font-bold text-white/80 group-hover:text-white transition-colors">{os}</span>
+                            <span className="text-[10px] text-white/40 group-hover:text-white/50 transition-colors">{desc}</span>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               )}
             </div>
-          </nav>
- 
-           {/* Right Action buttons */}
-           <div className="flex items-center space-x-4">
-             <Link href="#" className="hidden sm:inline-block bg-white text-black px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-               Login
-             </Link>
-             {/* Hamburger Button */}
-             <button 
-               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-               className="md:hidden text-white/80 hover:text-white focus:outline-none p-2 rounded-lg bg-white/5 border border-white/10"
-             >
-               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-             </button>
-           </div>
-         </header>
- 
-         {/* Mobile Navigation Drawer */}
-         {mobileMenuOpen && (
-           <div className="md:hidden fixed inset-x-0 top-[88px] bg-black/95 backdrop-blur-lg border-b border-white/10 py-6 px-8 z-50 flex flex-col space-y-5 animate-[fadeInUp_0.3s_ease-out]">
-             <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Home</a>
-             <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">About</a>
-             <a href="#features" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Features</a>
-             <a href="#dashboard" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Trading</a>
-             <a href="#dashboard" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Dashboard</a>
-             <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Contact us</a>
-             
-             {/* Mobile P's Submenu */}
-             <div className="flex flex-col space-y-2 py-2 border-b border-white/5">
-               <span className="text-xs font-semibold uppercase tracking-wider text-[#A4FE46]">P&apos;s Options</span>
-               <div className="grid grid-cols-3 gap-2 pt-1">
-                 <a href="#features" onClick={() => setMobileMenuOpen(false)} className="text-center py-2 px-3 rounded-lg bg-white/5 text-sm font-semibold text-white/70 hover:text-[#A4FE46] hover:bg-white/10 transition-all">Platform</a>
-                 <a href="#features" onClick={() => setMobileMenuOpen(false)} className="text-center py-2 px-3 rounded-lg bg-white/5 text-sm font-semibold text-white/70 hover:text-[#A4FE46] hover:bg-white/10 transition-all">Promotion</a>
-                 <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-center py-2 px-3 rounded-lg bg-white/5 text-sm font-semibold text-white/70 hover:text-[#A4FE46] hover:bg-white/10 transition-all">Partners</a>
-               </div>
-             </div>
 
-             <Link href="#" onClick={() => setMobileMenuOpen(false)} className="bg-white text-black text-center py-3 rounded-xl font-bold hover:bg-gray-200 transition-all">
-               Login
-             </Link>
-           </div>
-         )}
+            <Link href="/promotions" className="hover:text-white transition-colors">Promotion</Link>
+            <Link href="/partners" className="hover:text-white transition-colors">Partners</Link>
+            <Link href="/trading" className="hover:text-white transition-colors">Trading</Link>
+          </nav>
+
+          {/* Right Action buttons */}
+          <div className="flex items-center space-x-4">
+            <Link href="#" className="hidden sm:inline-block bg-white text-black px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+              Login
+            </Link>
+            {/* Hamburger Button */}
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden text-white/80 hover:text-white focus:outline-none p-2 rounded-lg bg-white/5 border border-white/10"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </header>
+
+        {/* Mobile Navigation Drawer */}
+        {mobileMenuOpen && (
+          <div className="md:hidden fixed inset-x-0 top-[88px] bg-black/95 backdrop-blur-lg border-b border-white/10 py-6 px-8 z-50 flex flex-col space-y-5 animate-[fadeInUp_0.3s_ease-out]">
+            <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Home</a>
+            <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">About</Link>
+            
+            {/* Mobile Platform Submenu */}
+            <div className="flex flex-col space-y-2 py-2 border-b border-white/5">
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#A4FE46]">Pippulsefx Platforms</span>
+              <div className="flex flex-col space-y-2 pl-2">
+                <Link href="/platforms/pippulsefx" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-between text-white/70 hover:text-[#A4FE46]">
+                  <span>Pippulsefx App</span>
+                  <span className="text-[8px] font-bold text-white bg-[#006a60] px-2 py-0.5 rounded-full uppercase tracking-wider mr-2">Popular</span>
+                </Link>
+              </div>
+              <span className="text-xs font-semibold uppercase tracking-wider text-[#A4FE46] mt-2">MT5 Platforms</span>
+              <div className="grid grid-cols-2 gap-2 pl-2 pt-1">
+                {[
+                  { name: "Windows", path: "/platforms/windows" },
+                  { name: "MacOS", path: "/platforms/macos" },
+                  { name: "Android", path: "/platforms/android" },
+                  { name: "iOS", path: "/platforms/ios" }
+                ].map((os) => (
+                  <Link key={os.name} href={os.path} onClick={() => setMobileMenuOpen(false)} className="py-1.5 px-3 rounded-lg bg-white/5 text-sm font-semibold text-white/70 hover:text-[#A4FE46] hover:bg-white/10 transition-all text-center">
+                    {os.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <Link href="/promotions" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Promotion</Link>
+            <Link href="/partners" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Partners</Link>
+            <Link href="/trading" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Trading</Link>
+
+            <Link href="#" onClick={() => setMobileMenuOpen(false)} className="bg-white text-black text-center py-3 rounded-xl font-bold hover:bg-gray-200 transition-all">
+              Login
+            </Link>
+          </div>
+        )}
 
         {/* Main Hero Section */}
         <main className="relative z-10 flex-grow flex flex-col items-center pt-[55px] px-4 w-full max-w-[1200px] mx-auto">
@@ -1213,6 +1256,187 @@ export default function Home() {
                   <div>
                     <span className="block text-[9px] text-white/30 uppercase">Current Price</span>
                     <span className="font-mono text-white/90">161.40850</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 5: IB Broker */}
+          <div className="gsap-card relative md:absolute md:inset-x-4 md:top-0 md:bottom-0 z-50 bg-[#0c0c0e]/98 border border-white/10 rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-10 shadow-[0_30px_70px_rgba(0,0,0,0.95)] transition-[border-color,background-color,box-shadow] duration-300 overflow-hidden w-full md:w-auto">
+            <div className="flex-grow lg:w-1/2 space-y-6">
+              <div className="inline-flex items-center space-x-2 bg-[#10B981]/10 border border-[#10B981]/20 px-3 py-1 rounded-full text-xs font-semibold text-[#10B981] uppercase tracking-widest">
+                IB Partnership
+              </div>
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
+                Premium IB Broker <br />Program
+              </h3>
+              <p className="text-white/60 text-xs sm:text-sm lg:text-base leading-relaxed">
+                Build your trading business with our lucrative Introducing Broker program. Enjoy real-time commission payouts, multi-tier rebate structures, and advanced IB portal analytics.
+              </p>
+              <ul className="space-y-2 text-xs md:text-sm text-white/80">
+                <li className="flex items-center space-x-3">
+                  <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
+                  <span>Highest rebate rates in the industry</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
+                  <span>Detailed sub-IB reporting and analytics</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
+                  <span>Instant commission withdrawals</span>
+                </li>
+              </ul>
+              <button className="flex items-center space-x-2 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2.5 md:px-6 md:py-3 rounded-xl text-[10px] md:text-xs font-semibold text-white transition-all">
+                <span>Become an IB</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#10B981]" />
+              </button>
+            </div>
+            
+            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden self-stretch flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
+              <div className="flex justify-between items-center pb-4 border-b border-white/5 mb-4">
+                <span className="text-xs font-bold text-white/50 tracking-widest uppercase">IB Dashboard Preview</span>
+                <span className="text-[10px] text-[#10B981] border border-[#10B981]/30 bg-[#10B981]/10 px-2 py-0.5 rounded font-bold">Level 3 IB</span>
+              </div>
+              
+              <div className="flex-grow flex flex-col justify-center space-y-4">
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-white/[0.02] border border-white/5 rounded-xl p-4">
+                    <div className="text-[10px] text-white/40 uppercase tracking-widest mb-1">Total Rebate</div>
+                    <div className="text-xl font-extrabold text-white">$12,450.00</div>
+                    <div className="text-[10px] text-green-400 mt-1">↑ 14% this month</div>
+                  </div>
+                  <div className="bg-white/[0.02] border border-white/5 rounded-xl p-4">
+                    <div className="text-[10px] text-white/40 uppercase tracking-widest mb-1">Active Clients</div>
+                    <div className="text-xl font-extrabold text-white">142</div>
+                    <div className="text-[10px] text-green-400 mt-1">↑ +12 this month</div>
+                  </div>
+                </div>
+
+                <div className="bg-white/[0.02] border border-white/5 rounded-xl p-3 flex flex-col space-y-2">
+                  <div className="flex justify-between items-center text-[10px] text-white/40 uppercase tracking-widest">
+                    <span>Recent Commissions</span>
+                    <span>Lots</span>
+                  </div>
+                  <div className="flex justify-between items-center text-xs">
+                    <div className="flex items-center space-x-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                      <span className="text-white/80">Client #8821</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <span className="font-mono text-white/60">2.50</span>
+                      <span className="text-green-400 font-bold">+$50.00</span>
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center text-xs">
+                    <div className="flex items-center space-x-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                      <span className="text-white/80">Client #7109</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <span className="font-mono text-white/60">1.00</span>
+                      <span className="text-green-400 font-bold">+$20.00</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 6: Copy Trading */}
+          <div className="gsap-card relative md:absolute md:inset-x-4 md:top-0 md:bottom-0 z-60 bg-[#0c0c0e]/98 border border-white/10 rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-10 shadow-[0_30px_70px_rgba(0,0,0,0.95)] transition-[border-color,background-color,box-shadow] duration-300 overflow-hidden w-full md:w-auto">
+            <div className="flex-grow lg:w-1/2 space-y-6">
+              <div className="inline-flex items-center space-x-2 bg-[#10B981]/10 border border-[#10B981]/20 px-3 py-1 rounded-full text-xs font-semibold text-[#10B981] uppercase tracking-widest">
+                Social Trading
+              </div>
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
+                Advanced Copy <br />Trading Network
+              </h3>
+              <p className="text-white/60 text-xs sm:text-sm lg:text-base leading-relaxed">
+                Connect with top performing traders globally. Mirror successful strategies in real-time or become a strategy provider to earn performance fees from your followers.
+              </p>
+              <ul className="space-y-2 text-xs md:text-sm text-white/80">
+                <li className="flex items-center space-x-3">
+                  <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
+                  <span>Zero-delay trade execution mirroring</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
+                  <span>Flexible risk management and stop-loss controls</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
+                  <span>Transparent strategy performance history</span>
+                </li>
+              </ul>
+              <button className="flex items-center space-x-2 bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2.5 md:px-6 md:py-3 rounded-xl text-[10px] md:text-xs font-semibold text-white transition-all">
+                <span>Start Copying</span>
+                <ArrowRight className="w-3.5 h-3.5 text-[#10B981]" />
+              </button>
+            </div>
+            
+            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden self-stretch flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
+              <div className="flex justify-between items-center pb-4 border-b border-white/5 mb-4">
+                <span className="text-xs font-bold text-white/50 tracking-widest uppercase">Top Strategy Providers</span>
+                <span className="text-[10px] text-green-400 bg-green-500/10 px-2 py-0.5 rounded font-bold">Live Data</span>
+              </div>
+              
+              {/* Leaderboard Mockup */}
+              <div className="flex-grow flex flex-col justify-center space-y-3">
+                {/* Trader 1 */}
+                <div className="bg-white/[0.02] border border-white/5 rounded-xl p-3 flex items-center justify-between hover:bg-white/[0.04] transition-colors">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center text-white font-bold text-xs">AL</div>
+                    <div>
+                      <div className="text-xs font-bold text-white">Alex_FX</div>
+                      <div className="text-[10px] text-white/40">Risk Level 3</div>
+                    </div>
+                  </div>
+                  <div className="text-right flex items-center space-x-4">
+                    <div>
+                      <div className="text-xs font-extrabold text-green-400">+340%</div>
+                      <div className="text-[10px] text-white/40">12M ROI</div>
+                    </div>
+                    <button className="bg-[#10B981]/20 hover:bg-[#10B981]/30 text-[#10B981] text-[10px] font-bold px-3 py-1.5 rounded-lg transition-colors">Copy</button>
+                  </div>
+                </div>
+
+                {/* Trader 2 */}
+                <div className="bg-white/[0.02] border border-white/5 rounded-xl p-3 flex items-center justify-between hover:bg-white/[0.04] transition-colors">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-white font-bold text-xs">MR</div>
+                    <div>
+                      <div className="text-xs font-bold text-white">Macro_Pro</div>
+                      <div className="text-[10px] text-white/40">Risk Level 4</div>
+                    </div>
+                  </div>
+                  <div className="text-right flex items-center space-x-4">
+                    <div>
+                      <div className="text-xs font-extrabold text-green-400">+215%</div>
+                      <div className="text-[10px] text-white/40">12M ROI</div>
+                    </div>
+                    <button className="bg-[#10B981]/20 hover:bg-[#10B981]/30 text-[#10B981] text-[10px] font-bold px-3 py-1.5 rounded-lg transition-colors">Copy</button>
+                  </div>
+                </div>
+
+                {/* Trader 3 */}
+                <div className="bg-white/[0.02] border border-white/5 rounded-xl p-3 flex items-center justify-between hover:bg-white/[0.04] transition-colors opacity-70">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-white font-bold text-xs">SJ</div>
+                    <div>
+                      <div className="text-xs font-bold text-white">Sniper_J</div>
+                      <div className="text-[10px] text-white/40">Risk Level 2</div>
+                    </div>
+                  </div>
+                  <div className="text-right flex items-center space-x-4">
+                    <div>
+                      <div className="text-xs font-extrabold text-green-400">+180%</div>
+                      <div className="text-[10px] text-white/40">12M ROI</div>
+                    </div>
+                    <button className="bg-[#10B981]/20 hover:bg-[#10B981]/30 text-[#10B981] text-[10px] font-bold px-3 py-1.5 rounded-lg transition-colors">Copy</button>
                   </div>
                 </div>
               </div>

@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pippulse FX - Premium Forex Broker",
+  title: "Premium Forex Broker",
   description: "Next-Gen Forex Execution & Live Trading Intelligence. Access Standard and Premium accounts, claim Welcome Bonuses, track live open trades, and manage multi-asset assets.",
 };
 
