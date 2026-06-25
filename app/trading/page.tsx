@@ -401,11 +401,14 @@ export default function Trading() {
       <main className="relative z-10 max-w-[1240px] mx-auto px-4 pt-12 pb-24">
         
         {/* Page Headings */}
-        <div className="text-center max-w-4xl mx-auto mb-16">
-          <h1 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-center tracking-tight leading-[1.1] mb-6">
+        <div className="relative text-center max-w-4xl mx-auto mb-16">
+          {/* Center Green Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-[#10B981] opacity-20 blur-[100px] md:blur-[140px] rounded-full pointer-events-none z-0"></div>
+          
+          <h1 className="relative text-4xl md:text-5xl lg:text-[56px] font-bold text-center tracking-tight leading-[1.1] mb-6 z-10">
             Discover Global Market Opportunities
           </h1>
-          <p className="text-white/60 text-center text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="relative text-white/60 text-center text-base md:text-lg max-w-2xl mx-auto leading-relaxed z-10">
             Trade Hundreds of CFD Stocks, Forex, and Commodities on One Unified Account.
           </p>
         </div>

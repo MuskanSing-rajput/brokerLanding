@@ -190,7 +190,7 @@ export default function AboutPage() {
         {/* Background Dashboard Image */}
         <div className="absolute inset-0 z-0 opacity-40">
           <Image 
-            src="/dashboard1.png" 
+            src="/dashboard1.webp" 
             alt="Dashboard Background" 
             layout="fill" 
             objectFit="cover" 
@@ -381,9 +381,9 @@ export default function AboutPage() {
       <section className="py-8 relative z-10 overflow-hidden bg-[#81E962]">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="relative order-2 lg:order-1 max-w-lg mx-auto lg:max-w-none scale-[1.4] lg:scale-[1.8] lg:translate-x-8">
+            <div className="relative order-2 lg:order-1 max-w-lg mx-auto lg:max-w-none">
                <Image 
-                src="/about2.png" 
+                src="/about2_v2.png" 
                 alt="Pippulse FX Mobile App" 
                 width={800}
                 height={600}

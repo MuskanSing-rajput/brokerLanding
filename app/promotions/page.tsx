@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronDown, Monitor, Smartphone, Check, ArrowUpRight, Menu, X, Gift, Award, Coins, MapPin, Zap, Layers, Trophy } from "lucide-react";
 
 export default function PromotionsPage() {
@@ -195,10 +196,24 @@ export default function PromotionsPage() {
       )}
 
       {/* Hero Section */}
-      <section className="relative pt-10 pb-16 md:pt-14 md:pb-24 max-w-[1200px] mx-auto px-4 text-center z-10">
-        <h1 className="text-5xl md:text-7xl lg:text-[80px] font-extrabold tracking-tight leading-[1.05] mb-4 max-w-5xl mx-auto">
-          A bonus program that<br />evolves with your trading
-        </h1>
+      <section className="relative pt-10 pb-16 md:pt-14 md:pb-24 overflow-hidden z-10 flex flex-col items-center min-h-[600px] justify-center">
+        {/* Background Bonus Image */}
+        <div className="absolute inset-0 z-0 opacity-40">
+          <Image 
+            src="/bonus.webp" 
+            alt="Bonus Background" 
+            fill
+            className="object-cover object-center [mask-image:linear-gradient(to_bottom,black_40%,transparent_100%)]"
+            priority
+          />
+          {/* Gradient Overlay for seamless blending */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black z-10 pointer-events-none"></div>
+        </div>
+
+        <div className="relative z-20 max-w-[1200px] mx-auto px-4 text-center">
+          <h1 className="text-5xl md:text-7xl lg:text-[80px] font-extrabold tracking-tight leading-[1.05] mb-4 max-w-5xl mx-auto">
+            A bonus program that<br />evolves with your trading
+          </h1>
         <p className="text-white/40 text-base md:text-lg font-medium tracking-widest uppercase mb-4">
           Up to
         </p>
@@ -227,6 +242,7 @@ export default function PromotionsPage() {
           >
             Deposit & Earn
           </Link>
+        </div>
         </div>
       </section>
 

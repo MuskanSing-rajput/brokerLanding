@@ -185,21 +185,35 @@ export default function MT5Windows() {
       )}
 
       {/* Hero Section */}
-      <section className="relative pt-16 pb-8 md:pt-20 md:pb-10 max-w-[1200px] mx-auto px-4 text-center z-10">
-        <h1 className="text-5xl md:text-6xl lg:text-[64px] font-bold tracking-tight leading-[1.1] mb-6 max-w-4xl mx-auto">
-          MT5 for Windows<br />Features, Download, and Installation
-        </h1>
-        <p className="text-white/60 text-base md:text-lg max-w-3xl mx-auto mb-10 leading-relaxed">
-          Trade with enhanced security, fast order execution, and a user-friendly interface on your Windows computer.
-        </p>
-        <div>
-          <Link 
-            href="#" 
-            className="inline-flex items-center space-x-2.5 bg-[#10B981] hover:bg-[#059669] text-white px-8 py-4 rounded-xl font-bold tracking-wide transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:scale-[1.02]"
-          >
-            <span>Download MT5 for Windows</span>
-            <ArrowUpRight className="w-5 h-5" />
-          </Link>
+      <section className="relative pt-16 pb-16 md:pt-32 md:pb-28 text-center z-10 overflow-hidden min-h-[450px] flex flex-col justify-center border-b border-white/5">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src="/mt5.jpeg" 
+            alt="MT5 Background" 
+            fill 
+            className="object-cover opacity-40" 
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#050507]/70 via-[#050507]/30 to-[#050507]"></div>
+        </div>
+
+        <div className="relative z-10 max-w-[1200px] mx-auto px-4 w-full">
+          <h1 className="text-5xl md:text-6xl lg:text-[64px] font-bold tracking-tight leading-[1.1] mb-6 max-w-4xl mx-auto drop-shadow-lg text-white">
+            MT5 for Windows<br />Features, Download, and Installation
+          </h1>
+          <p className="text-white/70 text-base md:text-lg max-w-3xl mx-auto mb-10 leading-relaxed drop-shadow">
+            Trade with enhanced security, fast order execution, and a user-friendly interface on your Windows computer.
+          </p>
+          <div>
+            <Link 
+              href="#" 
+              className="inline-flex items-center space-x-2.5 bg-[#10B981] hover:bg-[#059669] text-white px-8 py-4 rounded-xl font-bold tracking-wide transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:scale-[1.02]"
+            >
+              <span>Download MT5 for Windows</span>
+              <ArrowUpRight className="w-5 h-5" />
+            </Link>
+          </div>
         </div>
       </section>
 

@@ -488,7 +488,7 @@ export default function PartnersPage() {
 
             <div className="relative rounded-3xl overflow-hidden order-1 lg:order-2 max-w-[460px] mx-auto w-full scale-[1.05] translate-y-4">
               <Image
-                src="/about2.png"
+                src="/about2_v2.png"
                 alt="Pippulse FX Mobile App"
                 width={540}
                 height={900}

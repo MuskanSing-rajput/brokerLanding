@@ -191,24 +191,27 @@ export default function PippulsefxAppPage() {
 
       {/* SECTION 1: HERO (Image Left, Text Right) */}
       <section className="relative pt-10 pb-12 max-w-[1240px] mx-auto px-6 md:px-12 z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        {/* Subtle Green Glow Background */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] bg-[#10B981] opacity-20 blur-[100px] md:blur-[140px] rounded-full pointer-events-none z-0"></div>
+
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
           {/* Left Column: Hand holding Smartphone Mockup */}
           <div className="lg:col-span-7 flex justify-start relative">
             <div className="relative w-full max-w-[calc(100%-20px)] h-[350px] md:h-[500px] overflow-hidden">
               <div className={`absolute inset-0 transition-opacity duration-1000 ${activeImage === 0 ? "opacity-100" : "opacity-0"}`}>
                 <Image
-                  src="/pipapp.png"
+                  src="/pipapp_v2.png"
                   alt="Pippulsefx App Hand Mockup"
                   fill
-                  className="object-contain object-left scale-[1.0]"
+                  className="object-contain object-left scale-[1.0] md:scale-[1.05] lg:scale-[1.15] translate-x-4"
                   priority
                 />
               </div>
               <div className={`absolute inset-0 transition-opacity duration-1000 ${activeImage === 1 ? "opacity-100" : "opacity-0"}`}>
                 <Image
-                  src="/mob.png"
-                  alt="Pippulsefx App Phone Mockup"
+                  src="/about2_v2.png"
+                  alt="Pippulsefx App Dashboard Mockup"
                   fill
                   className="object-contain object-left scale-[1.0]"
                   priority
