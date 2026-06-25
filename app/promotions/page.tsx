@@ -200,7 +200,7 @@ export default function PromotionsPage() {
         {/* Background Bonus Image */}
         <div className="absolute inset-0 z-0 opacity-40">
           <Image 
-            src="/bonus.webp" 
+            src="/bonus.avif" 
             alt="Bonus Background" 
             fill
             className="object-cover object-center [mask-image:linear-gradient(to_bottom,black_40%,transparent_100%)]"
