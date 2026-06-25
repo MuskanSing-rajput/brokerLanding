@@ -439,7 +439,7 @@ export default function Home() {
 
          <div className="relative z-10 max-w-[1200px] mx-auto px-4 w-full pt-20 pb-20">
             {/* Title in left side */}
-            <div className="text-left max-w-3xl -ml-[22px]">
+            <div className="text-left max-w-3xl -ml-[32px]">
                <h2 className="text-5xl md:text-[72px] font-bold tracking-tight leading-tight text-white mb-6 min-h-[160px] md:min-h-[180px] xl:min-h-0 whitespace-pre-line">
                  {typedGlobeTitle}<span className="animate-pulse text-[#A4FE46]">_</span>
                </h2>

@@ -220,7 +220,7 @@ export default function PromotionsPage() {
         
         {/* Styled 3D Gold Number Display */}
         <div className="relative inline-block mb-4">
-          <div className="text-7xl md:text-9xl lg:text-[130px] font-black tracking-tight bg-gradient-to-b from-[#FFE4A0] via-[#F3C048] to-[#996C00] bg-clip-text text-transparent filter drop-shadow-[0_4px_12px_rgba(243,192,72,0.35)] animate-[pulse_3s_infinite]">
+          <div className="text-7xl md:text-9xl lg:text-[130px] font-black tracking-tight bg-gradient-to-b from-[#FFE4A0] via-[#F3C048] to-[#996C00] bg-clip-text text-transparent filter drop-shadow-[0_4px_12px_rgba(243,192,72,0.35)]">
             $10,000
           </div>
         </div>
