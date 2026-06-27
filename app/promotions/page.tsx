@@ -50,8 +50,8 @@ export default function PromotionsPage() {
     <div className="relative min-h-screen bg-black text-white font-sans overflow-x-hidden selection:bg-[#10B981]/30">
       
       {/* Background Glows */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#A4FE46]/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
-      <div className="absolute top-[30%] left-0 w-[600px] h-[600px] bg-[#10B981]/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-[#A4FE46]/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
+      <div className="absolute top-[30%] left-0 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-[#10B981]/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
       <div className="absolute bottom-[10%] right-[10%] w-[400px] h-[400px] bg-[#A4FE46]/3 rounded-full blur-[130px] pointer-events-none z-0"></div>
 
       {/* Localized Banner Alert */}
@@ -95,7 +95,7 @@ export default function PromotionsPage() {
             </button>
             
             {platformDropdownOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/3 mt-4 w-[420px] bg-[#0c0c0e]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(16,185,129,0.15)] z-50 flex gap-6 animate-[fadeInUp_0.25s_ease-out]">
+              <div className="absolute top-full left-1/2 -translate-x-1/3 mt-4 w-[90vw] sm:w-[420px] bg-[#0c0c0e]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(16,185,129,0.15)] z-50 flex gap-6 animate-[fadeInUp_0.25s_ease-out]">
                 <div className="flex-[1.2] space-y-4">
                   <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">Pippulsefx Platforms</h4>
                   <div className="flex flex-col space-y-1">
@@ -250,7 +250,7 @@ export default function PromotionsPage() {
       <section className="bg-[#050507] border-t border-b border-white/5 py-24 relative z-10">
         <div className="max-w-[1240px] mx-auto px-6">
           <div className="text-center mb-16 space-y-3">
-            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">Select your reward structure</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">Select your reward structure</h2>
             <p className="text-white/40 text-sm max-w-lg mx-auto leading-relaxed">
               Earn matches on your initial investments, unlock milestone rewards, and move up tiers with loyalty volume.
             </p>
@@ -352,7 +352,7 @@ export default function PromotionsPage() {
       {/* How to be part of the bonus program */}
       <section className="py-24 max-w-[1240px] mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">How to be part of the bonus program</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3">How to be part of the bonus program</h2>
           <p className="text-white/40 text-sm uppercase tracking-widest font-semibold">Simple Steps to Qualify</p>
         </div>
 
@@ -440,7 +440,7 @@ export default function PromotionsPage() {
       <section className="bg-[#050507] border-t border-b border-white/5 py-24 relative z-10">
         <div className="max-w-[1040px] mx-auto px-6">
           <div className="text-center mb-16 space-y-3">
-            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">Bonus Calculation Examples</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">Bonus Calculation Examples</h2>
             <p className="text-white/40 text-sm max-w-lg mx-auto leading-relaxed">
               Here is how trading volume and deposit values translate into your active trading equity.
             </p>

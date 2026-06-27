@@ -49,8 +49,8 @@ export default function PippulsefxAppPage() {
     <div className="relative min-h-screen bg-black text-white font-sans overflow-x-hidden selection:bg-[#10B981]/30">
 
       {/* Background Glows */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#10B981]/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
-      <div className="absolute top-[40%] left-0 w-[500px] h-[500px] bg-[#A4FE46]/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-[#10B981]/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
+      <div className="absolute top-[40%] left-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-[#A4FE46]/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
 
       {/* Navbar */}
       <header className="relative z-20 flex items-center justify-between px-6 md:px-12 py-6 max-w-[1200px] w-full mx-auto">
@@ -83,7 +83,7 @@ export default function PippulsefxAppPage() {
             </button>
 
             {platformDropdownOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/3 mt-4 w-[420px] bg-[#0c0c0e]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(16,185,129,0.15)] z-50 flex gap-6 animate-[fadeInUp_0.25s_ease-out]">
+              <div className="absolute top-full left-1/2 -translate-x-1/3 mt-4 w-[90vw] sm:w-[420px] bg-[#0c0c0e]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(16,185,129,0.15)] z-50 flex gap-6 animate-[fadeInUp_0.25s_ease-out]">
                 <div className="flex-[1.2] space-y-4">
                   <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">Pippulsefx Platforms</h4>
                   <div className="flex flex-col space-y-1">
@@ -192,7 +192,7 @@ export default function PippulsefxAppPage() {
       {/* SECTION 1: HERO (Image Left, Text Right) */}
       <section className="relative pt-10 pb-12 max-w-[1240px] mx-auto px-6 md:px-12 z-10">
         {/* Subtle Green Glow Background */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] bg-[#10B981] opacity-20 blur-[100px] md:blur-[140px] rounded-full pointer-events-none z-0"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] md:w-[800px] md:h-[800px] bg-[#10B981] opacity-20 blur-[100px] md:blur-[140px] rounded-full pointer-events-none z-0"></div>
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
@@ -223,7 +223,7 @@ export default function PippulsefxAppPage() {
           {/* Right Column: Title & Downloads */}
           <div className="lg:col-span-5 space-y-8 text-left">
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight leading-[1.1] text-white">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight leading-[1.1] text-white">
                 Pippulsefx App<br />
                 <span className="bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent">Trade Anywhere, Anytime.</span>
               </h1>
@@ -280,7 +280,7 @@ export default function PippulsefxAppPage() {
         <div className="max-w-[1240px] mx-auto px-6 md:px-12">
 
           <div className="text-center mb-16 space-y-3">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
               Fast, secure, and friendly
             </h2>
             <p className="text-white/40 text-sm md:text-base font-medium max-w-xl mx-auto">
@@ -356,7 +356,7 @@ export default function PippulsefxAppPage() {
 
           {/* Left Side: App Screen Close-up */}
           <div className="lg:col-span-5 flex justify-center relative">
-            <div className="relative w-full max-w-[420px] h-[500px] overflow-hidden">
+            <div className="relative w-full max-w-[420px] h-[350px] md:h-[500px] overflow-hidden">
               <Image
                 src="/hand.png"
                 alt="Pippulsefx App Hand Mockup"
@@ -370,7 +370,7 @@ export default function PippulsefxAppPage() {
           {/* Right Side: Assistant bullet points */}
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight">
                 Discover your personal trading assistant
               </h2>
               <p className="text-white/60 text-sm md:text-base leading-relaxed">

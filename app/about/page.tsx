@@ -50,8 +50,8 @@ export default function AboutPage() {
     <div className="relative min-h-screen bg-black text-white font-sans overflow-x-hidden selection:bg-[#10B981]/30">
       
       {/* Background Glows */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#A4FE46]/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
-      <div className="absolute top-[30%] left-0 w-[600px] h-[600px] bg-[#10B981]/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-[#A4FE46]/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
+      <div className="absolute top-[30%] left-0 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-[#10B981]/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
       <div className="absolute bottom-[10%] right-[10%] w-[400px] h-[400px] bg-[#A4FE46]/3 rounded-full blur-[130px] pointer-events-none z-0"></div>
 
       {/* Navbar */}
@@ -85,7 +85,7 @@ export default function AboutPage() {
             </button>
             
             {platformDropdownOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/3 mt-4 w-[420px] bg-[#0c0c0e]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(16,185,129,0.15)] z-50 flex gap-6 animate-[fadeInUp_0.25s_ease-out]">
+              <div className="absolute top-full left-1/2 -translate-x-1/3 mt-4 w-[90vw] sm:w-[420px] bg-[#0c0c0e]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(16,185,129,0.15)] z-50 flex gap-6 animate-[fadeInUp_0.25s_ease-out]">
                 <div className="flex-[1.2] space-y-4">
                   <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">Pippulsefx Platforms</h4>
                   <div className="flex flex-col space-y-1">
@@ -202,7 +202,7 @@ export default function AboutPage() {
         </div>
 
         <div className="relative z-20 max-w-[1000px] mx-auto px-6 flex flex-col items-center text-center mt-4 md:mt-8">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] text-white mb-8 drop-shadow-2xl">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] text-white mb-8 drop-shadow-2xl">
             Redefining the standards <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A4FE46] to-[#10B981] filter drop-shadow-[0_0_10px_rgba(164,254,70,0.3)]">of global trading</span>
           </h1>
@@ -243,7 +243,7 @@ export default function AboutPage() {
       <section className="py-24 bg-black relative z-10">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Trade with 1:5000 Leverage</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Trade with 1:5000 Leverage</h2>
             <p className="text-white/70 text-lg max-w-2xl mx-auto">
               Choose the asset class that fits your portfolio and trade seamlessly.
             </p>
@@ -326,7 +326,7 @@ export default function AboutPage() {
       <section className="py-24 bg-[#050507] border-y border-white/5 relative z-10">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Built on strong foundations</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Built on strong foundations</h2>
             <p className="text-white/40 text-sm uppercase tracking-widest font-semibold max-w-2xl mx-auto">
               Our Core Values
             </p>
@@ -392,7 +392,7 @@ export default function AboutPage() {
             </div>
 
             <div className="space-y-8 order-1 lg:order-2">
-              <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight text-black leading-tight">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-black leading-tight">
                 Data-driven performance
               </h2>
               <p className="text-lg text-black/80 leading-relaxed font-medium">

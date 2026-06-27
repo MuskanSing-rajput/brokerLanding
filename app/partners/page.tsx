@@ -24,8 +24,8 @@ export default function PartnersPage() {
     <div className="relative min-h-screen bg-black text-white font-sans overflow-x-hidden selection:bg-[#10B981]/30">
 
       {/* Background Glows */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#A4FE46]/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
-      <div className="absolute top-[30%] left-0 w-[600px] h-[600px] bg-[#10B981]/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-[#A4FE46]/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
+      <div className="absolute top-[30%] left-0 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-[#10B981]/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
       <div className="absolute bottom-[10%] right-[10%] w-[400px] h-[400px] bg-[#A4FE46]/3 rounded-full blur-[130px] pointer-events-none z-0"></div>
 
       {/* Navbar */}
@@ -59,7 +59,7 @@ export default function PartnersPage() {
             </button>
 
             {platformDropdownOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/3 mt-4 w-[420px] bg-[#0c0c0e]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(16,185,129,0.15)] z-50 flex gap-6 animate-[fadeInUp_0.25s_ease-out]">
+              <div className="absolute top-full left-1/2 -translate-x-1/3 mt-4 w-[90vw] sm:w-[420px] bg-[#0c0c0e]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(16,185,129,0.15)] z-50 flex gap-6 animate-[fadeInUp_0.25s_ease-out]">
                 <div className="flex-[1.2] space-y-4">
                   <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">Pippulsefx Platforms</h4>
                   <div className="flex flex-col space-y-1">
@@ -176,7 +176,7 @@ export default function PartnersPage() {
 
         <div className="relative z-20 max-w-[1000px] mx-auto px-6 flex flex-col items-center text-center">
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-white mb-6 drop-shadow-2xl">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-white mb-6 drop-shadow-2xl">
             A partnership that pays off.<br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#A4FE46] to-[#10B981] filter drop-shadow-[0_0_10px_rgba(164,254,70,0.3)]">Take your earning potential further.</span>
           </h1>
@@ -195,7 +195,7 @@ export default function PartnersPage() {
       <section className="pt-12 pb-24 bg-[#050507] border-y border-white/5 relative z-10 -mt-16">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">A partnership program built for your growth</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">A partnership program built for your growth</h2>
             <p className="text-white/60 text-lg max-w-2xl mx-auto">
               Access the tools, support, and financial rewards you need to grow your business, backed by best-in-market commission schemes.
             </p>
@@ -256,7 +256,7 @@ export default function PartnersPage() {
       <section className="py-24 relative z-10 overflow-hidden bg-black">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">One program, dozens of ways to earn</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">One program, dozens of ways to earn</h2>
           </div>
 
           <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 bg-gradient-to-br from-[#0c0c0e] to-[#050507] shadow-2xl p-12 lg:p-20">
@@ -324,7 +324,7 @@ export default function PartnersPage() {
 
             <div className="space-y-10 order-1 lg:order-2">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Copy Trading</h2>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Copy Trading</h2>
                 <p className="text-xl text-white/70 leading-relaxed">
                   Mirror other traders or share your own strategies. Explore smarter trading for everyone.
                 </p>
@@ -357,7 +357,7 @@ export default function PartnersPage() {
       <section className="py-24 relative z-10 overflow-hidden bg-black">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Powerful tools designed to fuel your growth</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Powerful tools designed to fuel your growth</h2>
             <p className="text-white/60 text-lg max-w-2xl mx-auto">
               Leverage a whole host of tools and services that help you attract, convert, and retain clients.
             </p>
@@ -395,7 +395,7 @@ export default function PartnersPage() {
       <section className="py-24 bg-[#050507] border-y border-white/5 relative z-10">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white">Hear from our global network of partners</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">Hear from our global network of partners</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -438,7 +438,7 @@ export default function PartnersPage() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-1 order-2 lg:order-1">
-              <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight text-black leading-tight">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-black leading-tight">
                 The Pippulse FX App
               </h2>
               <p className="text-lg text-black/80 leading-relaxed font-medium">

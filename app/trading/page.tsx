@@ -256,8 +256,8 @@ export default function Trading() {
     <div className="relative min-h-screen bg-black text-white font-sans overflow-x-hidden selection:bg-[#10B981]/30">
       
       {/* Background Glows */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#A4FE46]/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
-      <div className="absolute top-[20%] left-0 w-[500px] h-[500px] bg-[#10B981]/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
+      <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-[#A4FE46]/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
+      <div className="absolute top-[20%] left-0 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-[#10B981]/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
 
       {/* Navbar */}
       <header className="relative z-20 flex items-center justify-between px-6 md:px-12 py-6 max-w-[1200px] w-full mx-auto">
@@ -290,7 +290,7 @@ export default function Trading() {
             </button>
             
             {platformDropdownOpen && (
-              <div className="absolute top-full left-1/2 -translate-x-1/3 mt-4 w-[420px] bg-[#0c0c0e]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(16,185,129,0.15)] z-50 flex gap-6 animate-[fadeInUp_0.25s_ease-out]">
+              <div className="absolute top-full left-1/2 -translate-x-1/3 mt-4 w-[90vw] sm:w-[420px] bg-[#0c0c0e]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(16,185,129,0.15)] z-50 flex gap-6 animate-[fadeInUp_0.25s_ease-out]">
                 {/* Column 1 */}
                 <div className="flex-[1.2] space-y-4">
                   <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">Pippulsefx Platforms</h4>
@@ -403,9 +403,9 @@ export default function Trading() {
         {/* Page Headings */}
         <div className="relative text-center max-w-4xl mx-auto mb-16">
           {/* Center Green Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-[#10B981] opacity-20 blur-[100px] md:blur-[140px] rounded-full pointer-events-none z-0"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] md:w-[600px] md:h-[600px] bg-[#10B981] opacity-20 blur-[100px] md:blur-[140px] rounded-full pointer-events-none z-0"></div>
           
-          <h1 className="relative text-4xl md:text-5xl lg:text-[56px] font-bold text-center tracking-tight leading-[1.1] mb-6 z-10">
+          <h1 className="relative text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-center tracking-tight leading-[1.1] mb-6 z-10">
             Discover Global Market Opportunities
           </h1>
           <p className="relative text-white/60 text-center text-base md:text-lg max-w-2xl mx-auto leading-relaxed z-10">

@@ -264,7 +264,7 @@ export default function Home() {
               </button>
 
               {platformDropdownOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/3 mt-4 w-[420px] bg-[#0c0c0e]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(16,185,129,0.15)] z-50 flex gap-6 animate-[fadeInUp_0.25s_ease-out]">
+                <div className="absolute top-full left-1/2 -translate-x-1/3 mt-4 w-[90vw] sm:w-[420px] bg-[#0c0c0e]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(16,185,129,0.15)] z-50 flex gap-6 animate-[fadeInUp_0.25s_ease-out]">
                   {/* Column 1 */}
                   <div className="flex-[1.2] space-y-4">
                     <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">Pippulsefx Platforms</h4>
@@ -391,7 +391,7 @@ export default function Home() {
 
           {/* Scroll Down Button to hide video logo */}
           <button
-            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => secondHeroRef.current?.scrollIntoView({ behavior: 'smooth' })}
             className="absolute bottom-[-4px] right-[96px] md:bottom-[12px] md:right-[112px] z-20 pointer-events-auto group flex items-center justify-center bg-black/90 backdrop-blur-xl border border-[#10B981]/30 text-white/90 hover:text-white w-14 h-14 md:w-16 md:h-16 rounded-full hover:bg-black transition-all shadow-[0_0_30px_rgba(0,0,0,0.8)] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)]"
             aria-label="Scroll Down"
           >
@@ -403,7 +403,7 @@ export default function Home() {
         <main className="relative z-10 flex-grow flex flex-col items-center pt-[140px] px-4 w-full max-w-[1200px] mx-auto">
 
           {/* Headlines */}
-          <h1 className="text-5xl md:text-6xl lg:text-[68px] font-bold text-center tracking-tight leading-[1.1] mb-[15px]">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[68px] font-bold text-center tracking-tight leading-[1.1] mb-[15px]">
             Next-Gen Forex Execution & <br className="hidden md:block" />
             Live Trading Intelligence
           </h1>
@@ -439,14 +439,14 @@ export default function Home() {
 
          <div className="relative z-10 max-w-[1200px] mx-auto px-4 w-full pt-20 pb-20">
             {/* Title in left side */}
-            <div className="text-left max-w-3xl -ml-[32px]">
-               <h2 className="text-5xl md:text-[72px] font-bold tracking-tight leading-tight text-white mb-6 min-h-[160px] md:min-h-[180px] xl:min-h-0 whitespace-pre-line">
+            <div className="text-left max-w-3xl">
+               <h2 className="text-[2.2rem] sm:text-4xl md:text-[72px] font-bold tracking-tight leading-tight text-white mb-6 min-h-[160px] md:min-h-[180px] xl:min-h-0 whitespace-pre-line">
                  {typedGlobeTitle}<span className="animate-pulse text-[#A4FE46]">_</span>
                </h2>
-               <p className="text-white/80 text-xl md:text-2xl max-w-2xl leading-relaxed mb-10">
+               <p className="text-white/80 text-lg sm:text-xl md:text-2xl max-w-2xl leading-relaxed mb-10">
                  Join thousands of traders worldwide using our seamless, lightning-fast platform. No borders, no limits.
                </p>
-               <button className="flex items-center space-x-2 bg-[#A4FE46] text-black px-10 py-4 rounded-xl font-bold hover:bg-[#8ee036] transition-all shadow-[0_0_25px_rgba(164,254,70,0.4)] hover:scale-105">
+               <button className="flex items-center justify-center space-x-2 bg-[#A4FE46] text-black w-full sm:w-auto px-8 py-4 rounded-xl font-bold hover:bg-[#8ee036] transition-all shadow-[0_0_25px_rgba(164,254,70,0.4)] hover:scale-105">
                  <span>Explore Global Markets</span>
                  <ArrowUpRight className="w-5 h-5" />
                </button>
@@ -546,7 +546,7 @@ export default function Home() {
       <section id="about" className="w-full bg-black border-t border-white/5 relative z-20">
         <div className="max-w-[1240px] mx-auto pt-10 md:pt-20 pb-10 md:pb-16 px-4 relative">
           {/* Background Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[radial-gradient(circle,_rgba(16, 185, 129,0.05)_0%,_transparent_60%)] pointer-events-none"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] md:w-[800px] md:h-[800px] bg-[radial-gradient(circle,_rgba(16, 185, 129,0.05)_0%,_transparent_60%)] pointer-events-none"></div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-24 relative z-10 items-center">
             {/* Left Content */}
@@ -555,7 +555,7 @@ export default function Home() {
                 <div className="h-[1px] w-12 bg-[#10B981]"></div>
                 <span className="text-[#10B981] font-semibold tracking-widest uppercase text-sm">About Pippulse FX</span>
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-8">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-8">
                 Institutional-Grade <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#059669] to-[#A4FE46]">Forex Execution</span>
               </h2>
@@ -623,7 +623,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 gap-6">
 
             {/* Card 1: Real-time Market Insight (cols-span-3) */}
-            <div className="md:col-span-3 lg:col-span-3 bg-[#0c0c0e]/95 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden relative group/bento hover:border-[#10B981]/30 hover:-translate-y-1.5 transition-all duration-500 ease-out shadow-xl min-h-[460px] bento-card-animate bento-card" style={{ animationDelay: "100ms" }}>
+            <div className="md:col-span-3 lg:col-span-3 bg-[#0c0c0e]/95 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden relative group/bento hover:border-[#10B981]/30 hover:-translate-y-1.5 transition-all duration-500 ease-out shadow-xl min-h-[380px] md:min-h-[460px] bento-card-animate bento-card" style={{ animationDelay: "100ms" }}>
               <div className="bento-card-glow" />
 
               <div className="mb-6 relative z-10">
@@ -634,7 +634,7 @@ export default function Home() {
               </div>
 
               {/* Image Container */}
-              <div className="relative w-full h-[260px] rounded-2xl overflow-hidden border border-white/10 bg-transparent shadow-inner mt-auto transition-transform duration-500 group-hover/bento:scale-[1.02] relative z-10">
+              <div className="relative w-full h-[200px] md:h-[260px] rounded-2xl overflow-hidden border border-white/10 bg-transparent shadow-inner mt-auto transition-transform duration-500 group-hover/bento:scale-[1.02] relative z-10">
                 <Image
                   src="/dashboard1.webp"
                   alt="Real-time Market Insight"
@@ -645,7 +645,7 @@ export default function Home() {
             </div>
 
             {/* Card 2: Advanced Account Analysis (cols-span-2) */}
-            <div className="md:col-span-3 lg:col-span-2 bg-[#0c0c0e]/95 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden relative group/bento hover:border-[#10B981]/30 hover:-translate-y-1.5 transition-all duration-500 ease-out shadow-xl min-h-[460px] bento-card-animate bento-card" style={{ animationDelay: "200ms" }}>
+            <div className="md:col-span-3 lg:col-span-2 bg-[#0c0c0e]/95 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden relative group/bento hover:border-[#10B981]/30 hover:-translate-y-1.5 transition-all duration-500 ease-out shadow-xl min-h-[380px] md:min-h-[460px] bento-card-animate bento-card" style={{ animationDelay: "200ms" }}>
               <div className="bento-card-glow" />
 
               <div className="mb-6 relative z-10">
@@ -656,7 +656,7 @@ export default function Home() {
               </div>
 
               {/* Image Container */}
-              <div className="relative w-full h-[260px] rounded-2xl overflow-hidden border border-white/10 bg-transparent shadow-inner mt-auto transition-transform duration-500 group-hover/bento:scale-[1.02] relative z-10">
+              <div className="relative w-full h-[200px] md:h-[260px] rounded-2xl overflow-hidden border border-white/10 bg-transparent shadow-inner mt-auto transition-transform duration-500 group-hover/bento:scale-[1.02] relative z-10">
                 <Image
                   src="/dashboard2_v2.webp"
                   alt="Advanced Account Analysis"
@@ -667,10 +667,10 @@ export default function Home() {
             </div>
 
             {/* Card 3: Portfolio Management (cols-span-2) */}
-            <div className="md:col-span-3 lg:col-span-2 bg-[#0c0c0e]/95 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden relative group/bento hover:border-[#10B981]/30 hover:-translate-y-1.5 transition-all duration-500 ease-out shadow-xl min-h-[460px] bento-card-animate bento-card" style={{ animationDelay: "300ms" }}>
+            <div className="md:col-span-3 lg:col-span-2 bg-[#0c0c0e]/95 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden relative group/bento hover:border-[#10B981]/30 hover:-translate-y-1.5 transition-all duration-500 ease-out shadow-xl min-h-[380px] md:min-h-[460px] bento-card-animate bento-card" style={{ animationDelay: "300ms" }}>
               <div className="bento-card-glow" />
               {/* Classy Top-Left Gradient Glow Overlay */}
-              <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-[radial-gradient(circle_at_top_left,rgba(16, 185, 129,0.18),transparent_65%)] pointer-events-none z-0 transition-opacity duration-500 group-hover/bento:opacity-130"></div>
+              <div className="absolute top-0 left-0 w-[200px] h-[200px] md:w-[400px] md:h-[400px] bg-[radial-gradient(circle_at_top_left,rgba(16, 185, 129,0.18),transparent_65%)] pointer-events-none z-0 transition-opacity duration-500 group-hover/bento:opacity-130"></div>
 
               <div className="mb-8 relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-2 tracking-tight">Portfolio Management</h3>
@@ -725,7 +725,7 @@ export default function Home() {
             </div>
 
             {/* Card 4: Advanced Charting Tools (cols-span-3) */}
-            <div className="md:col-span-3 lg:col-span-3 bg-[#0c0c0e]/95 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden relative group/bento hover:border-[#10B981]/30 hover:-translate-y-1.5 transition-all duration-500 ease-out shadow-xl min-h-[460px] bento-card-animate bento-card" style={{ animationDelay: "400ms" }}>
+            <div className="md:col-span-3 lg:col-span-3 bg-[#0c0c0e]/95 border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col justify-between overflow-hidden relative group/bento hover:border-[#10B981]/30 hover:-translate-y-1.5 transition-all duration-500 ease-out shadow-xl min-h-[380px] md:min-h-[460px] bento-card-animate bento-card" style={{ animationDelay: "400ms" }}>
               <div className="bento-card-glow" />
 
               <div className="mb-6 relative z-10">
@@ -736,7 +736,7 @@ export default function Home() {
               </div>
 
               {/* Image Container */}
-              <div className="relative w-full h-[260px] rounded-2xl overflow-hidden border border-white/10 bg-transparent shadow-inner mt-auto transition-transform duration-500 group-hover/bento:scale-[1.02] relative z-10">
+              <div className="relative w-full h-[200px] md:h-[260px] rounded-2xl overflow-hidden border border-white/10 bg-transparent shadow-inner mt-auto transition-transform duration-500 group-hover/bento:scale-[1.02] relative z-10">
                 <Image
                   src="/dashboard3_v2.webp"
                   alt="Advanced Charting Tools"
