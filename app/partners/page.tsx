@@ -310,10 +310,10 @@ export default function PartnersPage() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#10B981]/20 to-transparent pointer-events-none mix-blend-overlay"></div>
               </div>
 
-              {/* Second Image (copytrading2.webp) */}
+              {/* Second Image (copytrading.png) */}
               <div className="relative w-full max-w-[480px] rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.3)] z-10 bg-[#0a0a0c]">
                 <Image
-                  src="/copytrading2.webp"
+                  src="/copytrading.png"
                   alt="Copy Trading Features"
                   width={800}
                   height={600}
