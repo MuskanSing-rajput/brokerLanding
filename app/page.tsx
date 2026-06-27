@@ -75,7 +75,10 @@ export default function Home() {
 
   // Typing effect for the Globe Section
   useEffect(() => {
-    const globeTitleFull = "Global Markets at\nYour Fingertips.";
+    const isMobile = window.innerWidth < 768;
+    const globeTitleFull = isMobile 
+      ? "Global Markets\nat\nYour Fingertips."
+      : "Global Markets at\nYour Fingertips.";
     let i = 0;
     const interval = setInterval(() => {
       setTypedGlobeTitle(globeTitleFull.slice(0, i));
@@ -440,7 +443,7 @@ export default function Home() {
          <div className="relative z-10 max-w-[1200px] mx-auto px-4 w-full pt-20 pb-20">
             {/* Title in left side */}
             <div className="text-left max-w-3xl">
-               <h2 className="text-[2.2rem] sm:text-4xl md:text-[72px] font-bold tracking-tight leading-tight text-white mb-6 min-h-[160px] md:min-h-[180px] xl:min-h-0 whitespace-pre-line">
+               <h2 className="text-4xl sm:text-5xl md:text-[72px] font-bold tracking-tight leading-tight text-white mb-6 min-h-[160px] md:min-h-[180px] xl:min-h-0 whitespace-pre-line">
                  {typedGlobeTitle}<span className="animate-pulse text-[#A4FE46]">_</span>
                </h2>
                <p className="text-white/80 text-lg sm:text-xl md:text-2xl max-w-2xl leading-relaxed mb-10">
