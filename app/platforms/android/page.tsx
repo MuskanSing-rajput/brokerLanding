@@ -369,31 +369,63 @@ export default function MT5Android() {
       </section>
 
       {/* Main Footer */}
-      <footer className="w-full bg-[#030305] border-t border-white/5 py-12 relative z-10">
-        <div className="max-w-[1240px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-white/40">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-[#059669] to-[#A4FE46] rounded-lg flex items-center justify-center transform -rotate-12 shadow-[0_0_15px_rgba(16, 185, 129,0.3)]">
-              <div className="flex items-end space-x-[2px] h-3.5">
-                <div className="w-1 h-1.5 bg-white/85 rounded-sm"></div>
-                <div className="w-1 h-2.5 bg-white/95 rounded-sm"></div>
-                <div className="w-1 h-3.5 bg-white rounded-sm"></div>
+            <footer className="w-full bg-[#030305] border-t border-white/5 py-12 relative z-20">
+        <div className="max-w-[1240px] mx-auto px-6 md:px-12 flex flex-col gap-8 text-sm text-white/40">
+          
+          {/* Top Row: Brand, Navigation & Legal link */}
+          <div className="flex flex-col md:flex-row items-start justify-between gap-6">
+            {/* Left Brand info */}
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-gradient-to-br from-[#059669] to-[#A4FE46] rounded-lg flex items-center justify-center transform -rotate-12 shadow-[0_0_15px_rgba(16, 185, 129,0.3)]">
+                  <div className="flex items-end space-x-[2px] h-3.5">
+                    <div className="w-1 h-1.5 bg-white/85 rounded-sm"></div>
+                    <div className="w-1 h-2.5 bg-white/95 rounded-sm"></div>
+                    <div className="w-1 h-3.5 bg-white rounded-sm"></div>
+                  </div>
+                </div>
+                <span className="font-bold text-white tracking-wide">Pippulse FX</span>
+              </div>
+              <div className="text-xs text-white/50 space-y-1">
+                <div className="font-bold text-white mb-1">INVESTMINFX LIMITED</div>
+                <div>Sterling Technology Hub, Unit 1, Station 07, La Place Creole Building, Rodney Village, Rodney Bay, Gros Islet</div>
+                <div>Registration number: 2025-00895</div>
+                <div>Corporate email: <a href="mailto:info@investminfx.net" className="hover:text-white transition-colors">info@investminfx.net</a></div>
               </div>
             </div>
-            <span className="font-bold text-white tracking-wide">Pippulse FX</span>
+
+            {/* Right side navigation */}
+            <div className="flex flex-col md:items-end gap-4">
+              <div className="flex flex-wrap gap-6 text-xs md:text-sm">
+                <Link href="/about" className="hover:text-white transition-colors">About Us</Link>
+                <Link href="/#features" className="hover:text-white transition-colors">Features</Link>
+                <Link href="/#dashboard" className="hover:text-white transition-colors">Dashboard</Link>
+                <Link href="/#contact" className="hover:text-white transition-colors">Contact</Link>
+              </div>
+              <Link href="/legal" className="text-white hover:text-[#10B981] font-semibold transition-colors">
+                Legal & Risk
+              </Link>
+            </div>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
-            <Link href="/#about" className="hover:text-white transition-colors">About Us</Link>
-            <Link href="/#features" className="hover:text-white transition-colors">Features</Link>
-            <Link href="/#dashboard" className="hover:text-white transition-colors">Dashboard</Link>
-            <Link href="/#contact" className="hover:text-white transition-colors">Contact</Link>
-            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+          <div className="h-px bg-white/5"></div>
+
+          {/* Bottom Row: Detailed legal and copyrights */}
+          <div className="space-y-4 text-xs text-white/30 leading-relaxed">
+            <p>
+              <span className="font-bold text-white/50">Risk Warning:</span> Trading financial products involves risk. You may lose part or all of your capital. Past performance is not indicative of future results.
+            </p>
+            <p>
+              <span className="font-bold text-white/50">Disclaimer:</span> INVESTMINFX LIMITED does not offer services in jurisdictions where such activities are prohibited by local law or regulation. Services are not offered to residents of any jurisdiction where providing them would be unlawful. It is your responsibility to ensure that you are eligible to use our services.
+            </p>
+            <p>
+              We do not represent that we are regulated in any specific jurisdiction. Do not rely on branding or images as an indication of regulatory status.
+            </p>
+            <div className="pt-2 text-white/20">
+              &copy; {new Date().getFullYear()} Pippulse FX / INVESTMINFX LIMITED. All rights reserved.
+            </div>
           </div>
 
-          <div>
-            &copy; {new Date().getFullYear()} Pippulse FX. All rights reserved.
-          </div>
         </div>
       </footer>
 

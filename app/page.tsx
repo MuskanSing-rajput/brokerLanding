@@ -144,74 +144,79 @@ export default function Home() {
     };
   }, []);
 
-  useGSAP(() => {
+  useEffect(() => {
     if (typeof window === "undefined" || !stackingSectionRef.current) return;
 
-    const cards = gsap.utils.toArray(".gsap-card");
-    if (cards.length === 0) return;
+    const section = stackingSectionRef.current;
 
-    const mm = gsap.matchMedia();
+    // Double rAF ensures the browser has fully painted the layout
+    let rafId: number;
+    const setup = () => {
+      const cards = Array.from(section.querySelectorAll(".gsap-card")) as HTMLElement[];
+      if (cards.length === 0) return;
 
-    // Desktop & Tablet: Pin and stack cards
-    mm.add("(min-width: 768px)", () => {
-      // Initialize position and opacity of cards 2, 3, 4 offscreen immediately to prevent layout flashes
-      gsap.set(cards.slice(1), { yPercent: 100, opacity: 0 });
+      const container = section.querySelector(".gsap-cards-container") as HTMLElement;
+      if (!container) return;
+
+      const containerH = container.offsetHeight;
+      if (!containerH) return;
+
+      // Hide cards 2..N below container
+      gsap.set(cards.slice(1), { y: containerH, opacity: 0 });
 
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: stackingSectionRef.current,
+          trigger: section,
           start: "top top",
-          end: "+=4000", // Increased scroll distance for smoother, longer progression
-          scrub: 1.5, // Increased scrub for a very smooth, fluid feel
+          end: `+=${cards.length * 1000}`,
+          scrub: 1.2,
           pin: true,
           anticipatePin: 1,
+          invalidateOnRefresh: true,
         }
       });
 
-      cards.forEach((card: any, index: number) => {
+      cards.forEach((card: HTMLElement, index: number) => {
         if (index === 0) return;
 
-        // Bring next card in by sliding up and fading in from bottom
-        tl.fromTo(
+        tl.to(
           card,
-          { yPercent: 100, opacity: 0 },
-          { yPercent: 0, opacity: 1, ease: "power2.out" },
-          index - 1
+          { y: 0, opacity: 1, ease: "power2.out", duration: 1 },
+          (index - 1) * 1.4
         );
 
-        // Shift previous cards up, shrink, and dim them - delayed to only start when the next card is 60% of the way up
         for (let i = 0; i < index; i++) {
-          const prevCard = cards[i] as HTMLElement;
+          const prevCard = cards[i];
           const diff = index - i;
-          const targetScale = 1 - diff * 0.035;
-          const targetY = -diff * 30; // Shift upwards by 30px per stacked level
-          const targetBrightness = 1 - diff * 0.06; // Subtly dim (from 1 to 0.94, 0.88, 0.82) so it remains clearly visible!
-
           tl.to(
             prevCard,
             {
-              scale: targetScale,
-              y: targetY,
-              filter: `brightness(${targetBrightness})`,
+              scale: 1 - diff * 0.04,
+              y: -diff * 28,
+              filter: `brightness(${1 - diff * 0.08})`,
               ease: "power2.out",
-              duration: 0.4, // Complete this animation in the last 40% of the slide step
+              duration: 0.5,
             },
-            (index - 1) + 0.6 // Starts when the incoming card has slid up 60%
+            (index - 1) * 1.4 + 0.5
           );
         }
       });
 
-      // Add a timeline hold buffer at the end of the sequence to allow Card 4 to stay fully static on screen
-      tl.to({}, { duration: 0.8 });
+      tl.to({}, { duration: 1 });
+      ScrollTrigger.refresh();
+    };
+
+    rafId = requestAnimationFrame(() => {
+      requestAnimationFrame(setup);
     });
 
-    // Mobile: Clean up and lay out naturally
-    mm.add("(max-width: 767px)", () => {
-      gsap.set(cards, { clearProps: "all" });
-    });
-
-    return () => mm.revert();
-  }, { scope: stackingSectionRef });
+    return () => {
+      cancelAnimationFrame(rafId);
+      ScrollTrigger.getAll()
+        .filter(t => t.vars.trigger === stackingSectionRef.current)
+        .forEach(t => t.kill());
+    };
+  }, []);
 
   // GSAP Stacking Effect for First & Second Hero
   useGSAP(() => {
@@ -377,7 +382,7 @@ export default function Home() {
       </div>
 
       {/* Top Section Wrapper (Hero + Dashboard + Partners) with Background Video */}
-      <div ref={firstHeroRef} className="relative w-full z-10 flex flex-col gpu-accelerated overflow-hidden pb-[300px]">
+      <div ref={firstHeroRef} className="relative w-full h-screen z-10 flex flex-col gpu-accelerated overflow-hidden">
         {/* Background Video (now absolute instead of fixed, bound to this container only) */}
         <div className="absolute top-[150px] inset-x-0 bottom-0 z-0 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black)]">
           <video
@@ -432,7 +437,7 @@ export default function Home() {
       </div> {/* End of Top Section Wrapper */}
 
       {/* Globe Video Section (Second Hero) */}
-      <section ref={secondHeroRef} className="relative w-full min-h-screen flex items-center bg-black border-t border-white/5 z-20 overflow-hidden shadow-[0_-20px_50px_rgba(0,0,0,0.8)]">
+      <section ref={secondHeroRef} className="relative w-full h-screen flex items-center bg-black border-t border-white/5 z-20 overflow-hidden shadow-[0_-20px_50px_rgba(0,0,0,0.8)]">
          {/* Background Video */}
          <div className="absolute inset-0 z-0">
             <video src="/globe.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover opacity-80" />
@@ -754,10 +759,10 @@ export default function Home() {
       </section>
 
       {/* Overlapping Stacking Cards Section */}
-      <section ref={stackingSectionRef} id="features" className="w-full bg-black relative z-20 md:h-screen md:flex md:flex-col md:justify-between md:overflow-hidden py-12 md:py-0">
-        <div className="max-w-[1240px] mx-auto w-full pt-16 px-4 relative z-30 flex flex-col items-center">
+      <section ref={stackingSectionRef} id="features" className="w-full bg-black relative z-20 h-screen flex flex-col justify-between">
+        <div className="max-w-[1240px] mx-auto w-full pt-8 sm:pt-12 md:pt-16 px-4 relative z-30 flex flex-col items-center">
           {/* Header */}
-          <div className="flex flex-col items-center text-center mb-10 lg:mb-0">
+          <div className="flex flex-col items-center text-center mb-4 sm:mb-6 lg:mb-0">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight max-w-3xl leading-[1.15] text-white">
               Advanced Trading <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#059669] to-[#A4FE46]">Ecosystem Suite</span>
             </h2>
@@ -765,21 +770,21 @@ export default function Home() {
         </div>
 
         {/* Cards Deck Container */}
-        <div className="relative w-full max-w-[1140px] mx-auto h-auto md:h-[550px] lg:h-[500px] mb-12 md:mb-24 px-4 flex flex-col gap-8 md:block">
+        <div className="gsap-cards-container relative w-full max-w-[1140px] mx-auto h-[450px] sm:h-[520px] md:h-[550px] lg:h-[500px] mb-16 px-4 overflow-hidden">
 
           {/* Card 1: Welcome Bonus */}
-          <div className="gsap-card relative md:absolute md:inset-x-4 md:top-0 md:bottom-0 z-10 bg-[#0c0c0e]/98 border border-white/10 rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-10 shadow-[0_30px_70px_rgba(0,0,0,0.95)] transition-[border-color,background-color,box-shadow] duration-300 overflow-hidden w-full md:w-auto">
-            <div className="flex-1 space-y-6">
+          <div className="gsap-card absolute inset-x-4 top-0 bottom-0 z-10 bg-[#0c0c0e]/98 border border-white/10 rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-10 shadow-[0_30px_70px_rgba(0,0,0,0.95)] transition-[border-color,background-color,box-shadow] duration-300 overflow-hidden">
+            <div className="flex-1 space-y-3 sm:space-y-6">
               <div className="inline-flex items-center space-x-2 bg-[#10B981]/10 border border-[#10B981]/20 px-3 py-1 rounded-full text-xs font-semibold text-[#10B981] uppercase tracking-widest">
                 Welcome Bonus
               </div>
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
+              <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
                 Welcome Bonus for <br />New Forex Traders
               </h3>
-              <p className="text-white/60 text-xs sm:text-sm lg:text-base leading-relaxed">
+              <p className="text-white/60 text-xs sm:text-sm lg:text-base leading-relaxed line-clamp-3 sm:line-clamp-none">
                 Start your journey with extra margin, optimized STP execution feeds, and deeper trading opportunities. Enhance your starting equity instantly upon successful registration.
               </p>
-              <ul className="space-y-2 text-xs md:text-sm text-white/80">
+              <ul className="hidden sm:block space-y-2 text-xs md:text-sm text-white/80">
                 <li className="flex items-center space-x-3">
                   <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
                   <span>Extra trading margin applied instantly</span>
@@ -799,7 +804,7 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="flex-1 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden self-stretch flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
+            <div className="flex-1 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden hidden sm:flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
               <div className="flex justify-between items-center pb-4 border-b border-white/5 mb-4">
                 <span className="text-xs font-bold text-white/50 tracking-widest uppercase">Promotions & Bonus Offers</span>
@@ -852,18 +857,18 @@ export default function Home() {
           </div>
 
           {/* Card 2: MetaTrader 5 */}
-          <div className="gsap-card relative md:absolute md:inset-x-4 md:top-0 md:bottom-0 z-20 bg-[#0c0c0e]/98 border border-white/10 rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-10 shadow-[0_30px_70px_rgba(0,0,0,0.95)] transition-[border-color,background-color,box-shadow] duration-300 overflow-hidden w-full md:w-auto">
+          <div className="gsap-card absolute inset-x-4 top-0 bottom-0 z-20 bg-[#0c0c0e]/98 border border-white/10 rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-10 shadow-[0_30px_70px_rgba(0,0,0,0.95)] transition-[border-color,background-color,box-shadow] duration-300 overflow-hidden">
             <div className="flex-grow lg:w-1/2 space-y-6">
               <div className="inline-flex items-center space-x-2 bg-[#10B981]/10 border border-[#10B981]/20 px-3 py-1 rounded-full text-xs font-semibold text-[#10B981] uppercase tracking-widest">
                 MT5 Terminal
               </div>
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
+              <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
                 Seamless MetaTrader 5 <br />Integration
               </h3>
-              <p className="text-white/60 text-xs sm:text-sm lg:text-base leading-relaxed">
+              <p className="text-white/60 text-xs sm:text-sm lg:text-base leading-relaxed line-clamp-3 sm:line-clamp-none">
                 Connect your existing MetaTrader accounts effortlessly. Execute orders, track analytics, and manage multi-asset positions with MT5’s institutional-level execution engine under our unified UI wrapper.
               </p>
-              <ul className="space-y-2 text-xs md:text-sm text-white/80">
+              <ul className="hidden sm:block space-y-2 text-xs md:text-sm text-white/80">
                 <li className="flex items-center space-x-3">
                   <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
                   <span>Sub-millisecond trade execution latency</span>
@@ -883,7 +888,7 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden self-stretch flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
+            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden hidden sm:flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
               <div className="absolute top-0 left-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
               <div className="flex justify-between items-center pb-4 border-b border-white/5 mb-6">
                 <span className="text-xs font-bold text-white/50 tracking-widest uppercase">MT5 Live Chart Feed</span>
@@ -936,18 +941,18 @@ export default function Home() {
           </div>
 
           {/* Card 3: Crypto Wallet */}
-          <div className="gsap-card relative md:absolute md:inset-x-4 md:top-0 md:bottom-0 z-30 bg-[#0c0c0e]/98 border border-white/10 rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-10 shadow-[0_30px_70px_rgba(0,0,0,0.95)] transition-[border-color,background-color,box-shadow] duration-300 overflow-hidden w-full md:w-auto">
+          <div className="gsap-card absolute inset-x-4 top-0 bottom-0 z-30 bg-[#0c0c0e]/98 border border-white/10 rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-10 shadow-[0_30px_70px_rgba(0,0,0,0.95)] transition-[border-color,background-color,box-shadow] duration-300 overflow-hidden">
             <div className="flex-grow lg:w-1/2 space-y-6">
               <div className="inline-flex items-center space-x-2 bg-[#10B981]/10 border border-[#10B981]/20 px-3 py-1 rounded-full text-xs font-semibold text-[#10B981] uppercase tracking-widest">
                 Crypto Wallet
               </div>
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
+              <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
                 Secure Wallet Hub & <br />Multi-Chain Support
               </h3>
-              <p className="text-white/60 text-xs sm:text-sm lg:text-base leading-relaxed">
+              <p className="text-white/60 text-xs sm:text-sm lg:text-base leading-relaxed line-clamp-3 sm:line-clamp-none">
                 Store, swap, and manage assets across multiple blockchains instantly. Benefit from cold-storage Grade-A security, lightning-fast cross-chain swaps, and instant fiat-to-crypto portals.
               </p>
-              <ul className="space-y-2 text-xs md:text-sm text-white/80">
+              <ul className="hidden sm:block space-y-2 text-xs md:text-sm text-white/80">
                 <li className="flex items-center space-x-3">
                   <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
                   <span>Support for BTC, ETH, SOL, USDC & 200+ tokens</span>
@@ -967,7 +972,7 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden self-stretch flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
+            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden hidden sm:flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
               <div className="flex justify-between items-center pb-4 border-b border-white/5 mb-4">
                 <span className="text-xs font-bold text-white/50 tracking-widest uppercase">Your Balance</span>
@@ -1015,18 +1020,18 @@ export default function Home() {
           </div>
 
           {/* Card 4: Live Open Positions & Trade Tracker */}
-          <div className="gsap-card relative md:absolute md:inset-x-4 md:top-0 md:bottom-0 z-40 bg-[#0c0c0e]/98 border border-white/10 rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-10 shadow-[0_30px_70px_rgba(0,0,0,0.95)] transition-[border-color,background-color,box-shadow] duration-300 overflow-hidden w-full md:w-auto">
+          <div className="gsap-card absolute inset-x-4 top-0 bottom-0 z-40 bg-[#0c0c0e]/98 border border-white/10 rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-10 shadow-[0_30px_70px_rgba(0,0,0,0.95)] transition-[border-color,background-color,box-shadow] duration-300 overflow-hidden">
             <div className="flex-grow lg:w-1/2 space-y-6">
               <div className="inline-flex items-center space-x-2 bg-[#10B981]/10 border border-[#10B981]/20 px-3 py-1 rounded-full text-xs font-semibold text-[#10B981] uppercase tracking-widest">
                 Live Tracking
               </div>
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
+              <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
                 Live Open Positions & <br />Trade Tracker
               </h3>
-              <p className="text-white/60 text-xs sm:text-sm lg:text-base leading-relaxed">
+              <p className="text-white/60 text-xs sm:text-sm lg:text-base leading-relaxed line-clamp-3 sm:line-clamp-none">
                 Monitor active market exposures tick-by-tick. View consolidated volumes, entry prices, live exchange updates, and real-time P&L payouts on a single unified terminal panel.
               </p>
-              <ul className="space-y-2 text-xs md:text-sm text-white/80">
+              <ul className="hidden sm:block space-y-2 text-xs md:text-sm text-white/80">
                 <li className="flex items-center space-x-3">
                   <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
                   <span>Tick-level synchronization for live open trades</span>
@@ -1046,7 +1051,7 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden self-stretch flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
+            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden hidden sm:flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
               <div className="absolute top-0 left-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
               <div className="flex justify-between items-center pb-4 border-b border-white/5 mb-4">
                 <span className="text-xs font-bold text-white/50 tracking-widest uppercase">Live Open Trades</span>
@@ -1085,18 +1090,18 @@ export default function Home() {
           </div>
 
           {/* Card 5: IB Broker */}
-          <div className="gsap-card relative md:absolute md:inset-x-4 md:top-0 md:bottom-0 z-50 bg-[#0c0c0e]/98 border border-white/10 rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-10 shadow-[0_30px_70px_rgba(0,0,0,0.95)] transition-[border-color,background-color,box-shadow] duration-300 overflow-hidden w-full md:w-auto">
+          <div className="gsap-card absolute inset-x-4 top-0 bottom-0 z-50 bg-[#0c0c0e]/98 border border-white/10 rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-10 shadow-[0_30px_70px_rgba(0,0,0,0.95)] transition-[border-color,background-color,box-shadow] duration-300 overflow-hidden">
             <div className="flex-grow lg:w-1/2 space-y-6">
               <div className="inline-flex items-center space-x-2 bg-[#10B981]/10 border border-[#10B981]/20 px-3 py-1 rounded-full text-xs font-semibold text-[#10B981] uppercase tracking-widest">
                 IB Partnership
               </div>
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
+              <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
                 Premium IB Broker <br />Program
               </h3>
-              <p className="text-white/60 text-xs sm:text-sm lg:text-base leading-relaxed">
+              <p className="text-white/60 text-xs sm:text-sm lg:text-base leading-relaxed line-clamp-3 sm:line-clamp-none">
                 Build your trading business with our lucrative Introducing Broker program. Enjoy real-time commission payouts, multi-tier rebate structures, and advanced IB portal analytics.
               </p>
-              <ul className="space-y-2 text-xs md:text-sm text-white/80">
+              <ul className="hidden sm:block space-y-2 text-xs md:text-sm text-white/80">
                 <li className="flex items-center space-x-3">
                   <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
                   <span>Highest rebate rates in the industry</span>
@@ -1116,7 +1121,7 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden self-stretch flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
+            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden hidden sm:flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
               <div className="flex justify-between items-center pb-4 border-b border-white/5 mb-4">
                 <span className="text-xs font-bold text-white/50 tracking-widest uppercase">IB Dashboard Preview</span>
@@ -1168,18 +1173,18 @@ export default function Home() {
           </div>
 
           {/* Card 6: Copy Trading */}
-          <div className="gsap-card relative md:absolute md:inset-x-4 md:top-0 md:bottom-0 z-60 bg-[#0c0c0e]/98 border border-white/10 rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 md:gap-10 shadow-[0_30px_70px_rgba(0,0,0,0.95)] transition-[border-color,background-color,box-shadow] duration-300 overflow-hidden w-full md:w-auto">
+          <div className="gsap-card absolute inset-x-4 top-0 bottom-0 z-60 bg-[#0c0c0e]/98 border border-white/10 rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-10 shadow-[0_30px_70px_rgba(0,0,0,0.95)] transition-[border-color,background-color,box-shadow] duration-300 overflow-hidden">
             <div className="flex-grow lg:w-1/2 space-y-6">
               <div className="inline-flex items-center space-x-2 bg-[#10B981]/10 border border-[#10B981]/20 px-3 py-1 rounded-full text-xs font-semibold text-[#10B981] uppercase tracking-widest">
                 Social Trading
               </div>
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
+              <h3 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
                 Advanced Copy <br />Trading Network
               </h3>
-              <p className="text-white/60 text-xs sm:text-sm lg:text-base leading-relaxed">
+              <p className="text-white/60 text-xs sm:text-sm lg:text-base leading-relaxed line-clamp-3 sm:line-clamp-none">
                 Connect with top performing traders globally. Mirror successful strategies in real-time or become a strategy provider to earn performance fees from your followers.
               </p>
-              <ul className="space-y-2 text-xs md:text-sm text-white/80">
+              <ul className="hidden sm:block space-y-2 text-xs md:text-sm text-white/80">
                 <li className="flex items-center space-x-3">
                   <span className="w-5 h-5 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 flex items-center justify-center text-[#10B981] text-xs font-bold">✓</span>
                   <span>Zero-delay trade execution mirroring</span>
@@ -1199,7 +1204,7 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden self-stretch flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
+            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden hidden sm:flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
               <div className="flex justify-between items-center pb-4 border-b border-white/5 mb-4">
                 <span className="text-xs font-bold text-white/50 tracking-widest uppercase">Top Strategy Providers</span>
@@ -1493,31 +1498,63 @@ export default function Home() {
       <div className="w-full h-12 bg-black"></div>
 
       {/* Footer */}
-      <footer className="w-full bg-[#030305] border-t border-white/5 py-12 relative z-20">
-        <div className="max-w-[1240px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-white/40">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-[#059669] to-[#A4FE46] rounded-lg flex items-center justify-center transform -rotate-12 shadow-[0_0_15px_rgba(16, 185, 129,0.3)]">
-              <div className="flex items-end space-x-[2px] h-3.5">
-                <div className="w-1 h-1.5 bg-white/85 rounded-sm"></div>
-                <div className="w-1 h-2.5 bg-white/95 rounded-sm"></div>
-                <div className="w-1 h-3.5 bg-white rounded-sm"></div>
+            <footer className="w-full bg-[#030305] border-t border-white/5 py-12 relative z-20">
+        <div className="max-w-[1240px] mx-auto px-6 md:px-12 flex flex-col gap-8 text-sm text-white/40">
+          
+          {/* Top Row: Brand, Navigation & Legal link */}
+          <div className="flex flex-col md:flex-row items-start justify-between gap-6">
+            {/* Left Brand info */}
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-gradient-to-br from-[#059669] to-[#A4FE46] rounded-lg flex items-center justify-center transform -rotate-12 shadow-[0_0_15px_rgba(16, 185, 129,0.3)]">
+                  <div className="flex items-end space-x-[2px] h-3.5">
+                    <div className="w-1 h-1.5 bg-white/85 rounded-sm"></div>
+                    <div className="w-1 h-2.5 bg-white/95 rounded-sm"></div>
+                    <div className="w-1 h-3.5 bg-white rounded-sm"></div>
+                  </div>
+                </div>
+                <span className="font-bold text-white tracking-wide">Pippulse FX</span>
+              </div>
+              <div className="text-xs text-white/50 space-y-1">
+                <div className="font-bold text-white mb-1">INVESTMINFX LIMITED</div>
+                <div>Sterling Technology Hub, Unit 1, Station 07, La Place Creole Building, Rodney Village, Rodney Bay, Gros Islet</div>
+                <div>Registration number: 2025-00895</div>
+                <div>Corporate email: <a href="mailto:info@investminfx.net" className="hover:text-white transition-colors">info@investminfx.net</a></div>
               </div>
             </div>
-            <span className="font-bold text-white tracking-wide">Pippulse FX</span>
+
+            {/* Right side navigation */}
+            <div className="flex flex-col md:items-end gap-4">
+              <div className="flex flex-wrap gap-6 text-xs md:text-sm">
+                <Link href="/about" className="hover:text-white transition-colors">About Us</Link>
+                <Link href="/#features" className="hover:text-white transition-colors">Features</Link>
+                <Link href="/#dashboard" className="hover:text-white transition-colors">Dashboard</Link>
+                <Link href="/#contact" className="hover:text-white transition-colors">Contact</Link>
+              </div>
+              <Link href="/legal" className="text-white hover:text-[#10B981] font-semibold transition-colors">
+                Legal & Risk
+              </Link>
+            </div>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
-            <a href="#about" className="hover:text-white transition-colors">About Us</a>
-            <a href="#features" className="hover:text-white transition-colors">Features</a>
-            <a href="#dashboard" className="hover:text-white transition-colors">Dashboard</a>
-            <a href="#contact" className="hover:text-white transition-colors">Contact</a>
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+          <div className="h-px bg-white/5"></div>
+
+          {/* Bottom Row: Detailed legal and copyrights */}
+          <div className="space-y-4 text-xs text-white/30 leading-relaxed">
+            <p>
+              <span className="font-bold text-white/50">Risk Warning:</span> Trading financial products involves risk. You may lose part or all of your capital. Past performance is not indicative of future results.
+            </p>
+            <p>
+              <span className="font-bold text-white/50">Disclaimer:</span> INVESTMINFX LIMITED does not offer services in jurisdictions where such activities are prohibited by local law or regulation. Services are not offered to residents of any jurisdiction where providing them would be unlawful. It is your responsibility to ensure that you are eligible to use our services.
+            </p>
+            <p>
+              We do not represent that we are regulated in any specific jurisdiction. Do not rely on branding or images as an indication of regulatory status.
+            </p>
+            <div className="pt-2 text-white/20">
+              &copy; {new Date().getFullYear()} Pippulse FX / INVESTMINFX LIMITED. All rights reserved.
+            </div>
           </div>
 
-          <div>
-            &copy; {new Date().getFullYear()} Pippulse FX. All rights reserved.
-          </div>
         </div>
       </footer>
     </div>
