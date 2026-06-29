@@ -21,7 +21,7 @@ import {
   HeartHandshake
 } from "lucide-react";
 
-export default function PerfectTrade.ioAppPage() {
+export default function PerfectTradeAppPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [platformDropdownOpen, setPlatformDropdownOpen] = useState(false);
   const platformDropdownRef = useRef<HTMLDivElement>(null);
