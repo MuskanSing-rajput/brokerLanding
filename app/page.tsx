@@ -398,8 +398,8 @@ export default function Home() {
 
           {/* Scroll Down Button to hide video logo */}
           <button
-            onClick={() => secondHeroRef.current?.scrollIntoView({ behavior: 'smooth' })}
-            className="absolute bottom-[-4px] right-[96px] md:bottom-[12px] md:right-[112px] z-20 pointer-events-auto group flex items-center justify-center bg-black/90 backdrop-blur-xl border border-[#10B981]/30 text-white/90 hover:text-white w-14 h-14 md:w-16 md:h-16 rounded-full hover:bg-black transition-all shadow-[0_0_30px_rgba(0,0,0,0.8)] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)]"
+            onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
+            className="absolute bottom-[10px] right-[92px] md:bottom-[26px] md:right-[108px] z-20 pointer-events-auto group flex items-center justify-center bg-black/90 backdrop-blur-xl border border-[#10B981]/30 text-white/90 hover:text-white w-14 h-14 md:w-16 md:h-16 rounded-full hover:bg-black transition-all shadow-[0_0_30px_rgba(0,0,0,0.8)] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)]"
             aria-label="Scroll Down"
           >
             <ChevronDown className="w-6 h-6 md:w-8 md:h-8 group-hover:translate-y-1 transition-transform text-[#10B981]" />
