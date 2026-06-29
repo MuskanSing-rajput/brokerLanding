@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -76,7 +75,7 @@ export default function Home() {
   // Typing effect for the Globe Section
   useEffect(() => {
     const isMobile = window.innerWidth < 768;
-    const globeTitleFull = isMobile 
+    const globeTitleFull = isMobile
       ? "Global Markets\nat\nYour Fingertips."
       : "Global Markets at\nYour Fingertips.";
     let i = 0;
@@ -221,7 +220,7 @@ export default function Home() {
   // GSAP Stacking Effect for First & Second Hero
   useGSAP(() => {
     if (typeof window === "undefined" || !firstHeroRef.current || !secondHeroRef.current) return;
-    
+
     // We pin the first hero so that the second hero naturally scrolls OVER it.
     ScrollTrigger.create({
       trigger: firstHeroRef.current,
@@ -243,141 +242,141 @@ export default function Home() {
           {/* Global Fixed Navbar */}
           <header className="flex items-center justify-between px-6 md:px-12 py-6 max-w-[1200px] w-full mx-auto bg-transparent transition-all">
             {/* Logo */}
-          <div className="flex items-center group cursor-pointer">
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#059669] to-[#A4FE46] rounded-xl flex items-center justify-center transform -rotate-12 shadow-[0_0_20px_rgba(16, 185, 129,0.4)] group-hover:rotate-0 group-hover:scale-105 transition-all duration-300">
-                <div className="flex items-end space-x-[2px] h-5">
-                  <div className="w-1.5 h-2 bg-white/80 rounded-sm"></div>
-                  <div className="w-1.5 h-3.5 bg-white/90 rounded-sm"></div>
-                  <div className="w-1.5 h-5 bg-white rounded-sm"></div>
-                </div>
-              </div>
-              <span className="font-bold text-white text-lg tracking-wide group-hover:text-[#A4FE46] transition-colors">Pippulse FX</span>
-            </Link>
-          </div>
-
-          {/* Nav Links */}
-          <nav className="hidden md:flex items-center space-x-10 text-sm font-medium text-white/70">
-            <a href="#" className="hover:text-white transition-colors">Home</a>
-            <Link href="/about" className="hover:text-white transition-colors">About</Link>
-
-            {/* Platform Dropdown */}
-            <div className="relative" ref={platformDropdownRef}>
-              <button
-                onClick={() => setPlatformDropdownOpen(!platformDropdownOpen)}
-                className="flex items-center space-x-1 hover:text-white transition-colors cursor-pointer focus:outline-none"
-              >
-                <span>Platform</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-white/50 transition-transform duration-300 ${platformDropdownOpen ? 'rotate-180' : ''}`} />
-              </button>
-
-              {platformDropdownOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/3 mt-4 w-[90vw] sm:w-[420px] bg-[#0c0c0e]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(16,185,129,0.15)] z-50 flex gap-6 animate-[fadeInUp_0.25s_ease-out]">
-                  {/* Column 1 */}
-                  <div className="flex-[1.2] space-y-4">
-                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">Pippulsefx Platforms</h4>
-                    <div className="flex flex-col space-y-1">
-                      <Link href="/platforms/pippulsefx" onClick={() => setPlatformDropdownOpen(false)} className="flex flex-col p-3 rounded-xl hover:bg-white/[0.04] transition-all group text-left">
-                        <div className="flex items-center justify-between mb-1">
-                          <span className="text-sm font-bold text-white group-hover:text-[#A4FE46] transition-colors">Pippulsefx App</span>
-                          <span className="text-[8px] font-bold text-white bg-[#006a60] px-2 py-0.5 rounded-full uppercase tracking-wider">Popular</span>
-                        </div>
-                        <span className="text-[11px] text-white/40 group-hover:text-white/60 transition-colors">Our proprietary mobile and desktop platform.</span>
-                      </Link>
-                    </div>
+            <div className="flex items-center group cursor-pointer">
+              <Link href="/" className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-[#059669] to-[#A4FE46] rounded-xl flex items-center justify-center transform -rotate-12 shadow-[0_0_20px_rgba(16, 185, 129,0.4)] group-hover:rotate-0 group-hover:scale-105 transition-all duration-300">
+                  <div className="flex items-end space-x-[2px] h-5">
+                    <div className="w-1.5 h-2 bg-white/80 rounded-sm"></div>
+                    <div className="w-1.5 h-3.5 bg-white/90 rounded-sm"></div>
+                    <div className="w-1.5 h-5 bg-white rounded-sm"></div>
                   </div>
+                </div>
+                <span className="font-bold text-white text-lg tracking-wide group-hover:text-[#A4FE46] transition-colors">Pippulse FX</span>
+              </Link>
+            </div>
 
-                  {/* Divider */}
-                  <div className="w-[1px] bg-white/10 self-stretch"></div>
+            {/* Nav Links */}
+            <nav className="hidden md:flex items-center space-x-10 text-sm font-medium text-white/70">
+              <a href="#" className="hover:text-white transition-colors">Home</a>
+              <Link href="/about" className="hover:text-white transition-colors">About</Link>
 
-                  {/* Column 2 */}
-                  <div className="flex-1 space-y-4">
-                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">MT5 Platforms</h4>
-                    <div className="flex flex-col space-y-1">
-                      {[
-                        { os: "Windows", desc: "Desktop installer for PC", path: "/platforms/windows", icon: Monitor },
-                        { os: "MacOS", desc: "Apple package", path: "/platforms/macos", icon: Monitor },
-                        { os: "Android", desc: "Play Store app", path: "/platforms/android", icon: Smartphone },
-                        { os: "iOS", desc: "App Store app", path: "/platforms/ios", icon: Smartphone }
-                      ].map(({ os, desc, path, icon: Icon }) => (
-                        <Link
-                          key={os}
-                          href={path}
-                          onClick={() => setPlatformDropdownOpen(false)}
-                          className="flex items-start space-x-2.5 p-2 rounded-lg hover:bg-white/[0.04] transition-all group text-left"
-                        >
-                          <Icon className="w-4 h-4 text-white/45 group-hover:text-[#A4FE46] mt-0.5 transition-colors" />
-                          <div className="flex flex-col">
-                            <span className="text-xs font-bold text-white/80 group-hover:text-white transition-colors">{os}</span>
-                            <span className="text-[10px] text-white/40 group-hover:text-white/50 transition-colors">{desc}</span>
+              {/* Platform Dropdown */}
+              <div className="relative" ref={platformDropdownRef}>
+                <button
+                  onClick={() => setPlatformDropdownOpen(!platformDropdownOpen)}
+                  className="flex items-center space-x-1 hover:text-white transition-colors cursor-pointer focus:outline-none"
+                >
+                  <span>Platform</span>
+                  <ChevronDown className={`w-3.5 h-3.5 text-white/50 transition-transform duration-300 ${platformDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {platformDropdownOpen && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/3 mt-4 w-[90vw] sm:w-[420px] bg-[#0c0c0e]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(16,185,129,0.15)] z-50 flex gap-6 animate-[fadeInUp_0.25s_ease-out]">
+                    {/* Column 1 */}
+                    <div className="flex-[1.2] space-y-4">
+                      <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">Pippulsefx Platforms</h4>
+                      <div className="flex flex-col space-y-1">
+                        <Link href="/platforms/pippulsefx" onClick={() => setPlatformDropdownOpen(false)} className="flex flex-col p-3 rounded-xl hover:bg-white/[0.04] transition-all group text-left">
+                          <div className="flex items-center justify-between mb-1">
+                            <span className="text-sm font-bold text-white group-hover:text-[#A4FE46] transition-colors">Pippulsefx App</span>
+                            <span className="text-[8px] font-bold text-white bg-[#006a60] px-2 py-0.5 rounded-full uppercase tracking-wider">Popular</span>
                           </div>
+                          <span className="text-[11px] text-white/40 group-hover:text-white/60 transition-colors">Our proprietary mobile and desktop platform.</span>
                         </Link>
-                      ))}
+                      </div>
+                    </div>
+
+                    {/* Divider */}
+                    <div className="w-[1px] bg-white/10 self-stretch"></div>
+
+                    {/* Column 2 */}
+                    <div className="flex-1 space-y-4">
+                      <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">MT5 Platforms</h4>
+                      <div className="flex flex-col space-y-1">
+                        {[
+                          { os: "Windows", desc: "Desktop installer for PC", path: "/platforms/windows", icon: Monitor },
+                          { os: "MacOS", desc: "Apple package", path: "/platforms/macos", icon: Monitor },
+                          { os: "Android", desc: "Play Store app", path: "/platforms/android", icon: Smartphone },
+                          { os: "iOS", desc: "App Store app", path: "/platforms/ios", icon: Smartphone }
+                        ].map(({ os, desc, path, icon: Icon }) => (
+                          <Link
+                            key={os}
+                            href={path}
+                            onClick={() => setPlatformDropdownOpen(false)}
+                            className="flex items-start space-x-2.5 p-2 rounded-lg hover:bg-white/[0.04] transition-all group text-left"
+                          >
+                            <Icon className="w-4 h-4 text-white/45 group-hover:text-[#A4FE46] mt-0.5 transition-colors" />
+                            <div className="flex flex-col">
+                              <span className="text-xs font-bold text-white/80 group-hover:text-white transition-colors">{os}</span>
+                              <span className="text-[10px] text-white/40 group-hover:text-white/50 transition-colors">{desc}</span>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              )}
-            </div>
-
-            <Link href="/promotions" className="hover:text-white transition-colors">Promotion</Link>
-            <Link href="/partners" className="hover:text-white transition-colors">Partners</Link>
-            <Link href="/trading" className="hover:text-white transition-colors">Trading</Link>
-          </nav>
-
-          {/* Right Action buttons */}
-          <div className="flex items-center space-x-4">
-            <Link href="#" className="hidden sm:inline-block bg-white text-black px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-              Login
-            </Link>
-            {/* Hamburger Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden text-white/80 hover:text-white focus:outline-none p-2 rounded-lg bg-white/5 border border-white/10"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </header>
-
-        {/* Mobile Navigation Drawer */}
-        {mobileMenuOpen && (
-          <div className="md:hidden fixed inset-x-0 top-[88px] bg-black/95 backdrop-blur-lg border-b border-white/10 py-6 px-8 z-50 flex flex-col space-y-5 animate-[fadeInUp_0.3s_ease-out]">
-            <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Home</a>
-            <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">About</Link>
-
-            {/* Mobile Platform Submenu */}
-            <div className="flex flex-col space-y-2 py-2 border-b border-white/5">
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#A4FE46]">Pippulsefx Platforms</span>
-              <div className="flex flex-col space-y-2 pl-2">
-                <Link href="/platforms/pippulsefx" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-between text-white/70 hover:text-[#A4FE46]">
-                  <span>Pippulsefx App</span>
-                  <span className="text-[8px] font-bold text-white bg-[#006a60] px-2 py-0.5 rounded-full uppercase tracking-wider mr-2">Popular</span>
-                </Link>
+                )}
               </div>
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#A4FE46] mt-2">MT5 Platforms</span>
-              <div className="grid grid-cols-2 gap-2 pl-2 pt-1">
-                {[
-                  { name: "Windows", path: "/platforms/windows" },
-                  { name: "MacOS", path: "/platforms/macos" },
-                  { name: "Android", path: "/platforms/android" },
-                  { name: "iOS", path: "/platforms/ios" }
-                ].map((os) => (
-                  <Link key={os.name} href={os.path} onClick={() => setMobileMenuOpen(false)} className="py-1.5 px-3 rounded-lg bg-white/5 text-sm font-semibold text-white/70 hover:text-[#A4FE46] hover:bg-white/10 transition-all text-center">
-                    {os.name}
+
+              <Link href="/promotions" className="hover:text-white transition-colors">Promotion</Link>
+              <Link href="/partners" className="hover:text-white transition-colors">Partners</Link>
+              <Link href="/trading" className="hover:text-white transition-colors">Trading</Link>
+            </nav>
+
+            {/* Right Action buttons */}
+            <div className="flex items-center space-x-4">
+              <Link href="#" className="hidden sm:inline-block bg-white text-black px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                Login
+              </Link>
+              {/* Hamburger Button */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="md:hidden text-white/80 hover:text-white focus:outline-none p-2 rounded-lg bg-white/5 border border-white/10"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
+          </header>
+
+          {/* Mobile Navigation Drawer */}
+          {mobileMenuOpen && (
+            <div className="md:hidden fixed inset-x-0 top-[88px] bg-black/95 backdrop-blur-lg border-b border-white/10 py-6 px-8 z-50 flex flex-col space-y-5 animate-[fadeInUp_0.3s_ease-out]">
+              <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Home</a>
+              <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">About</Link>
+
+              {/* Mobile Platform Submenu */}
+              <div className="flex flex-col space-y-2 py-2 border-b border-white/5">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#A4FE46]">Pippulsefx Platforms</span>
+                <div className="flex flex-col space-y-2 pl-2">
+                  <Link href="/platforms/pippulsefx" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-between text-white/70 hover:text-[#A4FE46]">
+                    <span>Pippulsefx App</span>
+                    <span className="text-[8px] font-bold text-white bg-[#006a60] px-2 py-0.5 rounded-full uppercase tracking-wider mr-2">Popular</span>
                   </Link>
-                ))}
+                </div>
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#A4FE46] mt-2">MT5 Platforms</span>
+                <div className="grid grid-cols-2 gap-2 pl-2 pt-1">
+                  {[
+                    { name: "Windows", path: "/platforms/windows" },
+                    { name: "MacOS", path: "/platforms/macos" },
+                    { name: "Android", path: "/platforms/android" },
+                    { name: "iOS", path: "/platforms/ios" }
+                  ].map((os) => (
+                    <Link key={os.name} href={os.path} onClick={() => setMobileMenuOpen(false)} className="py-1.5 px-3 rounded-lg bg-white/5 text-sm font-semibold text-white/70 hover:text-[#A4FE46] hover:bg-white/10 transition-all text-center">
+                      {os.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
+
+              <Link href="/promotions" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Promotion</Link>
+              <Link href="/partners" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Partners</Link>
+              <Link href="/trading" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Trading</Link>
+
+              <Link href="#" onClick={() => setMobileMenuOpen(false)} className="bg-white text-black text-center py-3 rounded-xl font-bold hover:bg-gray-200 transition-all">
+                Login
+              </Link>
             </div>
-
-            <Link href="/promotions" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Promotion</Link>
-            <Link href="/partners" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Partners</Link>
-            <Link href="/trading" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Trading</Link>
-
-            <Link href="#" onClick={() => setMobileMenuOpen(false)} className="bg-white text-black text-center py-3 rounded-xl font-bold hover:bg-gray-200 transition-all">
-              Login
-            </Link>
-          </div>
-        )}
+          )}
         </div>
       </div>
 
@@ -438,36 +437,36 @@ export default function Home() {
 
       {/* Globe Video Section (Second Hero) */}
       <section ref={secondHeroRef} className="relative w-full h-screen flex items-center bg-black border-t border-white/5 z-20 overflow-hidden shadow-[0_-20px_50px_rgba(0,0,0,0.8)]">
-         {/* Background Video */}
-         <div className="absolute inset-0 z-0">
-            <video src="/globe.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover opacity-80" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent"></div>
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90"></div>
-         </div>
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <video src="/globe.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover opacity-80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90"></div>
+        </div>
 
-         <div className="relative z-10 max-w-[1200px] mx-auto px-4 w-full pt-20 pb-20">
-            {/* Title in left side */}
-            <div className="text-left max-w-3xl">
-               <h2 className="text-4xl sm:text-5xl md:text-[72px] font-bold tracking-tight leading-tight text-white mb-6 min-h-[160px] md:min-h-[180px] xl:min-h-0 whitespace-pre-line">
-                 {typedGlobeTitle}<span className="animate-pulse text-[#A4FE46]">_</span>
-               </h2>
-               <p className="text-white/80 text-lg sm:text-xl md:text-2xl max-w-2xl leading-relaxed mb-10">
-                 Join thousands of traders worldwide using our seamless, lightning-fast platform. No borders, no limits.
-               </p>
-               <button className="flex items-center justify-center space-x-2 bg-[#A4FE46] text-black w-full sm:w-auto px-8 py-4 rounded-xl font-bold hover:bg-[#8ee036] transition-all shadow-[0_0_25px_rgba(164,254,70,0.4)] hover:scale-105">
-                 <span>Explore Global Markets</span>
-                 <ArrowUpRight className="w-5 h-5" />
-               </button>
-            </div>
-         </div>
-         {/* Scroll Down Button for Second Hero */}
-         <button
-            onClick={() => document.getElementById('dashboard')?.scrollIntoView({ behavior: 'smooth' })}
-            className="absolute bottom-[94px] right-[23px] md:bottom-[118px] md:right-[97px] z-30 pointer-events-auto group flex items-center justify-center bg-black/90 backdrop-blur-xl border border-[#10B981]/30 text-white/90 hover:text-white w-14 h-14 md:w-16 md:h-16 rounded-full hover:bg-black transition-all shadow-[0_0_30px_rgba(0,0,0,0.8)] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)]"
-            aria-label="Scroll Down"
-          >
-            <ChevronDown className="w-6 h-6 md:w-8 md:h-8 group-hover:translate-y-1 transition-transform text-[#10B981]" />
-          </button>
+        <div className="relative z-10 max-w-[1200px] mx-auto px-4 w-full pt-20 pb-20">
+          {/* Title in left side */}
+          <div className="text-left max-w-3xl">
+            <h2 className="text-4xl sm:text-5xl md:text-[72px] font-bold tracking-tight leading-tight text-white mb-6 min-h-[160px] md:min-h-[180px] xl:min-h-0 whitespace-pre-line">
+              {typedGlobeTitle}<span className="animate-pulse text-[#A4FE46]">_</span>
+            </h2>
+            <p className="text-white/80 text-lg sm:text-xl md:text-2xl max-w-2xl leading-relaxed mb-10">
+              Join thousands of traders worldwide using our seamless, lightning-fast platform. No borders, no limits.
+            </p>
+            <button className="flex items-center justify-center space-x-2 bg-[#A4FE46] text-black w-full sm:w-auto px-8 py-4 rounded-xl font-bold hover:bg-[#8ee036] transition-all shadow-[0_0_25px_rgba(164,254,70,0.4)] hover:scale-105">
+              <span>Explore Global Markets</span>
+              <ArrowUpRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+        {/* Scroll Down Button for Second Hero */}
+        <button
+          onClick={() => document.getElementById('dashboard')?.scrollIntoView({ behavior: 'smooth' })}
+          className="absolute bottom-[94px] right-[23px] md:bottom-[118px] md:right-[97px] z-30 pointer-events-auto group flex items-center justify-center bg-black/90 backdrop-blur-xl border border-[#10B981]/30 text-white/90 hover:text-white w-14 h-14 md:w-16 md:h-16 rounded-full hover:bg-black transition-all shadow-[0_0_30px_rgba(0,0,0,0.8)] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)]"
+          aria-label="Scroll Down"
+        >
+          <ChevronDown className="w-6 h-6 md:w-8 md:h-8 group-hover:translate-y-1 transition-transform text-[#10B981]" />
+        </button>
       </section>
 
       {/* Trusted By Section */}
@@ -681,9 +680,9 @@ export default function Home() {
               <div className="absolute top-0 left-0 w-[200px] h-[200px] md:w-[400px] md:h-[400px] bg-[radial-gradient(circle_at_top_left,rgba(16, 185, 129,0.18),transparent_65%)] pointer-events-none z-0 transition-opacity duration-500 group-hover/bento:opacity-130"></div>
 
               <div className="mb-8 relative z-10">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 tracking-tight">Portfolio Management</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 tracking-tight">Smart Asset Management</h3>
                 <p className="text-white/50 text-sm leading-relaxed">
-                  Easily tweak your business journey with Youflow's comprehensive portfolio interface.
+                  Monitor and optimize your trading performance with our advanced, intuitive portfolio interface.
                 </p>
               </div>
 
@@ -759,7 +758,7 @@ export default function Home() {
       </section>
 
       {/* Overlapping Stacking Cards Section */}
-      <section ref={stackingSectionRef} id="features" className="w-full bg-black relative z-20 h-screen flex flex-col justify-between">
+      <section ref={stackingSectionRef} id="features" className="w-full bg-black relative z-20 h-screen flex flex-col justify-center gap-8 lg:justify-between lg:gap-0">
         <div className="max-w-[1240px] mx-auto w-full pt-8 sm:pt-12 md:pt-16 px-4 relative z-30 flex flex-col items-center">
           {/* Header */}
           <div className="flex flex-col items-center text-center mb-4 sm:mb-6 lg:mb-0">
@@ -770,7 +769,7 @@ export default function Home() {
         </div>
 
         {/* Cards Deck Container */}
-        <div className="gsap-cards-container relative w-full max-w-[1140px] mx-auto h-[450px] sm:h-[520px] md:h-[550px] lg:h-[500px] mb-16 px-4 overflow-hidden">
+        <div className="gsap-cards-container relative w-full max-w-[1140px] mx-auto h-[650px] sm:h-[600px] md:h-[550px] lg:h-[500px] mb-8 lg:mb-16 px-4 overflow-hidden">
 
           {/* Card 1: Welcome Bonus */}
           <div className="gsap-card absolute inset-x-4 top-0 bottom-0 z-10 bg-[#0c0c0e]/98 border border-white/10 rounded-[32px] p-5 sm:p-8 md:p-12 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-10 shadow-[0_30px_70px_rgba(0,0,0,0.95)] transition-[border-color,background-color,box-shadow] duration-300 overflow-hidden">
@@ -804,7 +803,7 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="flex-1 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden hidden sm:flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
+            <div className="flex-1 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between min-h-[180px] sm:min-h-[220px] lg:min-h-[300px]">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
               <div className="flex justify-between items-center pb-4 border-b border-white/5 mb-4">
                 <span className="text-xs font-bold text-white/50 tracking-widest uppercase">Promotions & Bonus Offers</span>
@@ -888,7 +887,7 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden hidden sm:flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
+            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between min-h-[180px] sm:min-h-[220px] lg:min-h-[300px]">
               <div className="absolute top-0 left-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
               <div className="flex justify-between items-center pb-4 border-b border-white/5 mb-6">
                 <span className="text-xs font-bold text-white/50 tracking-widest uppercase">MT5 Live Chart Feed</span>
@@ -972,7 +971,7 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden hidden sm:flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
+            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between min-h-[180px] sm:min-h-[220px] lg:min-h-[300px]">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
               <div className="flex justify-between items-center pb-4 border-b border-white/5 mb-4">
                 <span className="text-xs font-bold text-white/50 tracking-widest uppercase">Your Balance</span>
@@ -1051,7 +1050,7 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden hidden sm:flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
+            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between min-h-[180px] sm:min-h-[220px] lg:min-h-[300px]">
               <div className="absolute top-0 left-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
               <div className="flex justify-between items-center pb-4 border-b border-white/5 mb-4">
                 <span className="text-xs font-bold text-white/50 tracking-widest uppercase">Live Open Trades</span>
@@ -1121,7 +1120,7 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden hidden sm:flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
+            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between min-h-[180px] sm:min-h-[220px] lg:min-h-[300px]">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
               <div className="flex justify-between items-center pb-4 border-b border-white/5 mb-4">
                 <span className="text-xs font-bold text-white/50 tracking-widest uppercase">IB Dashboard Preview</span>
@@ -1204,7 +1203,7 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden hidden sm:flex flex-col justify-between min-h-[220px] lg:min-h-[300px]">
+            <div className="flex-grow lg:w-1/2 w-full bg-black/40 border border-white/5 rounded-2xl p-6 relative overflow-hidden flex flex-col justify-between min-h-[180px] sm:min-h-[220px] lg:min-h-[300px]">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#10B981]/5 rounded-full blur-2xl pointer-events-none"></div>
               <div className="flex justify-between items-center pb-4 border-b border-white/5 mb-4">
                 <span className="text-xs font-bold text-white/50 tracking-widest uppercase">Top Strategy Providers</span>
@@ -1474,74 +1473,9 @@ export default function Home() {
               </form>
             </div>
           </div>
-
-
         </div>
       </section>
 
-      {/* Space below the last section */}
-      <div className="w-full h-12 bg-black"></div>
-
-      {/* Footer */}
-            <footer className="w-full bg-[#030305] border-t border-white/5 py-12 relative z-20">
-        <div className="max-w-[1240px] mx-auto px-6 md:px-12 flex flex-col gap-8 text-sm text-white/40">
-          
-          {/* Top Row: Brand, Navigation & Legal link */}
-          <div className="flex flex-col md:flex-row items-start justify-between gap-6">
-            {/* Left Brand info */}
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-gradient-to-br from-[#059669] to-[#A4FE46] rounded-lg flex items-center justify-center transform -rotate-12 shadow-[0_0_15px_rgba(16, 185, 129,0.3)]">
-                  <div className="flex items-end space-x-[2px] h-3.5">
-                    <div className="w-1 h-1.5 bg-white/85 rounded-sm"></div>
-                    <div className="w-1 h-2.5 bg-white/95 rounded-sm"></div>
-                    <div className="w-1 h-3.5 bg-white rounded-sm"></div>
-                  </div>
-                </div>
-                <span className="font-bold text-white tracking-wide">Pippulse FX</span>
-              </div>
-              <div className="text-xs text-white/50 space-y-1">
-                <div className="font-bold text-white mb-1">INVESTMINFX LIMITED</div>
-                <div>Sterling Technology Hub, Unit 1, Station 07, La Place Creole Building, Rodney Village, Rodney Bay, Gros Islet</div>
-                <div>Registration number: 2025-00895</div>
-                <div>Corporate email: <a href="mailto:info@investminfx.net" className="hover:text-white transition-colors">info@investminfx.net</a></div>
-              </div>
-            </div>
-
-            {/* Right side navigation */}
-            <div className="flex flex-col md:items-end gap-4">
-              <div className="flex flex-wrap gap-6 text-xs md:text-sm">
-                <Link href="/about" className="hover:text-white transition-colors">About Us</Link>
-                <Link href="/#features" className="hover:text-white transition-colors">Features</Link>
-                <Link href="/#dashboard" className="hover:text-white transition-colors">Dashboard</Link>
-                <Link href="/#contact" className="hover:text-white transition-colors">Contact</Link>
-              </div>
-              <Link href="/legal" className="text-white hover:text-[#10B981] font-semibold transition-colors">
-                Legal & Risk
-              </Link>
-            </div>
-          </div>
-
-          <div className="h-px bg-white/5"></div>
-
-          {/* Bottom Row: Detailed legal and copyrights */}
-          <div className="space-y-4 text-xs text-white/30 leading-relaxed">
-            <p>
-              <span className="font-bold text-white/50">Risk Warning:</span> Trading financial products involves risk. You may lose part or all of your capital. Past performance is not indicative of future results.
-            </p>
-            <p>
-              <span className="font-bold text-white/50">Disclaimer:</span> INVESTMINFX LIMITED does not offer services in jurisdictions where such activities are prohibited by local law or regulation. Services are not offered to residents of any jurisdiction where providing them would be unlawful. It is your responsibility to ensure that you are eligible to use our services.
-            </p>
-            <p>
-              We do not represent that we are regulated in any specific jurisdiction. Do not rely on branding or images as an indication of regulatory status.
-            </p>
-            <div className="pt-2 text-white/20">
-              &copy; {new Date().getFullYear()} Pippulse FX / INVESTMINFX LIMITED. All rights reserved.
-            </div>
-          </div>
-
-        </div>
-      </footer>
     </div>
   );
 }

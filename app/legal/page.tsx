@@ -32,26 +32,20 @@ export default function LegalPage() {
       </header>
 
       {/* Page Content */}
-      <main className="relative z-10 max-w-[860px] mx-auto px-6 md:px-12 py-16 md:py-24">
+      <main className="relative z-10 max-w-[860px] mx-auto px-6 md:px-12 py-8 md:py-12">
 
         {/* Page Title */}
-        <div className="mb-14">
-          <div className="inline-flex items-center space-x-2 bg-[#10B981]/10 border border-[#10B981]/20 px-4 py-1.5 rounded-full text-xs font-semibold text-[#10B981] uppercase tracking-widest mb-6">
+        <div className="mb-8">
+          <div className="inline-flex items-center space-x-2 bg-[#10B981]/10 border border-[#10B981]/20 px-4 py-1.5 rounded-full text-xs font-semibold text-[#10B981] uppercase tracking-widest">
             <Shield className="w-3.5 h-3.5" />
             <span>Legal & Risk</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight mb-4">
-            Legal, Disclaimer &amp; Risk Warning
-          </h1>
-          <p className="text-white/50 text-base md:text-lg leading-relaxed max-w-xl">
-            Please read the following information carefully before using our platform or services.
-          </p>
         </div>
 
-        <div className="h-px bg-white/10 mb-14" />
+        <div className="h-px bg-white/10 mb-8" />
 
         {/* Company Information */}
-        <section className="mb-14">
+        <section className="mb-8">
           <div className="flex items-center space-x-3 mb-6">
             <div className="w-9 h-9 rounded-xl bg-[#10B981]/10 border border-[#10B981]/20 flex items-center justify-center flex-shrink-0">
               <Building2 className="w-4 h-4 text-[#10B981]" />
@@ -68,11 +62,7 @@ export default function LegalPage() {
               <span className="text-white/40 text-sm font-medium">Registered address</span>
               <span className="text-white text-sm leading-relaxed">Sterling Technology Hub, Unit 1, Station 07, La Place Creole Building, Rodney Village, Rodney Bay, Gros Islet</span>
             </div>
-            <div className="h-px bg-white/5" />
-            <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-1 sm:gap-4">
-              <span className="text-white/40 text-sm font-medium">Registration number</span>
-              <span className="text-white text-sm font-semibold">2025-00895</span>
-            </div>
+
             <div className="h-px bg-white/5" />
             <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-1 sm:gap-4">
               <span className="text-white/40 text-sm font-medium">Corporate email</span>
@@ -82,7 +72,7 @@ export default function LegalPage() {
         </section>
 
         {/* Disclaimer */}
-        <section className="mb-14">
+        <section className="mb-8">
           <div className="flex items-center space-x-3 mb-6">
             <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0">
               <Info className="w-4 h-4 text-amber-400" />
@@ -96,7 +86,7 @@ export default function LegalPage() {
         </section>
 
         {/* Risk Warning */}
-        <section className="mb-14">
+        <section className="mb-8">
           <div className="flex items-center space-x-3 mb-6">
             <div className="w-9 h-9 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center flex-shrink-0">
               <AlertTriangle className="w-4 h-4 text-red-400" />
@@ -109,7 +99,7 @@ export default function LegalPage() {
         </section>
 
         {/* No Misleading Claims */}
-        <section className="mb-14">
+        <section className="mb-8">
           <div className="flex items-center space-x-3 mb-6">
             <div className="w-9 h-9 rounded-xl bg-[#10B981]/10 border border-[#10B981]/20 flex items-center justify-center flex-shrink-0">
               <Shield className="w-4 h-4 text-[#10B981]" />
@@ -122,7 +112,7 @@ export default function LegalPage() {
           </div>
         </section>
 
-        <div className="h-px bg-white/10 mb-10" />
+        <div className="h-px bg-white/10 mb-6" />
 
         <div className="flex justify-center">
           <Link href="/" className="inline-flex items-center space-x-2 bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3 rounded-xl text-sm font-semibold text-white transition-all">
