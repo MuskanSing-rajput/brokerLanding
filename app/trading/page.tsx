@@ -344,7 +344,7 @@ export default function Trading() {
 
         {/* Action Button */}
         <div className="flex items-center space-x-4">
-          <Link href="#" className="hidden sm:inline-block bg-white text-black px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+          <Link href="https://dev.uptrender.in/login" className="hidden sm:inline-block bg-white text-black px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]">
             Login
           </Link>
           {/* Hamburger Button */}
@@ -391,7 +391,7 @@ export default function Trading() {
           <Link href="/partners" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Partners</Link>
           <Link href="/trading" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-[#A4FE46] py-2 border-b border-white/5 font-semibold">Trading</Link>
           
-          <Link href="#" onClick={() => setMobileMenuOpen(false)} className="bg-white text-black text-center py-3 rounded-xl font-bold hover:bg-gray-200 transition-all">
+          <Link href="https://dev.uptrender.in/login" onClick={() => setMobileMenuOpen(false)} className="bg-white text-black text-center py-3 rounded-xl font-bold hover:bg-gray-200 transition-all">
             Login
           </Link>
         </div>
@@ -606,7 +606,7 @@ export default function Trading() {
 
           <div className="z-10">
             <Link 
-              href="#" 
+              href="https://dev.uptrender.in/login" 
               className="inline-flex items-center space-x-2 bg-[#006a60] hover:bg-[#00524a] text-white px-8 py-4 rounded-xl font-bold tracking-wide transition-all shadow-[0_0_20px_rgba(0,106,96,0.3)] hover:shadow-[0_0_30px_rgba(0,106,96,0.5)] hover:scale-[1.02]"
             >
               <span>Open an account</span>

@@ -144,7 +144,7 @@ export default function PromotionsPage() {
 
         {/* Action Button */}
         <div className="flex items-center space-x-4">
-          <Link href="#" className="hidden sm:inline-block bg-white text-black px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+          <Link href="https://dev.uptrender.in/login" className="hidden sm:inline-block bg-white text-black px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-gray-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)]">
             Login
           </Link>
           <button 
@@ -189,7 +189,7 @@ export default function PromotionsPage() {
           <Link href="/partners" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Partners</Link>
           <Link href="/trading" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">Trading</Link>
           
-          <Link href="#" onClick={() => setMobileMenuOpen(false)} className="bg-white text-black text-center py-3 rounded-xl font-bold hover:bg-gray-200 transition-all">
+          <Link href="https://dev.uptrender.in/login" onClick={() => setMobileMenuOpen(false)} className="bg-white text-black text-center py-3 rounded-xl font-bold hover:bg-gray-200 transition-all">
             Login
           </Link>
         </div>
@@ -230,14 +230,14 @@ export default function PromotionsPage() {
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link 
-            href="#" 
+            href="https://dev.uptrender.in/register" 
             className="inline-flex items-center justify-center space-x-2.5 bg-[#10B981] hover:bg-[#059669] text-white px-10 py-5 rounded-xl text-base md:text-lg font-bold tracking-wide transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:scale-[1.02] w-full sm:w-auto"
           >
             <span>Open an Account</span>
             <ArrowUpRight className="w-5 h-5" />
           </Link>
           <Link 
-            href="#" 
+            href="https://dev.uptrender.in/login" 
             className="inline-flex items-center justify-center bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 py-4 rounded-xl font-bold tracking-wide transition-all w-full sm:w-auto"
           >
             Deposit & Earn
@@ -281,7 +281,7 @@ export default function PromotionsPage() {
                   </div>
                 </div>
               </div>
-              <Link href="#" className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#A4FE46] border-t border-white/5 pt-4 group-hover:text-white transition-colors">
+              <Link href="https://dev.uptrender.in/login" className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#A4FE46] border-t border-white/5 pt-4 group-hover:text-white transition-colors">
                 <span>Make deposit</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
@@ -310,7 +310,7 @@ export default function PromotionsPage() {
                   </div>
                 </div>
               </div>
-              <Link href="#" className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#A4FE46] border-t border-white/5 pt-4 group-hover:text-white transition-colors">
+              <Link href="https://dev.uptrender.in/login" className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#A4FE46] border-t border-white/5 pt-4 group-hover:text-white transition-colors">
                 <span>Start trading</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
@@ -339,7 +339,7 @@ export default function PromotionsPage() {
                   </div>
                 </div>
               </div>
-              <Link href="#" className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#A4FE46] border-t border-white/5 pt-4 group-hover:text-white transition-colors">
+              <Link href="https://dev.uptrender.in/login" className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#A4FE46] border-t border-white/5 pt-4 group-hover:text-white transition-colors">
                 <span>Start trading</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
@@ -383,7 +383,7 @@ export default function PromotionsPage() {
               </li>
             </ul>
             <div className="mt-8 pt-6 border-t border-white/5">
-              <Link href="#" className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#F3C047] hover:text-white transition-colors">
+              <Link href="https://dev.uptrender.in/login" className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#F3C047] hover:text-white transition-colors">
                 <span>Make deposit</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
@@ -416,7 +416,7 @@ export default function PromotionsPage() {
               </li>
             </ul>
             <div className="mt-8 pt-6 border-t border-white/5">
-              <Link href="#" className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#F3C047] hover:text-white transition-colors">
+              <Link href="https://dev.uptrender.in/login" className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-[#F3C047] hover:text-white transition-colors">
                 <span>Start trading</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
@@ -427,7 +427,7 @@ export default function PromotionsPage() {
 
         <div className="text-center mt-14">
           <Link
-            href="#"
+            href="https://dev.uptrender.in/login"
             className="inline-flex items-center space-x-2.5 bg-[#10B981] hover:bg-[#059669] text-white px-8 py-4 rounded-xl font-bold tracking-wide transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:scale-[1.02]"
           >
             <span>Deposit and Earn</span>
@@ -502,7 +502,7 @@ export default function PromotionsPage() {
 
           <div className="text-center mt-12">
             <Link
-              href="#"
+              href="https://dev.uptrender.in/login"
               className="inline-flex items-center space-x-2 bg-[#10B981] hover:bg-[#059669] text-white px-8 py-4 rounded-xl font-bold tracking-wide transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:scale-[1.02]"
             >
               <span>Deposit and earn</span>
