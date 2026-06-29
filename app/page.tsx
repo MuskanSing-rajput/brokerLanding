@@ -422,13 +422,9 @@ export default function Home() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12 w-full sm:w-auto">
-            <button className="flex items-center justify-center space-x-2 bg-white text-black px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 hover:scale-105 transition-all w-full sm:w-auto min-w-[180px]">
+            <button className="flex items-center justify-center space-x-2 bg-gradient-to-r from-[#A4FE46] to-[#10B981] hover:from-[#10B981] hover:to-[#059669] text-white px-8 py-4 rounded-xl font-semibold shadow-[0_0_25px_rgba(164,254,70,0.4)] hover:scale-105 transition-all w-full sm:w-auto min-w-[180px]">
               <span>Start Trading Now</span>
               <ArrowUpRight className="w-5 h-5" />
-            </button>
-            <button className="flex items-center justify-center space-x-2 bg-gradient-to-r from-[#A4FE46] to-[#10B981] hover:from-[#10B981] hover:to-[#059669] text-white px-8 py-4 rounded-xl font-semibold shadow-[0_0_25px_rgba(164, 254, 70,0.4)] hover:scale-105 transition-all w-full sm:w-auto min-w-[180px]">
-              <Play className="w-5 h-5 fill-current" />
-              <span>Claim Welcome Bonus</span>
             </button>
           </div>
 
