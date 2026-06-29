@@ -10,24 +10,24 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-white/60 mb-2 uppercase tracking-wider text-[10px]">Risk Warning</h4>
             <p className="space-y-4">
-              <span>An investment in derivatives may mean investors may lose an amount even greater than their original investment. Anyone wishing to invest in any of the products mentioned in https://investminfx.net/ should seek their own financial or professional advice. Trading of securities, forex, stock market, commodities, options and futures may not be suitable for everyone and involves the risk of losing part or all of your money. Trading in the financial markets has large potential rewards, but also large potential risk. You must be aware of the risks and be willing to accept them in order to invest in the markets. Don&apos;t invest and trade with money which you can&apos;t afford to lose. Forex Trading are not allowed in some countries, before investing your money, make sure whether your country is allowing this or not.</span>
+              <span>An investment in derivatives may mean investors may lose an amount even greater than their original investment. Anyone wishing to invest in any of the products mentioned in https://PerfectTrade.io/ should seek their own financial or professional advice. Trading of securities, forex, stock market, commodities, options and futures may not be suitable for everyone and involves the risk of losing part or all of your money. Trading in the financial markets has large potential rewards, but also large potential risk. You must be aware of the risks and be willing to accept them in order to invest in the markets. Don&apos;t invest and trade with money which you can&apos;t afford to lose. Forex Trading are not allowed in some countries, before investing your money, make sure whether your country is allowing this or not.</span>
               <br/><br/>
-              <span>You are strongly advised to obtain independent financial, legal and tax advice before proceeding with any currency or spot metals trade. Nothing in this site should be read or construed as constituting advice on the part of investminFx or any of its affiliates, directors, officers or employees.</span>
+              <span>You are strongly advised to obtain independent financial, legal and tax advice before proceeding with any currency or spot metals trade. Nothing in this site should be read or construed as constituting advice on the part of PerfectTrade.io or any of its affiliates, directors, officers or employees.</span>
             </p>
           </div>
           <div>
             <h4 className="font-semibold text-white/60 mb-2 uppercase tracking-wider text-[10px]">Regional Restrictions</h4>
             <p>
-              Restricted Regions: investminFx Limited does not provide services for citizens/residents of the United States, Cuba, Iraq, Myanmar, North Korea, Sudan, United Arab Emirates and India. The services of investminFx Limited are not intended for distribution to, or use by, any person in any country or jurisdiction where such distribution or use would be contrary to local law or regulation.
+              Restricted Regions: PerfectTrade.io Limited does not provide services for citizens/residents of the United States, Cuba, Iraq, Myanmar, North Korea, Sudan, United Arab Emirates and India. The services of PerfectTrade.io Limited are not intended for distribution to, or use by, any person in any country or jurisdiction where such distribution or use would be contrary to local law or regulation.
             </p>
           </div>
           <div>
             <h4 className="font-semibold text-white/60 mb-2 uppercase tracking-wider text-[10px]">Company Information</h4>
             <div className="space-y-1 flex flex-col">
-              <span className="font-semibold text-white/50">INVESTMINFX LIMITED</span>
+              <span className="font-semibold text-white/50">PerfectTrade.io LIMITED</span>
               <span>Sterling Technology Hub, Unit 1, Station 07, La Place Creole Building, Rodney Village, Rodney Bay, Gros Islet</span>
               <span>Registration number: 2025-00895</span>
-              <span>Corporate email: info@investminfx.net</span>
+              <span>Corporate email: info@PerfectTrade.io</span>
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@ export default function Footer() {
                 <div className="w-1 h-3.5 bg-white rounded-sm"></div>
               </div>
             </div>
-            <span className="font-bold text-white tracking-wide">Pippulse FX</span>
+            <span className="font-bold text-white tracking-wide">PerfectTrade.io</span>
           </div>
 
           <div className="flex flex-wrap justify-center gap-6 md:gap-8">
@@ -59,7 +59,7 @@ export default function Footer() {
           </div>
 
           <div>
-            &copy; {new Date().getFullYear()} Pippulse FX. All rights reserved.
+            &copy; {new Date().getFullYear()} PerfectTrade.io. All rights reserved.
           </div>
         </div>
       </footer>

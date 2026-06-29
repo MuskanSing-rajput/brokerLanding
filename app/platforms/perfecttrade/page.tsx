@@ -21,7 +21,7 @@ import {
   HeartHandshake
 } from "lucide-react";
 
-export default function PippulsefxAppPage() {
+export default function PerfectTrade.ioAppPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [platformDropdownOpen, setPlatformDropdownOpen] = useState(false);
   const platformDropdownRef = useRef<HTMLDivElement>(null);
@@ -62,7 +62,7 @@ export default function PippulsefxAppPage() {
                 <div className="w-1.5 h-5 bg-white rounded-sm"></div>
               </div>
             </div>
-            <span className="font-bold text-white text-lg tracking-wide group-hover:text-[#A4FE46] transition-colors">Pippulse FX</span>
+            <span className="font-bold text-white text-lg tracking-wide group-hover:text-[#A4FE46] transition-colors">PerfectTrade.io</span>
           </Link>
         </div>
 
@@ -84,11 +84,11 @@ export default function PippulsefxAppPage() {
             {platformDropdownOpen && (
               <div className="absolute top-full left-1/2 -translate-x-1/3 mt-4 w-[420px] bg-[#0c0c0e]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(16,185,129,0.15)] z-50 flex gap-6 animate-[fadeInUp_0.25s_ease-out]">
                 <div className="flex-[1.2] space-y-4">
-                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">Pippulsefx Platforms</h4>
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">PerfectTrade.io Platforms</h4>
                   <div className="flex flex-col space-y-1">
-                    <Link href="/platforms/pippulsefx" onClick={() => setPlatformDropdownOpen(false)} className="flex flex-col p-3 rounded-xl bg-white/[0.04] border border-white/5 transition-all group text-left">
+                    <Link href="/platforms/perfecttrade" onClick={() => setPlatformDropdownOpen(false)} className="flex flex-col p-3 rounded-xl bg-white/[0.04] border border-white/5 transition-all group text-left">
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-sm font-bold text-[#A4FE46] transition-colors">Pippulsefx App</span>
+                        <span className="text-sm font-bold text-[#A4FE46] transition-colors">PerfectTrade.io App</span>
                         <span className="text-[8px] font-bold text-white bg-[#006a60] px-2 py-0.5 rounded-full uppercase tracking-wider">Popular</span>
                       </div>
                       <span className="text-[11px] text-white/60 transition-colors">Our proprietary mobile and desktop platform.</span>
@@ -151,10 +151,10 @@ export default function PippulsefxAppPage() {
 
           {/* Mobile Platform Submenu */}
           <div className="flex flex-col space-y-2 py-2 border-b border-white/5">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#A4FE46]">Pippulsefx Platforms</span>
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#A4FE46]">PerfectTrade.io Platforms</span>
             <div className="flex flex-col space-y-2 pl-2">
-              <Link href="/platforms/pippulsefx" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-between text-[#A4FE46] font-semibold">
-                <span>Pippulsefx App</span>
+              <Link href="/platforms/perfecttrade" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-between text-[#A4FE46] font-semibold">
+                <span>PerfectTrade.io App</span>
                 <span className="text-[8px] font-bold text-white bg-[#006a60] px-2 py-0.5 rounded-full uppercase tracking-wider mr-2">Popular</span>
               </Link>
             </div>
@@ -201,7 +201,7 @@ export default function PippulsefxAppPage() {
               <div className={`absolute inset-0 transition-opacity duration-1000 ${activeImage === 0 ? "opacity-100" : "opacity-0"}`}>
                 <Image
                   src="/pipapp_v2.png"
-                  alt="Pippulsefx App Hand Mockup"
+                  alt="PerfectTrade.io App Hand Mockup"
                   fill
                   className="object-contain object-left scale-[1.0] md:scale-[1.05] lg:scale-[1.15] translate-x-4"
                   priority
@@ -210,7 +210,7 @@ export default function PippulsefxAppPage() {
               <div className={`absolute inset-0 transition-opacity duration-1000 ${activeImage === 1 ? "opacity-100" : "opacity-0"}`}>
                 <Image
                   src="/about2_v2.png"
-                  alt="Pippulsefx App Dashboard Mockup"
+                  alt="PerfectTrade.io App Dashboard Mockup"
                   fill
                   className="object-contain object-left scale-[1.0]"
                   priority
@@ -223,7 +223,7 @@ export default function PippulsefxAppPage() {
           <div className="lg:col-span-5 space-y-8 text-left">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-[56px] font-extrabold tracking-tight leading-[1.1] text-white">
-                Pippulsefx App<br />
+                PerfectTrade.io App<br />
                 <span className="bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent">Trade Anywhere, Anytime.</span>
               </h1>
               <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-xl">
@@ -358,7 +358,7 @@ export default function PippulsefxAppPage() {
             <div className="relative w-full max-w-[420px] h-[500px] overflow-hidden">
               <Image
                 src="/hand.png"
-                alt="Pippulsefx App Hand Mockup"
+                alt="PerfectTrade.io App Hand Mockup"
                 fill
                 className="object-contain object-center scale-[1.15]"
                 priority

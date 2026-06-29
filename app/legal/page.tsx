@@ -19,7 +19,7 @@ export default function LegalPage() {
                 <div className="w-1 h-3.5 bg-white rounded-sm" />
               </div>
             </div>
-            <span className="font-bold text-white tracking-wide">Pippulse FX</span>
+            <span className="font-bold text-white tracking-wide">PerfectTrade.io</span>
           </Link>
           <Link
             href="/"
@@ -47,7 +47,7 @@ export default function LegalPage() {
           <div className="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-6 md:p-8 space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-1 sm:gap-4">
               <span className="text-white/40 text-sm font-medium">Company name</span>
-              <span className="text-white text-sm font-semibold">INVESTMINFX LIMITED</span>
+              <span className="text-white text-sm font-semibold">PerfectTrade.io LIMITED</span>
             </div>
             <div className="h-px bg-white/5" />
             <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-1 sm:gap-4">
@@ -64,7 +64,7 @@ export default function LegalPage() {
             <div className="h-px bg-white/5" />
             <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-1 sm:gap-4">
               <span className="text-white/40 text-sm font-medium">Corporate email</span>
-              <a href="mailto:info@investminfx.net" className="text-[#10B981] text-sm font-semibold hover:text-[#A4FE46] transition-colors">info@investminfx.net</a>
+              <a href="mailto:info@PerfectTrade.io" className="text-[#10B981] text-sm font-semibold hover:text-[#A4FE46] transition-colors">info@PerfectTrade.io</a>
             </div>
           </div>
         </section>
@@ -78,7 +78,7 @@ export default function LegalPage() {
             <h2 className="text-xl md:text-2xl font-bold text-white">Disclaimer</h2>
           </div>
           <div className="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-6 md:p-8 space-y-4">
-            <p className="text-white/70 text-sm leading-relaxed">INVESTMINFX LIMITED does not offer services in jurisdictions where such services are prohibited by local law. It is your responsibility to ensure that you are eligible to use our services in your country of residence.</p>
+            <p className="text-white/70 text-sm leading-relaxed">PerfectTrade.io LIMITED does not offer services in jurisdictions where such services are prohibited by local law. It is your responsibility to ensure that you are eligible to use our services in your country of residence.</p>
             <p className="text-white/70 text-sm leading-relaxed">Nothing on this website should be construed as an offer or solicitation to buy or sell financial instruments where such offer or solicitation would be unlawful. Information on this site is provided for informational purposes only and does not constitute financial, legal or tax advice.</p>
           </div>
         </section>
@@ -106,7 +106,7 @@ export default function LegalPage() {
           </div>
           <div className="bg-white/[0.03] border border-white/[0.08] rounded-2xl p-6 md:p-8 space-y-4">
             <p className="text-white/70 text-sm leading-relaxed">This website does not represent or imply that the company is regulated in any particular jurisdiction. Images, branding or other material on the site do not indicate regulatory status.</p>
-            <p className="text-white/70 text-sm leading-relaxed">Please contact us at <a href="mailto:info@investminfx.net" className="text-[#10B981] hover:text-[#A4FE46] transition-colors font-semibold">info@investminfx.net</a> for any questions about our legal status.</p>
+            <p className="text-white/70 text-sm leading-relaxed">Please contact us at <a href="mailto:info@PerfectTrade.io" className="text-[#10B981] hover:text-[#A4FE46] transition-colors font-semibold">info@PerfectTrade.io</a> for any questions about our legal status.</p>
           </div>
         </section>
 
@@ -115,14 +115,14 @@ export default function LegalPage() {
         <div className="flex justify-center">
           <Link href="/" className="inline-flex items-center space-x-2 bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3 rounded-xl text-sm font-semibold text-white transition-all">
             <ArrowLeft className="w-4 h-4 text-[#10B981]" />
-            <span>Back to Pippulse FX</span>
+            <span>Back to PerfectTrade.io</span>
           </Link>
         </div>
       </main>
 
       <footer className="border-t border-white/5 py-8 relative z-10">
         <div className="max-w-[860px] mx-auto px-6 md:px-12 text-center text-xs text-white/30">
-          © {new Date().getFullYear()} Pippulse FX / INVESTMINFX LIMITED. All rights reserved.
+          © {new Date().getFullYear()} PerfectTrade.io / PerfectTrade.io LIMITED. All rights reserved.
         </div>
       </footer>
     </div>

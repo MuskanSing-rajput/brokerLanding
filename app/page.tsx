@@ -251,7 +251,7 @@ export default function Home() {
                     <div className="w-1.5 h-5 bg-white rounded-sm"></div>
                   </div>
                 </div>
-                <span className="font-bold text-white text-lg tracking-wide group-hover:text-[#A4FE46] transition-colors">Pippulse FX</span>
+                <span className="font-bold text-white text-lg tracking-wide group-hover:text-[#A4FE46] transition-colors">PerfectTrade.io</span>
               </Link>
             </div>
 
@@ -274,11 +274,11 @@ export default function Home() {
                   <div className="absolute top-full left-1/2 -translate-x-1/3 mt-4 w-[90vw] sm:w-[420px] bg-[#0c0c0e]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(16,185,129,0.15)] z-50 flex gap-6 animate-[fadeInUp_0.25s_ease-out]">
                     {/* Column 1 */}
                     <div className="flex-[1.2] space-y-4">
-                      <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">Pippulsefx Platforms</h4>
+                      <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">PerfectTrade.io Platforms</h4>
                       <div className="flex flex-col space-y-1">
-                        <Link href="/platforms/pippulsefx" onClick={() => setPlatformDropdownOpen(false)} className="flex flex-col p-3 rounded-xl hover:bg-white/[0.04] transition-all group text-left">
+                        <Link href="/platforms/perfecttrade" onClick={() => setPlatformDropdownOpen(false)} className="flex flex-col p-3 rounded-xl hover:bg-white/[0.04] transition-all group text-left">
                           <div className="flex items-center justify-between mb-1">
-                            <span className="text-sm font-bold text-white group-hover:text-[#A4FE46] transition-colors">Pippulsefx App</span>
+                            <span className="text-sm font-bold text-white group-hover:text-[#A4FE46] transition-colors">PerfectTrade.io App</span>
                             <span className="text-[8px] font-bold text-white bg-[#006a60] px-2 py-0.5 rounded-full uppercase tracking-wider">Popular</span>
                           </div>
                           <span className="text-[11px] text-white/40 group-hover:text-white/60 transition-colors">Our proprietary mobile and desktop platform.</span>
@@ -346,10 +346,10 @@ export default function Home() {
 
               {/* Mobile Platform Submenu */}
               <div className="flex flex-col space-y-2 py-2 border-b border-white/5">
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#A4FE46]">Pippulsefx Platforms</span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#A4FE46]">PerfectTrade.io Platforms</span>
                 <div className="flex flex-col space-y-2 pl-2">
-                  <Link href="/platforms/pippulsefx" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-between text-white/70 hover:text-[#A4FE46]">
-                    <span>Pippulsefx App</span>
+                  <Link href="/platforms/perfecttrade" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-between text-white/70 hover:text-[#A4FE46]">
+                    <span>PerfectTrade.io App</span>
                     <span className="text-[8px] font-bold text-white bg-[#006a60] px-2 py-0.5 rounded-full uppercase tracking-wider mr-2">Popular</span>
                   </Link>
                 </div>
@@ -556,14 +556,14 @@ export default function Home() {
             <div className="flex flex-col">
               <div className="flex items-center space-x-3 mb-6">
                 <div className="h-[1px] w-12 bg-[#10B981]"></div>
-                <span className="text-[#10B981] font-semibold tracking-widest uppercase text-sm">About Pippulse FX</span>
+                <span className="text-[#10B981] font-semibold tracking-widest uppercase text-sm">About PerfectTrade.io</span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-8">
                 Institutional-Grade <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#059669] to-[#A4FE46]">Forex Execution</span>
               </h2>
               <p className="text-white/60 text-lg leading-relaxed mb-8 max-w-lg">
-                Pippulse FX provides high-speed routing for modern digital asset and Forex trading. With instant access to major currency pairs, indices, and crypto-wallets, we deliver a unified execution hub built for retail and professional traders globally.
+                PerfectTrade.io provides high-speed routing for modern digital asset and Forex trading. With instant access to major currency pairs, indices, and crypto-wallets, we deliver a unified execution hub built for retail and professional traders globally.
               </p>
               <div className="flex items-center space-x-8">
                 <div className="flex flex-col">
@@ -632,7 +632,7 @@ export default function Home() {
               <div className="mb-6 relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-2 tracking-tight">Real-time Market Insight</h3>
                 <p className="text-white/50 text-sm max-w-md leading-relaxed">
-                  At Youflow, we ensure fast, reliable payouts with robust models and verified proof on blockchain and social media.
+                  At PerfectTrade.io, we ensure fast, reliable payouts with robust models and verified proof on blockchain and social media.
                 </p>
               </div>
 
@@ -654,7 +654,7 @@ export default function Home() {
               <div className="mb-6 relative z-10">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-2 tracking-tight">Advanced Account Analysis</h3>
                 <p className="text-white/50 text-sm leading-relaxed">
-                  Customize your business journey effortlessly with Youflow's advanced analytics pipeline.
+                  Customize your business journey effortlessly with PerfectTrade.io's advanced analytics pipeline.
                 </p>
               </div>
 
@@ -1279,7 +1279,7 @@ export default function Home() {
               Trusted by India's <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#059669] to-[#A4FE46]">Elite Traders</span>
             </h2>
             <p className="text-white/50 text-sm md:text-base mt-4 max-w-xl">
-              See how Pippulse FX is empowering day traders and fund managers across the country.
+              See how PerfectTrade.io is empowering day traders and fund managers across the country.
             </p>
           </div>
 
@@ -1313,7 +1313,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-white/70 text-sm leading-relaxed mb-8 italic">
-                "Pippulse FX has completely modernized my live portfolio tracking. I can monitor my open positions, swap assets instantly, and track my welcome bonuses seamlessly on this beautiful and responsive interface."
+                "PerfectTrade.io has completely modernized my live portfolio tracking. I can monitor my open positions, swap assets instantly, and track my welcome bonuses seamlessly on this beautiful and responsive interface."
               </p>
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-teal-500 flex items-center justify-center text-white font-black text-sm">PS</div>
@@ -1375,8 +1375,8 @@ export default function Home() {
             <div className="lg:col-span-7 space-y-4">
               {[
                 {
-                  q: "What is Pippulse FX?",
-                  a: "Pippulse FX is a premium Forex broker platform providing unified dashboard statistics, multi-asset accounts, Welcome Bonuses, crypto-wallet support, and high-speed execution feeds."
+                  q: "What is PerfectTrade.io?",
+                  a: "PerfectTrade.io is a premium Forex broker platform providing unified dashboard statistics, multi-asset accounts, Welcome Bonuses, crypto-wallet support, and high-speed execution feeds."
                 },
                 {
                   q: "How does the Welcome Bonus work?",
@@ -1388,7 +1388,7 @@ export default function Home() {
                 },
                 {
                   q: "Does the platform support cryptocurrency withdrawals?",
-                  a: "Yes, Pippulse FX supports integrated multi-chain wallets allowing secure deposits, swaps, and withdrawals in Bitcoin (BTC), Ethereum (ETH), Solana (SOL), and major stablecoins natively."
+                  a: "Yes, PerfectTrade.io supports integrated multi-chain wallets allowing secure deposits, swaps, and withdrawals in Bitcoin (BTC), Ethereum (ETH), Solana (SOL), and major stablecoins natively."
                 }
               ].map((faq, index) => {
                 const isOpen = openFaq === index;
@@ -1444,7 +1444,7 @@ export default function Home() {
               <div className="space-y-4 text-sm text-white/70">
                 <div className="flex items-center space-x-3">
                   <span className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#10B981]">✉</span>
-                  <span>support@youflow.com</span>
+                  <span>support@PerfectTrade.io</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <span className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#10B981]">📍</span>

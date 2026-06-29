@@ -26,7 +26,7 @@ export default function PromotionsPage() {
   const faqs = [
     {
       q: "What are the requirements for the bonus program?",
-      a: "To participate, you must open a verified live trading account with Pippulse FX. Milestone and Loyalty bonuses are unlocked by trading a specified volume of qualified GTLots (QGTLots) and making subsequent deposits as outlined in the program rules."
+      a: "To participate, you must open a verified live trading account with PerfectTrade.io. Milestone and Loyalty bonuses are unlocked by trading a specified volume of qualified GTLots (QGTLots) and making subsequent deposits as outlined in the program rules."
     },
     {
       q: "Is there a limit for the bonus amount?",
@@ -75,7 +75,7 @@ export default function PromotionsPage() {
                 <div className="w-1.5 h-5 bg-white rounded-sm"></div>
               </div>
             </div>
-            <span className="font-bold text-white text-lg tracking-wide group-hover:text-[#A4FE46] transition-colors">Pippulse FX</span>
+            <span className="font-bold text-white text-lg tracking-wide group-hover:text-[#A4FE46] transition-colors">PerfectTrade.io</span>
           </Link>
         </div>
 
@@ -97,11 +97,11 @@ export default function PromotionsPage() {
             {platformDropdownOpen && (
               <div className="absolute top-full left-1/2 -translate-x-1/3 mt-4 w-[90vw] sm:w-[420px] bg-[#0c0c0e]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(16,185,129,0.15)] z-50 flex gap-6 animate-[fadeInUp_0.25s_ease-out]">
                 <div className="flex-[1.2] space-y-4">
-                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">Pippulsefx Platforms</h4>
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">PerfectTrade.io Platforms</h4>
                   <div className="flex flex-col space-y-1">
-                    <Link href="/platforms/pippulsefx" onClick={() => setPlatformDropdownOpen(false)} className="flex flex-col p-3 rounded-xl hover:bg-white/[0.04] transition-all group text-left">
+                    <Link href="/platforms/perfecttrade" onClick={() => setPlatformDropdownOpen(false)} className="flex flex-col p-3 rounded-xl hover:bg-white/[0.04] transition-all group text-left">
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-sm font-bold text-white group-hover:text-[#A4FE46] transition-colors">Pippulsefx App</span>
+                        <span className="text-sm font-bold text-white group-hover:text-[#A4FE46] transition-colors">PerfectTrade.io App</span>
                         <span className="text-[8px] font-bold text-white bg-[#006a60] px-2 py-0.5 rounded-full uppercase tracking-wider">Popular</span>
                       </div>
                       <span className="text-[11px] text-white/40 group-hover:text-white/60 transition-colors">Our proprietary mobile and desktop platform.</span>
@@ -163,10 +163,10 @@ export default function PromotionsPage() {
           <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">About</Link>
           
           <div className="flex flex-col space-y-2 py-2 border-b border-white/5">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#A4FE46]">Pippulsefx Platforms</span>
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#A4FE46]">PerfectTrade.io Platforms</span>
             <div className="flex flex-col space-y-2 pl-2">
-              <Link href="/platforms/pippulsefx" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-between text-white/70 hover:text-[#A4FE46]">
-                <span>Pippulsefx App</span>
+              <Link href="/platforms/perfecttrade" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-between text-white/70 hover:text-[#A4FE46]">
+                <span>PerfectTrade.io App</span>
                 <span className="text-[8px] font-bold text-white bg-[#006a60] px-2 py-0.5 rounded-full uppercase tracking-wider mr-2">Popular</span>
               </Link>
             </div>

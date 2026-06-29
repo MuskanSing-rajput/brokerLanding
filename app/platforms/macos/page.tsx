@@ -64,7 +64,7 @@ export default function MT5MacOS() {
                 <div className="w-1.5 h-5 bg-white rounded-sm"></div>
               </div>
             </div>
-            <span className="font-bold text-white text-lg tracking-wide group-hover:text-[#A4FE46] transition-colors">Pippulse FX</span>
+            <span className="font-bold text-white text-lg tracking-wide group-hover:text-[#A4FE46] transition-colors">PerfectTrade.io</span>
           </Link>
         </div>
 
@@ -86,11 +86,11 @@ export default function MT5MacOS() {
             {platformDropdownOpen && (
               <div className="absolute top-full left-1/2 -translate-x-1/3 mt-4 w-[90vw] sm:w-[420px] bg-[#0c0c0e]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 shadow-[0_25px_60px_rgba(16,185,129,0.15)] z-50 flex gap-6 animate-[fadeInUp_0.25s_ease-out]">
                 <div className="flex-[1.2] space-y-4">
-                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">Pippulsefx Platforms</h4>
+                  <h4 className="text-[10px] font-bold uppercase tracking-widest text-white/40">PerfectTrade.io Platforms</h4>
                   <div className="flex flex-col space-y-1">
-                    <Link href="/platforms/pippulsefx" onClick={() => setPlatformDropdownOpen(false)} className="flex flex-col p-3 rounded-xl hover:bg-white/[0.04] transition-all group text-left">
+                    <Link href="/platforms/perfecttrade" onClick={() => setPlatformDropdownOpen(false)} className="flex flex-col p-3 rounded-xl hover:bg-white/[0.04] transition-all group text-left">
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-sm font-bold text-white group-hover:text-[#A4FE46] transition-colors">Pippulsefx App</span>
+                        <span className="text-sm font-bold text-white group-hover:text-[#A4FE46] transition-colors">PerfectTrade.io App</span>
                         <span className="text-[8px] font-bold text-white bg-[#006a60] px-2 py-0.5 rounded-full uppercase tracking-wider">Popular</span>
                       </div>
                       <span className="text-[11px] text-white/40 group-hover:text-white/60 transition-colors">Our proprietary mobile and desktop platform.</span>
@@ -152,10 +152,10 @@ export default function MT5MacOS() {
           <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-white/80 hover:text-white py-2 border-b border-white/5">About</Link>
           
           <div className="flex flex-col space-y-2 py-2 border-b border-white/5">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#A4FE46]">Pippulsefx Platforms</span>
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#A4FE46]">PerfectTrade.io Platforms</span>
             <div className="flex flex-col space-y-2 pl-2">
-              <Link href="/platforms/pippulsefx" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-between text-white/70 hover:text-[#A4FE46]">
-                <span>Pippulsefx App</span>
+              <Link href="/platforms/perfecttrade" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-between text-white/70 hover:text-[#A4FE46]">
+                <span>PerfectTrade.io App</span>
                 <span className="text-[8px] font-bold text-white bg-[#006a60] px-2 py-0.5 rounded-full uppercase tracking-wider mr-2">Popular</span>
               </Link>
             </div>
@@ -286,7 +286,7 @@ export default function MT5MacOS() {
             <div className="relative w-full max-w-[500px] w-[90%] md:w-full rounded-2xl mx-auto border border-white/5 shadow-2xl bg-black/50 p-2">
               <Image
                 src="/mt5img_new.png"
-                alt="MT5 Pippulse FX Client Mockup"
+                alt="MT5 PerfectTrade.io Client Mockup"
                 width={800}
                 height={600}
                 className="w-full h-auto rounded-xl object-contain drop-shadow-2xl"
@@ -306,7 +306,7 @@ export default function MT5MacOS() {
               {[
                 { step: "01", title: "Download MT5", desc: "Use the link above to download the MetaTrader 5 (MT5) installation file for macOS." },
                 { step: "02", title: "Install MT5", desc: "Once the file is downloaded, open it and follow the installation prompts to complete the setup process." },
-                { step: "03", title: "Launch MT5", desc: "After installation, launch MT5, log in with your Pippulse FX account credentials, and you're ready to start trading." }
+                { step: "03", title: "Launch MT5", desc: "After installation, launch MT5, log in with your PerfectTrade.io account credentials, and you're ready to start trading." }
               ].map((item) => (
                 <div key={item.step} className="flex items-start space-x-4 p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/10 transition-colors">
                   <span className="text-lg font-bold text-[#A4FE46]">{item.step}</span>
