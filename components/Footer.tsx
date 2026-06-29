@@ -9,15 +9,26 @@ export default function Footer() {
         <div className="max-w-[1240px] mx-auto px-4 text-xs text-white/35 leading-relaxed space-y-6">
           <div>
             <h4 className="font-semibold text-white/60 mb-2 uppercase tracking-wider text-[10px]">Risk Warning</h4>
-            <p>
-              Trading derivatives carries significant risks. It is not suitable for all investors and if you are a professional client, you could lose substantially more than your initial investment. When acquiring our derivative products, you have no entitlement, right or obligation to the underlying financial assets. Past performance is no indication of future performance and tax laws are subject to change. The information on this website is general in nature and doesn't take into account your personal objectives, financial circumstances, or needs. Accordingly, before acting on the advice, you should consider whether the advice is suitable for you having regard to your objectives, financial situation and needs. We encourage you to seek independent advice if necessary. Please read our legal documents and ensure that you fully understand the risks before you make any trading decisions.
+            <p className="space-y-4">
+              <span>An investment in derivatives may mean investors may lose an amount even greater than their original investment. Anyone wishing to invest in any of the products mentioned in https://investminfx.net/ should seek their own financial or professional advice. Trading of securities, forex, stock market, commodities, options and futures may not be suitable for everyone and involves the risk of losing part or all of your money. Trading in the financial markets has large potential rewards, but also large potential risk. You must be aware of the risks and be willing to accept them in order to invest in the markets. Don&apos;t invest and trade with money which you can&apos;t afford to lose. Forex Trading are not allowed in some countries, before investing your money, make sure whether your country is allowing this or not.</span>
+              <br/><br/>
+              <span>You are strongly advised to obtain independent financial, legal and tax advice before proceeding with any currency or spot metals trade. Nothing in this site should be read or construed as constituting advice on the part of investminFx or any of its affiliates, directors, officers or employees.</span>
             </p>
           </div>
           <div>
             <h4 className="font-semibold text-white/60 mb-2 uppercase tracking-wider text-[10px]">Regional Restrictions</h4>
             <p>
-              We do not offer our services to residents of certain jurisdictions, including India, Canada, China, Singapore, the United States, or any jurisdictions listed on the FATF &quot;blacklist&quot; or subject to US/EU/UN sanctions. For more information please refer to our FAQ page. The information on this site and the products and services offered are not intended for distribution to any person in any country or jurisdiction where such distribution or use would be contrary to local law or regulation. While the Authority has granted a securities or derivatives investment business licence to the Licensee, the Authority does not endorse or vouch for the merits of the products offered by the Licensee.
+              Restricted Regions: investminFx Limited does not provide services for citizens/residents of the United States, Cuba, Iraq, Myanmar, North Korea, Sudan, United Arab Emirates and India. The services of investminFx Limited are not intended for distribution to, or use by, any person in any country or jurisdiction where such distribution or use would be contrary to local law or regulation.
             </p>
+          </div>
+          <div>
+            <h4 className="font-semibold text-white/60 mb-2 uppercase tracking-wider text-[10px]">Company Information</h4>
+            <div className="space-y-1 flex flex-col">
+              <span className="font-semibold text-white/50">INVESTMINFX LIMITED</span>
+              <span>Sterling Technology Hub, Unit 1, Station 07, La Place Creole Building, Rodney Village, Rodney Bay, Gros Islet</span>
+              <span>Registration number: 2025-00895</span>
+              <span>Corporate email: info@investminfx.net</span>
+            </div>
           </div>
         </div>
       </section>
